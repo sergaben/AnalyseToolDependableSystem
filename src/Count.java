@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public class Count {
     private String filename;
-    private String codeToCount;
     private Scanner scanner = null;
     private final String OPENBRACE = "\\{";
 
