@@ -20,6 +20,11 @@ public class EnhancedFor
 	// pre: list != null
 	// post: return sum of elements
 	// uses enhanced for loop
+	/*
+		fadsjfkljdsklf
+			fklajsdkfldk
+		fjkladsjfjd
+	*/
 	public static int sumListEnhanced(int[] list)
 	{	int total = 0;
 		for(int val : list)
@@ -51,6 +56,13 @@ public class EnhancedFor
 
 	// pre: list != null
 	// post: adds one to every element of list
+	/*
+	ffffffff
+	ffffffff
+	ffffffff
+	ffffffff
+	ffffffff
+	*/
 	public static void addOne(int[] list)
 	{	for(int i = 0; i < list.length; i++)
 		{	list[i]++;
@@ -63,6 +75,13 @@ public class EnhancedFor
 		{	System.out.println(i + ", " + list[i]);
 		}
 	}
+	/*
+	44444
+	44444
+	44444
+	44444
+	44444
+	*/
 
 
 

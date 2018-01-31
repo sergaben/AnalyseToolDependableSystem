@@ -19,6 +19,8 @@ public class EnhancedFor
     // pre: list != null
     // post: return sum of elements
     // uses enhanced for loop
+    /*
+     */
     public static int sumListEnhanced(int[] list)
     {	int total = 0;
         for(int val : list)
@@ -40,6 +42,7 @@ public class EnhancedFor
     // pre: list != null
     // post: none.
     // The code appears to add one to every element in the list, but does not
+
     public static void addOneError(int[] list)
     {	for(int val : list)
     {	val = val + 1;
