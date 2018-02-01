@@ -1,11 +1,14 @@
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) throws Exception {
+        File file = new File("TestCode/javaSample.txt");
+       Count countObject = new Count(file);
 
-       Count countObject = new Count("TestCode/javaSample.txt");
-
-       countObject.countLinesInTextFile();
-       countObject.countCommentsForwardSlashesInTextFile();
-       countObject.countCommentsForwardSlashesAndAsteriskInTextFile();
+       countObject.countLinesInFile();
+       countObject.countSingleCommentsInFile();
+       //countObject.countMultiLineCommentsInFile("/*","*/");
+       countObject.countMultiLineCommentsInFile("/**","*/");
     }
 
 

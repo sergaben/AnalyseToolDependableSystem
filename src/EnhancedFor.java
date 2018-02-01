@@ -16,11 +16,15 @@ public class EnhancedFor
         System.out.println("List after call to addOneError. Note elements of list did not change.");
         printList(list);
     }
-    // pre: list != null
-    // post: return sum of elements
-    // uses enhanced for loop
-    /*
-     */
+
+    /* pre: list != null
+       post: return sum of elements
+       uses enhanced for loop
+
+        fadsjfkljdsklf
+            fklajsdkfldk
+        fjkladsjfjd
+    */
     public static int sumListEnhanced(int[] list)
     {	int total = 0;
         for(int val : list)
@@ -28,6 +32,13 @@ public class EnhancedFor
         }
         return total;
     }
+    /**
+     *fasdfds
+     *fasdfsaf
+     *fasfsfs
+     *fasdfsdfsda
+     *fasdfsafdfs
+     */
     // pre: list != null
     // post: return sum of elements
     // use traditional for loop
@@ -39,26 +50,54 @@ public class EnhancedFor
         }
         return total;
     }
+
     // pre: list != null
     // post: none.
     // The code appears to add one to every element in the list, but does not
-
     public static void addOneError(int[] list)
     {	for(int val : list)
     {	val = val + 1;
     }
     }
+
     // pre: list != null
+// pre: list != null
+// pre: list != null
+// pre: list != null
     // post: adds one to every element of list
+	/*
+	ffffffff
+	ffffffff
+	ffffffff
+	ffffffff
+	ffffffff
+	*/
+    /**
+     *fasjfkldsf
+     *fasdfsafss
+     *fasddfsdaf
+     *fasfsdfasdfa
+     */
     public static void addOne(int[] list)
     {	for(int i = 0; i < list.length; i++)
     {	list[i]++;
     }
     }
+
     public static void printList(int[] list)
     {	System.out.println("index, value");
         for(int i = 0; i < list.length; i++)
         {	System.out.println(i + ", " + list[i]);
         }
     }
+	/*
+	44444
+	44444
+	44444
+	44444
+	44444
+	*/
+
+
+
 }
