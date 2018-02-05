@@ -25,15 +25,15 @@
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label fx:id="upload_lbl" text="Upload a file for analysis:"
                GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <TextField fx:id="filepath_input" promptText="Choose a File..."
+        <TextField fx:id="filepath_input" promptText="Choose a File..." disable="true"
                    GridPane.columnIndex="1" GridPane.rowIndex="2" />
         <Button fx:id="browse_btn" text="Browse" onAction="#chooseFile"
                 GridPane.columnIndex="2" GridPane.rowIndex="2" />
         <Label fx:id="text_lbl" text="Or paste your code below:"
                GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <TextField prefHeight="200" prefWidth=" 300"
+        <TextArea fx:id="pasteBox" prefHeight="200" prefWidth=" 300"
                    GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <Button fx:id="single_btn" text="Run Analysis"
+        <Button fx:id="single_btn" text="Run Analysis" onAction="#runAnalysis"
                 GridPane.columnIndex="1" GridPane.rowIndex="5" />
     </GridPane>
 </AnchorPane>
