@@ -9,12 +9,12 @@ import java.util.Scanner;
 
 
 
-public class Count {
+public class Counter {
     private File filename;
     private Scanner scanner = null;
     private final String OPENBRACE = "\\{";
 
-    public Count(File filename) throws Exception {
+    public Counter(File filename) throws Exception {
         if(!filename.isFile()){
             throw new Exception("Please insert a name for the file");
         }else{
@@ -24,7 +24,12 @@ public class Count {
 
     }
 
-    public void countLinesInFile(){
+    public void runSingleLineMethods(){
+        countLinesInFile();
+        countSingleCommentsInFile();
+    }
+
+    private void countLinesInFile(){
 
         ArrayList<String> lines = new ArrayList<>();
 
@@ -48,7 +53,7 @@ public class Count {
         System.out.println("Number of lines without spaces between lines: "+lines.size());
     }
 
-    public void countSingleCommentsInFile(){
+    private void countSingleCommentsInFile(){
          ArrayList<String> linesOfForwardSlashesComments = new ArrayList<>();
 
         try {
@@ -102,6 +107,7 @@ public class Count {
         String commentDelimiterStartOfComment = " ";
         for (String line : lines) {
             if (checkWhetherStringStartWithJavaDocOrMultiLineComments(line, commentDelimiterStart)) {
+
                 previousLineComment = true;
                 commentDelimiterStartOfComment = commentDelimiterStart;
                 linesOfForwardSlashesCommentsWithAsterisk.add(line);
@@ -189,7 +195,7 @@ public class Count {
 
 
     }
-
+    //TODO - solve problem with multi-line comments and JavaDoc comments
     private boolean checkWhetherStringStartWithJavaDocOrMultiLineComments(String lineToCheck, String delimiterStart){
         ArrayList<Boolean> charactersInCommentLine = new ArrayList<>();
         String beginningOfLine ;

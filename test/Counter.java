@@ -1,6 +1,6 @@
 import org.junit.*;
 
-public class Count {
+public class Counter {
 
     @BeforeClass
     public static void setUpClass(){

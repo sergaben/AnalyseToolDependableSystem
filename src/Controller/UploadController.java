@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Count;
+import Model.Counter;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -56,11 +56,10 @@ public class UploadController implements Initializable {
                     bw.write(pasteBox.getText());
                     bw.close();
                     // count lines and comments
-                    Count countClass = new Count(uploaded_file);
-                    countClass.countLinesInFile();
-                    countClass.countSingleCommentsInFile();
-                    countClass.countMultiLineCommentsInFile("/*","*/");
-                    countClass.countMultiLineCommentsInFile("/**","*/");
+                    Counter counterClass = new Counter(uploaded_file);
+                    counterClass.runSingleLineMethods();
+                    counterClass.countMultiLineCommentsInFile("/*","*/");
+                    counterClass.countMultiLineCommentsInFile("/**","*/");
                     // count methods
                     // halstead complexity
                     // cyclomatic complexity
@@ -77,11 +76,10 @@ public class UploadController implements Initializable {
             }
         } else {
             // count lines and comments
-            Count countClass = new Count(uploaded_file);
-            countClass.countLinesInFile();
-            countClass.countSingleCommentsInFile();
-            countClass.countMultiLineCommentsInFile("/*","*/");
-            countClass.countMultiLineCommentsInFile("/**","*/");
+            Counter counterClass = new Counter(uploaded_file);
+            counterClass.runSingleLineMethods();
+            counterClass.countMultiLineCommentsInFile("/*","*/");
+            counterClass.countMultiLineCommentsInFile("/**","*/");
 
             // count methods
             // halstead complexity
