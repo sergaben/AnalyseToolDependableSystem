@@ -10,13 +10,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Upload.fxml"));
-        File file = new File("TestCode/javaSample.txt");
+        /*File file = new File("TestCode/javaSample.txt");
         Count countObject = new Count(file);
 
        countObject.countLinesInFile();
        countObject.countSingleCommentsInFile();
-       //countObject.countMultiLineCommentsInFile("/*","*/");
-       countObject.countMultiLineCommentsInFile("/*","*/");
+       countObject.countMultiLineCommentsInFile("/*","*//*");
+       countObject.countMultiLineCommentsInFile("/*","*//*");*/
 
         Parent root = (Parent) loader.load();
         //UploadController uc = loader.<UploadController>getController();
@@ -32,5 +32,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }

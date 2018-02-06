@@ -14,12 +14,7 @@ import java.util.ResourceBundle;
 
 public class UploadController implements Initializable {
 
-    @FXML
-    private Label upload_lbl;
-    @FXML
-    private Label text_lbl;
-    @FXML
-    private Button browse_btn;
+
     @FXML
     private TextField filepath_input;
     @FXML
@@ -72,6 +67,8 @@ public class UploadController implements Initializable {
             // comment quality
         }
     }
+
+
 
     @FXML
     private void exit() {
