@@ -1,3 +1,6 @@
+package Controller;
+
+import Model.Count;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -30,17 +33,21 @@ public class UploadController implements Initializable {
     private File uploaded_file;
 
     @FXML
-    private void chooseFile(ActionEvent event) {
+    private void chooseFile(ActionEvent event) throws Exception {
         FileChooser fc = new FileChooser();
+
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JAVA files (*.java)", "*.java");
         fc.getExtensionFilters().add(extFilter);
         uploaded_file = fc.showOpenDialog(new Stage());
-        if(uploaded_file != null)
+        if(uploaded_file != null) {
             filepath_input.setText(uploaded_file.getPath());
+
+
+        }
     }
 
     @FXML
-    private void runAnalysis() {
+    private void runAnalysis() throws Exception {
         if (uploaded_file == null) {
             if (!pasteBox.getText().isEmpty()) {
                 try {
@@ -48,8 +55,12 @@ public class UploadController implements Initializable {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
-
-                    // count lines
+                    // count lines and comments
+                    Count countClass = new Count(uploaded_file);
+                    countClass.countLinesInFile();
+                    countClass.countSingleCommentsInFile();
+                    countClass.countMultiLineCommentsInFile("/*","*/");
+                    countClass.countMultiLineCommentsInFile("/**","*/");
                     // count methods
                     // halstead complexity
                     // cyclomatic complexity
@@ -65,7 +76,13 @@ public class UploadController implements Initializable {
                 );
             }
         } else {
-            // count lines
+            // count lines and comments
+            Count countClass = new Count(uploaded_file);
+            countClass.countLinesInFile();
+            countClass.countSingleCommentsInFile();
+            countClass.countMultiLineCommentsInFile("/*","*/");
+            countClass.countMultiLineCommentsInFile("/**","*/");
+
             // count methods
             // halstead complexity
             // cyclomatic complexity

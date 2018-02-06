@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.UploadController"
+            prefHeight="400.0" prefWidth="600.0">
+    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
+        <menus>
+            <Menu text="File">
+                <MenuItem text="New..." />
+                <MenuItem text="Open" />
+                <MenuItem text="Save" />
+                <MenuItem text="Exit" onAction="#exit" />
+            </Menu>
+        </menus>
+    </MenuBar>
+    <GridPane AnchorPane.topAnchor="30" alignment="center" hgap="20" vgap="20" >
+        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+        <Label text="Upload a file for analysis:"
+               GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="filepath_input" promptText="Choose a File..." disable="true"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button text="Browse" onAction="#chooseFile"
+                GridPane.columnIndex="2" GridPane.rowIndex="2" />
+        <Label text="Or paste your code below:"
+               GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <TextArea fx:id="pasteBox" prefHeight="200" prefWidth=" 300"
+                   GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <Button text="Run Analysis" onAction="#runAnalysis"
+                GridPane.columnIndex="1" GridPane.rowIndex="5" />
+    </GridPane>
+</AnchorPane>

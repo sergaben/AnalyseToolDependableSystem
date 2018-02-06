@@ -4,22 +4,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.File;
-
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Upload.fxml"));
-        File file = new File("TestCode/javaSample.txt");
-        Count countObject = new Count(file);
-
-       countObject.countLinesInFile();
-       countObject.countSingleCommentsInFile();
-       //countObject.countMultiLineCommentsInFile("/*","*/");
-       countObject.countMultiLineCommentsInFile("/*","*/");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
 
         Parent root = (Parent) loader.load();
-        //UploadController uc = loader.<UploadController>getController();
+        //Controller.UploadController uc = loader.<Controller.UploadController>getController();
 
         Scene scene = new Scene(root, 500, 500);
 
