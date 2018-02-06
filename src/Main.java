@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Results.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Upload.fxml"));
 
         Parent root = (Parent) loader.load();
         //UploadController uc = loader.<UploadController>getController();
@@ -16,6 +16,7 @@ public class Main extends Application {
 
         stage.setTitle("Alpha Analysis");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

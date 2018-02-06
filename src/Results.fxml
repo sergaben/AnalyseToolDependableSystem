@@ -16,10 +16,10 @@
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
         <menus>
             <Menu text="File">
+                <MenuItem text="New..." />
+                <MenuItem text="Open" />
+                <MenuItem text="Save" />
                 <MenuItem text="Exit" />
-            </Menu>
-            <Menu text="Options" >
-                <MenuItem fx:id="mode" text="Analysis Mode" />
             </Menu>
         </menus>
     </MenuBar>

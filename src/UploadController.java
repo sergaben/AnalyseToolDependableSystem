@@ -5,7 +5,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -57,7 +56,6 @@ public class UploadController implements Initializable {
                     // comment quality
 
                 } catch (IOException e) {
-                    // user feedback
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
             } else {
@@ -90,7 +88,7 @@ public class UploadController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //menuBar.prefWidthProperty().bind(upload_lbl.getScene().widthProperty());
+
     }
 
 }
