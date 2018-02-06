@@ -8,7 +8,7 @@ public class Main {
        countObject.countLinesInFile();
        countObject.countSingleCommentsInFile();
        //countObject.countMultiLineCommentsInFile("/*","*/");
-       countObject.countMultiLineCommentsInFile("/**","*/");
+       countObject.countMultiLineCommentsInFile("/*","*/");
     }
 
 

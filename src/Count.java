@@ -53,7 +53,7 @@ public class Count {
             scanner = new Scanner(new FileReader(filename));
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine().trim();
-                if(!line.isEmpty() && line.startsWith("//")){
+                if(!line.isEmpty() && line.contains("//")){
                     linesOfForwardSlashesComments.add(line);
                 }
             }
@@ -92,24 +92,52 @@ public class Count {
         ArrayList<String> linesOfForwardSlashesCommentsWithAsterisk = new ArrayList<>();
         ArrayList<Integer> startOfComment = new ArrayList<>();
         ArrayList<Integer> endOfComment = new ArrayList<>();
-        int setOfcomments = 0;
-        try {
-            int a = 0;
-            do{
-                if(lines.get(a).startsWith(commentDelimiterStart)){
-                    linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
-//                    if(a>0) {
-//                        if (lines.get(a - 1).startsWith(commentDelimiterStart)) {
-//                            linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
-//                        }
-//                    }
-                }else{
-                   // linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
-                    a++;
-                }
-            }while(!lines.get(a).startsWith(commentDelimiterEnd));
+        boolean previousLineComment = false;
+        String commentDelimiterStartOfComment = " ";
+        for (String line : lines) {
+            if (checkWhetherStringStartWithJavaDocOrMultiLineComments(line, commentDelimiterStart)) {
+                previousLineComment = true;
+                commentDelimiterStartOfComment = commentDelimiterStart;
+                linesOfForwardSlashesCommentsWithAsterisk.add(line);
+            } else if (!line.contains(commentDelimiterEnd) && previousLineComment) {
+                linesOfForwardSlashesCommentsWithAsterisk.add(line);
+            } else if (line.contains(commentDelimiterEnd) && commentDelimiterStartOfComment.equals(commentDelimiterStart)) {
+                linesOfForwardSlashesCommentsWithAsterisk.add(line);
+                previousLineComment = false;
+                commentDelimiterStartOfComment = " ";
+            }
+        }
 
-            linesOfForwardSlashesCommentsWithAsterisk.forEach(System.out::println);
+        linesOfForwardSlashesCommentsWithAsterisk.forEach(System.out::println);
+//        if(lines.get(i).contentEquals(commentDelimiterStart)){
+//                previousLineComment = true;
+//                commentDelimiterStartOfComment = commentDelimiterStart;
+//                linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(i));
+//            }
+        /* fsdafsda
+        fasdfsdaf
+        fasdfsda
+        fasdfasd
+        fasdfsd
+         */
+
+//        try {
+//            int a = 0;
+//            do{
+//                if(lines.get(a).startsWith(commentDelimiterStart)){
+//                    linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
+////                    if(a>0) {
+////                        if (lines.get(a - 1).startsWith(commentDelimiterStart)) {
+////                            linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
+////                        }
+////                    }
+//                }else{
+//                   // linesOfForwardSlashesCommentsWithAsterisk.add(lines.get(a));
+//                    a++;
+//                }
+//            }while(!lines.get(a).startsWith(commentDelimiterEnd));
+
+            //linesOfForwardSlashesCommentsWithAsterisk.forEach(System.out::println);
 //            for(int i = 0;i<lines.size();i++){
 //                // find index of starting comment
 //                // find index of ending comment
@@ -132,14 +160,14 @@ public class Count {
 //                if(lineOfComment.startsWith(commentDelimiterStart)){
 //                    setOfcomments++;
 //                }
+////            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }finally{
+//            if(scanner!=null) {
+//                scanner.close();
 //            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }finally{
-            if(scanner!=null) {
-                scanner.close();
-            }
-        }
+//        }
         if(commentDelimiterStart.equals("/**")){
 //            System.out.println("Number of lines within a JavaDoc comment: " + linesOfForwardSlashesCommentsWithAsterisk.size());
 //            System.out.println("Set of multi-line comments in the code sample: " + setOfcomments);
@@ -149,5 +177,35 @@ public class Count {
         }
 
 
+    }
+
+    public boolean checkWhetherStringStartWithJavaDocOrMultiLineComments(String lineToCheck, String delimiterStart){
+        ArrayList<Boolean> charactersInCommentLine = new ArrayList<>();
+        String beginningOfLine ;
+        if(lineToCheck.length()>2){
+
+            beginningOfLine = lineToCheck.substring(0,3);
+            if(beginningOfLine.startsWith(delimiterStart)){
+                return true;
+            }
+        }
+        return false;
+//        char[] array = lineToCheck.toCharArray();
+//        char[] delimiterStartCharArray = delimiterStart.toCharArray();
+//        for(int i=0;i<array.length;i++){
+//            for(int e=0;e<delimiterStartCharArray.length;e++){
+//
+//                if(array[i] == delimiterStartCharArray[e]){
+//
+//                    charactersInCommentLine.add(true);
+//                }
+//            }
+//        }
+//        for(Boolean value: charactersInCommentLine){
+//            if(value){
+//                return true;
+//            }
+//        }
+//        return false;
     }
 }
