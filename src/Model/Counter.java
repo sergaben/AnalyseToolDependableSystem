@@ -1,3 +1,5 @@
+package Model;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,12 +9,12 @@ import java.util.Scanner;
 
 
 
-public class Count {
+public class Counter {
     private File filename;
     private Scanner scanner = null;
     private final String OPENBRACE = "\\{";
 
-    public Count(File filename) throws Exception {
+    public Counter(File filename) throws Exception {
         if(!filename.isFile()){
             throw new Exception("Please insert a name for the file");
         }else{
@@ -22,7 +24,12 @@ public class Count {
 
     }
 
-    public void countLinesInFile(){
+    public void runSingleLineMethods(){
+        countLinesInFile();
+        countSingleCommentsInFile();
+    }
+
+    private void countLinesInFile(){
 
         ArrayList<String> lines = new ArrayList<>();
 
@@ -46,7 +53,7 @@ public class Count {
         System.out.println("Number of lines without spaces between lines: "+lines.size());
     }
 
-    public void countSingleCommentsInFile(){
+    private void countSingleCommentsInFile(){
          ArrayList<String> linesOfForwardSlashesComments = new ArrayList<>();
 
         try {
@@ -64,10 +71,15 @@ public class Count {
                 scanner.close();
             }
         }
-        System.out.println("Number of single line comments: "+linesOfForwardSlashesComments.size());
+        if(linesOfForwardSlashesComments.size()==0){
+            System.out.println("There are no single line comments in this file");
+        }else{
+            System.out.println("Number of single line comments: "+linesOfForwardSlashesComments.size());
+        }
+
     }
 
-    public ArrayList<String> addLinesToArray(){
+    private ArrayList<String> addLinesToArray(){
         ArrayList<String> allLines = new ArrayList<>();
         try {
             scanner = new Scanner(new FileReader(filename));
@@ -90,12 +102,12 @@ public class Count {
     public void countMultiLineCommentsInFile(String commentDelimiterStart, String commentDelimiterEnd){
         ArrayList<String> lines = addLinesToArray();
         ArrayList<String> linesOfForwardSlashesCommentsWithAsterisk = new ArrayList<>();
-        ArrayList<Integer> startOfComment = new ArrayList<>();
-        ArrayList<Integer> endOfComment = new ArrayList<>();
+
         boolean previousLineComment = false;
         String commentDelimiterStartOfComment = " ";
         for (String line : lines) {
             if (checkWhetherStringStartWithJavaDocOrMultiLineComments(line, commentDelimiterStart)) {
+
                 previousLineComment = true;
                 commentDelimiterStartOfComment = commentDelimiterStart;
                 linesOfForwardSlashesCommentsWithAsterisk.add(line);
@@ -107,8 +119,13 @@ public class Count {
                 commentDelimiterStartOfComment = " ";
             }
         }
+        if(linesOfForwardSlashesCommentsWithAsterisk.size() == 0){
+            System.out.println("There are not multi-line or JavaDoc comments in this file");
+        }else{
+            //linesOfForwardSlashesCommentsWithAsterisk.forEach(System.out::println);
+            System.out.println("Number of multi-line or JavaDoc comments:" + linesOfForwardSlashesCommentsWithAsterisk.size());
+        }
 
-        linesOfForwardSlashesCommentsWithAsterisk.forEach(System.out::println);
 //        if(lines.get(i).contentEquals(commentDelimiterStart)){
 //                previousLineComment = true;
 //                commentDelimiterStartOfComment = commentDelimiterStart;
@@ -178,8 +195,8 @@ public class Count {
 
 
     }
-
-    public boolean checkWhetherStringStartWithJavaDocOrMultiLineComments(String lineToCheck, String delimiterStart){
+    //TODO - solve problem with multi-line comments and JavaDoc comments
+    private boolean checkWhetherStringStartWithJavaDocOrMultiLineComments(String lineToCheck, String delimiterStart){
         ArrayList<Boolean> charactersInCommentLine = new ArrayList<>();
         String beginningOfLine ;
         if(lineToCheck.length()>2){
