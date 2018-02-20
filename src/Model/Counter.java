@@ -16,7 +16,7 @@ public class Counter {
 
     public Counter(File filename) throws Exception {
         if(!filename.isFile()){
-            throw new Exception("Please insert a name for the file");
+            throw new Exception("Please insert a valid file path");
         }else{
             this.filename = filename;
         }
