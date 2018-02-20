@@ -6,8 +6,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
-
 public class Main extends Application {
 
     public void start(Stage stage) throws IOException {
@@ -17,7 +15,6 @@ public class Main extends Application {
         //Controller.UploadController uc = loader.<Controller.UploadController>getController();
 
         Scene scene = new Scene(root, 500, 550);
-        String hello = "hello";
         stage.setTitle("Alpha Analysis");
         stage.setScene(scene);
         stage.setResizable(false);
