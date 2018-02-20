@@ -10,7 +10,7 @@
 <?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ResultsController"
+            fx:controller="Controller.ResultsController"
             prefHeight="400.0" prefWidth="600.0">
 
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
@@ -26,7 +26,7 @@
     <Button AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" text="Start New Analysis" />
     <GridPane styleClass="root" AnchorPane.topAnchor="30" hgap="20" vgap="15" >
         <stylesheets>
-            <URL value="@Style.css" />
+            <URL value="@../Style.css" />
         </stylesheets>
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
@@ -34,6 +34,6 @@
         <Label text="# of methods:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="Model.Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
     </GridPane>
 </AnchorPane>

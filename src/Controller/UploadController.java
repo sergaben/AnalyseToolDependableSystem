@@ -1,6 +1,8 @@
 package Controller;
 
 import Model.Counter;
+import Model.Regex;
+import Model.TokenizerSecond;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,12 +10,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import jdk.nashorn.internal.runtime.ParserException;
+
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 public class UploadController implements Initializable {
 
@@ -32,6 +34,8 @@ public class UploadController implements Initializable {
 
     private File uploaded_file;
 
+    private Scanner scanner;
+
     @FXML
     private void chooseFile(ActionEvent event) throws Exception {
         FileChooser fc = new FileChooser();
@@ -41,8 +45,6 @@ public class UploadController implements Initializable {
         uploaded_file = fc.showOpenDialog(new Stage());
         if(uploaded_file != null) {
             filepath_input.setText(uploaded_file.getPath());
-
-
         }
     }
 
@@ -61,7 +63,9 @@ public class UploadController implements Initializable {
                     counterClass.countMultiLineCommentsInFile("/*","*/");
                     counterClass.countMultiLineCommentsInFile("/**","*/");
                     // count methods
+
                     // halstead complexity
+
                     // cyclomatic complexity
                     // comment quality
 
@@ -82,6 +86,42 @@ public class UploadController implements Initializable {
             counterClass.countMultiLineCommentsInFile("/**","*/");
 
             // count methods
+            TokenizerSecond tokenizer = new TokenizerSecond();
+            for (int i = 0; i< Regex.regularExpressions.length; i++){
+                tokenizer.add(Regex.regularExpressions[i],i);
+            }
+//            tokenizer.getTokenInfos().forEach(element->{
+//                System.out.println(element.regex.toString());
+//            });
+            try{
+                scanner = new Scanner(new FileReader(uploaded_file));
+                while(scanner.hasNextLine()){
+                    String line = scanner.nextLine().trim();
+                    String testLine = "public static void main(String[] args){";
+//                    if(!line.startsWith("/")){
+//                        System.out.println(true);
+//                    }else{
+//                        Sys/tem.out.println(false);
+//                    }
+                    if(line.startsWith("/") || line.startsWith("*")) {
+                        //do nothing
+                        System.out.println("comment line");
+                    }else{
+                        tokenizer.tokenize(line);
+                    }
+                }
+//                System.out.println(tokenizer.getTokens().size());
+                for(TokenizerSecond.Token tok: tokenizer.getTokens()){
+                    System.out.println("" + tok.token + " " + tok.sequence);
+                }
+            }catch(ParserException | IOException e){
+                System.out.println(e.getMessage());
+            } finally {
+                if(scanner!= null){
+                    scanner.close();
+                }
+            }
+
             // halstead complexity
             // cyclomatic complexity
             // comment quality
