@@ -13,8 +13,9 @@ public class AnalysedFile {
 
     }
 
-    public AnalysedFile(int lines, int methods, int halstead_comp, int cyclomatic_comp, int code_quality) {
+    public AnalysedFile(int lines, int comments, int methods, int halstead_comp, int cyclomatic_comp, int code_quality) {
         this.lines = lines;
+        this.comments = comments;
         this.methods = methods;
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
