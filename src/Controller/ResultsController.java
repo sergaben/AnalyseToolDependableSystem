@@ -17,11 +17,14 @@ public class ResultsController implements Initializable {
 
     @FXML
     private Label lines;
+    @FXML
+    private Label comments;
     private AnalysedFile file;
 
     public void setFile(AnalysedFile file) {
         this.file = file;
         this.lines.setText(String.valueOf(file.getLines()));
+        this.comments.setText(String.valueOf(file.getComments()));
     }
 
     public void switchScene()

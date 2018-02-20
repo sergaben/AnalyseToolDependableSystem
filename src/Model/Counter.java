@@ -52,7 +52,7 @@ public class Counter {
         return lines.size();
     }
 
-    private void countSingleCommentsInFile(){
+    public int countSingleCommentsInFile(){
          ArrayList<String> linesOfForwardSlashesComments = new ArrayList<>();
 
         try {
@@ -75,7 +75,7 @@ public class Counter {
         }else{
             System.out.println("Number of single line comments: "+linesOfForwardSlashesComments.size());
         }
-
+        return linesOfForwardSlashesComments.size();
     }
 
     private ArrayList<String> addLinesToArray(){
@@ -98,7 +98,7 @@ public class Counter {
         return allLines;
     }
 
-    public void countMultiLineCommentsInFile(String commentDelimiterStart, String commentDelimiterEnd){
+    public int countMultiLineCommentsInFile(String commentDelimiterStart, String commentDelimiterEnd){
         ArrayList<String> lines = addLinesToArray();
         ArrayList<String> linesOfForwardSlashesCommentsWithAsterisk = new ArrayList<>();
 
@@ -191,8 +191,7 @@ public class Counter {
 //            System.out.println("Number of lines within a multi-line comment: " + linesOfForwardSlashesCommentsWithAsterisk.size());
 //            System.out.println("Set of multi-line comments in the code sample: " + setOfcomments);
         }
-
-
+        return linesOfForwardSlashesCommentsWithAsterisk.size();
     }
     //TODO - solve problem with multi-line comments and JavaDoc comments
     private boolean checkWhetherStringStartWithJavaDocOrMultiLineComments(String lineToCheck, String delimiterStart){

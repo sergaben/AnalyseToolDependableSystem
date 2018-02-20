@@ -75,9 +75,10 @@ public class UploadController implements Initializable {
         try {
 
             Counter counterClass = new Counter(uploaded_file);
-            counterClass.countMultiLineCommentsInFile("/*", "*/");
-            counterClass.countMultiLineCommentsInFile("/**", "*/");
+            int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
+            comments += counterClass.countMultiLineCommentsInFile("/**", "*/");
             aFile.setLines(counterClass.countLinesInFile());
+            aFile.setComments(comments);
 
             // count methods
             // halstead complexity
