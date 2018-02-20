@@ -12,7 +12,6 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
 
         Parent root = (Parent) loader.load();
-        //Controller.UploadController uc = loader.<Controller.UploadController>getController();
 
         Scene scene = new Scene(root, 500, 550);
         stage.setTitle("Alpha Analysis");

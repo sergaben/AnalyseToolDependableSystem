@@ -1,10 +1,14 @@
 package Controller;
 
+import Model.AnalysedFile;
 import Model.Counter;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -50,16 +54,8 @@ public class UploadController implements Initializable {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
-                    // count lines and comments
-                    Counter counterClass = new Counter(uploaded_file);
-                    counterClass.runSingleLineMethods();
-                    counterClass.countMultiLineCommentsInFile("/*","*/");
-                    counterClass.countMultiLineCommentsInFile("/**","*/");
-                    // count methods
-                    // halstead complexity
-                    // cyclomatic complexity
-                    // comment quality
 
+                    switchScene(analyse());
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
@@ -70,17 +66,27 @@ public class UploadController implements Initializable {
                 );
             }
         } else {
-            // count lines and comments
+            switchScene(analyse());
+        }
+    }
+
+    private AnalysedFile analyse() {
+        AnalysedFile aFile = new AnalysedFile();
+        try {
+
             Counter counterClass = new Counter(uploaded_file);
-            counterClass.runSingleLineMethods();
-            counterClass.countMultiLineCommentsInFile("/*","*/");
-            counterClass.countMultiLineCommentsInFile("/**","*/");
+            counterClass.countMultiLineCommentsInFile("/*", "*/");
+            counterClass.countMultiLineCommentsInFile("/**", "*/");
+            aFile.setLines(counterClass.countLinesInFile());
 
             // count methods
             // halstead complexity
             // cyclomatic complexity
             // comment quality
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return aFile;
     }
 
     @FXML
@@ -100,6 +106,29 @@ public class UploadController implements Initializable {
         alert.setHeaderText(header);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    public void switchScene(AnalysedFile aFile)
+    {
+
+        FXMLLoader loader = new FXMLLoader(getClass()
+                .getResource("../View/Results.fxml"));
+        Parent root;
+        try
+        {
+            root = (Parent)loader.load();
+            ResultsController controller = (ResultsController) loader.getController();
+
+            controller.setFile(aFile);
+
+            Stage stage = (Stage) this.menuBar.getScene().getWindow();
+            stage.setScene(new Scene(root, 500, 550));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
     @Override

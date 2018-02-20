@@ -29,7 +29,7 @@ public class Counter {
         countSingleCommentsInFile();
     }
 
-    private void countLinesInFile(){
+    public int countLinesInFile(){
 
         ArrayList<String> lines = new ArrayList<>();
 
@@ -49,8 +49,7 @@ public class Counter {
                 scanner.close();
             }
         }
-
-        System.out.println("Number of lines without spaces between lines: "+lines.size());
+        return lines.size();
     }
 
     private void countSingleCommentsInFile(){
