@@ -8,17 +8,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import jdk.nashorn.internal.runtime.ParserException;
 
+import java.io.IOException;
+
 public class Main extends Application {
-    @Override
-    public void start(Stage stage) throws Exception {
+
+    public void start(Stage stage) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
 
 
         Parent root = (Parent) loader.load();
+
         Controller.UploadController uc = loader.<Controller.UploadController>getController();
 
         Scene scene = new Scene(root, 500, 500);
 
+        Scene scene = new Scene(root, 500, 550);
         stage.setTitle("Alpha Analysis");
         stage.setScene(scene);
         stage.setResizable(false);
@@ -33,5 +37,4 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
 }
