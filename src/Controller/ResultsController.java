@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.AnalysedFile;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,6 +21,11 @@ public class ResultsController implements Initializable {
     @FXML
     private Label comments;
     private AnalysedFile file;
+
+    @FXML
+    private void exit() {
+        Platform.exit();
+    }
 
     public void setFile(AnalysedFile file) {
         this.file = file;

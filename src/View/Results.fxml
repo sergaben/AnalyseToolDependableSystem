@@ -18,7 +18,7 @@
                 <MenuItem text="New..." />
                 <MenuItem text="Open" />
                 <MenuItem text="Save" />
-                <MenuItem text="Exit" />
+                <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>
     </MenuBar>
@@ -37,6 +37,6 @@
         <Label text="# of methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
         <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label text="Model.Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
     </GridPane>
 </AnchorPane>

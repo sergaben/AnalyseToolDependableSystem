@@ -13,10 +13,9 @@ public class Main extends Application {
 
         Parent root = (Parent) loader.load();
 
-        Scene scene = new Scene(root, 500, 550);
+        Scene scene = new Scene(root, 500, 575);
         stage.setTitle("Alpha Analysis");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 

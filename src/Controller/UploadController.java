@@ -28,7 +28,8 @@ public class UploadController implements Initializable {
     private TextArea pasteBox;
     @FXML
     private MenuBar menuBar;
-
+    @FXML
+    private TitledPane TPane;
     private File uploaded_file;
 
     @FXML
@@ -40,8 +41,8 @@ public class UploadController implements Initializable {
         uploaded_file = fc.showOpenDialog(new Stage());
         if(uploaded_file != null) {
             filepath_input.setText(uploaded_file.getPath());
-
-
+            TPane.disableProperty().setValue(true);
+            TPane.expandedProperty().setValue(false);
         }
     }
 
@@ -78,7 +79,7 @@ public class UploadController implements Initializable {
             int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
             comments += counterClass.countMultiLineCommentsInFile("/**", "*/");
             aFile.setLines(counterClass.countLinesInFile());
-            aFile.setComments(comments);
+            aFile.setComments(comments );
 
             // count methods
             // halstead complexity
@@ -94,6 +95,8 @@ public class UploadController implements Initializable {
     private void clear() {
         filepath_input.clear();
         uploaded_file = null;
+        TPane.disableProperty().setValue(false);
+        TPane.expandedProperty().setValue(true);
     }
 
     @FXML

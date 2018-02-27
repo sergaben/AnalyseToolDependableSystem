@@ -9,6 +9,7 @@ public class AnalysedFile {
     private int cyclomatic_comp;
     private int code_quality;
 
+    /* Test comment */
     public AnalysedFile() {
 
     }
