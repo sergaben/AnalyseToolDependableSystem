@@ -13,9 +13,9 @@
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
         <menus>
             <Menu text="File">
-                <MenuItem text="New..." />
-                <MenuItem text="Open" />
-                <MenuItem text="Save" />
+                <MenuItem text="New..." onAction="#newMenu" />
+                <MenuItem text="Open" onAction="#open" />
+                <MenuItem text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>

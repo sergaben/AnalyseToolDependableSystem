@@ -21,7 +21,6 @@ import java.util.ResourceBundle;
 
 public class UploadController implements Initializable {
 
-
     @FXML
     private TextField filepath_input;
     @FXML
@@ -30,6 +29,13 @@ public class UploadController implements Initializable {
     private MenuBar menuBar;
     @FXML
     private TitledPane TPane;
+    @FXML
+    private CheckBox halstead;
+    @FXML
+    private CheckBox cyclomatic;
+    @FXML
+    private CheckBox commentQual;
+
     private File uploaded_file;
 
     @FXML
@@ -112,7 +118,7 @@ public class UploadController implements Initializable {
         alert.showAndWait();
     }
 
-    public void switchScene(AnalysedFile aFile)
+    private void switchScene(AnalysedFile aFile)
     {
 
         FXMLLoader loader = new FXMLLoader(getClass()
@@ -132,12 +138,53 @@ public class UploadController implements Initializable {
         {
             e.printStackTrace();
         }
+    }
 
+    @FXML
+    private void newMenu() {
+
+    }
+
+    // open saved file
+    // parse json data to AnalysedFile object
+    // pass to results page
+
+    @FXML
+    private void open() {
+        FileChooser fc = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File openFile = fc.showOpenDialog(new Stage());
+
+        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
+        switchScene(a);
+    }
+
+    // save analysis
+    // choose the file
+    // export AnalysedFile to json/csv/xml
+    // save to user destination
+
+    @FXML
+    private void save() {
+        FileChooser fc = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File savedFile = fc.showOpenDialog(new Stage());
+        if(savedFile != null) {
+            try {
+                AnalysedFile a = new AnalysedFile();
+                FileWriter fw = new FileWriter(savedFile);
+                fw.write(a.exportToJSON());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
-
 }
