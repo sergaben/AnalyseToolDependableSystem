@@ -94,13 +94,15 @@ public class AnalysedFile {
     }
      */
 
-    public String exportToJSON() {
+    public String exportToJSON(File file) {
         String json = "{\n";
 
         return json;
     }
 
     public static AnalysedFile getFromJSON(File file) {
+
+
 
         return new AnalysedFile();
     }

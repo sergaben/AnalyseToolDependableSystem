@@ -173,13 +173,8 @@ public class UploadController implements Initializable {
         fc.getExtensionFilters().add(extFilter);
         File savedFile = fc.showOpenDialog(new Stage());
         if(savedFile != null) {
-            try {
-                AnalysedFile a = new AnalysedFile();
-                FileWriter fw = new FileWriter(savedFile);
-                fw.write(a.exportToJSON());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            AnalysedFile a = new AnalysedFile();
+            a.exportToJSON(savedFile);
         }
     }
 

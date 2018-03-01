@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 
 public class CounterTest {
 
+
     @Before
     public void setUp() throws Exception {
     }
@@ -17,6 +18,61 @@ public class CounterTest {
     @After
     public void tearDown() throws Exception {
     }
+
+    /*
+     * countNumLines
+     * countNumCodeWords
+     * countNumFunctions
+     * countNumKeyWords
+     * calculateHalstead
+     * calculateCyclomatic
+     * calculateCommentQuality
+     * calculateDiffQuality (code comparison)
+     */
+
+    @Test
+    public void countNumLines() {
+
+    }
+
+    @Test
+    public void countNumCodeWords() {
+
+    }
+
+    @Test
+    public void countNumFunctions() {
+
+    }
+
+    @Test
+    public void countNumKeyWords() {
+
+    }
+
+    @Test
+    public void calculateHalstead() {
+
+    }
+
+    @Test
+    public void calculateCyclomatic() {
+
+    }
+
+    @Test
+    public void calculateCommentQuality() {
+
+    }
+
+    @Test
+    public void calculateDiffQuality() {
+
+    }
+
+    /* * * * * * * * * * *
+     * OLD COUNTER TESTS *
+     * * * * * * * * * * */
 
     @Test
     public void runSingleLineMethods() throws Exception {
@@ -34,13 +90,5 @@ public class CounterTest {
         Counter counter = new Counter(file);
         int actResult = counter.countLinesInFile();
         assertEquals(expResult, actResult);
-    }
-
-    @Test
-    public void countSingleCommentsInFile() {
-    }
-
-    @Test
-    public void countMultiLineCommentsInFile() {
     }
 }
