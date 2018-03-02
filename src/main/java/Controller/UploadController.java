@@ -20,13 +20,20 @@ import java.util.Scanner;
 
 public class UploadController implements Initializable {
 
-
     @FXML
     private TextField filepath_input;
     @FXML
     private TextArea pasteBox;
     @FXML
     private MenuBar menuBar;
+    @FXML
+    private TitledPane TPane;
+    @FXML
+    private CheckBox halstead;
+    @FXML
+    private CheckBox cyclomatic;
+    @FXML
+    private CheckBox commentQual;
 
     private File uploaded_file;
 
@@ -41,6 +48,9 @@ public class UploadController implements Initializable {
         uploaded_file = fc.showOpenDialog(new Stage());
         if(uploaded_file != null) {
             filepath_input.setText(uploaded_file.getPath());
+
+            TPane.disableProperty().setValue(true);
+            TPane.expandedProperty().setValue(false);
         }
     }
 
@@ -81,6 +91,13 @@ public class UploadController implements Initializable {
         AnalysedFile aFile = new AnalysedFile();
         try {
 
+
+//            Counter counterClass = new Counter(uploaded_file);
+//            int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
+//            comments += counterClass.countMultiLineCommentsInFile("/**", "*/");
+//            aFile.setLines(counterClass.countLinesInFile());
+//            aFile.setComments(comments );
+
             // count methods
             // halstead complexity
             // cyclomatic complexity
@@ -97,6 +114,8 @@ public class UploadController implements Initializable {
     private void clear() {
         filepath_input.clear();
         uploaded_file = null;
+        TPane.disableProperty().setValue(false);
+        TPane.expandedProperty().setValue(true);
     }
 
     @FXML
@@ -112,7 +131,12 @@ public class UploadController implements Initializable {
         alert.showAndWait();
     }
 
-    public void switchScene(AnalysedFile aFile) {
+
+//    public void switchScene(AnalysedFile aFile) {
+//    }
+    private void switchScene(AnalysedFile aFile)
+    {
+
 
         FXMLLoader loader = new FXMLLoader(getClass()
                 .getResource("../../resources/View/Results.fxml"));
@@ -131,7 +155,6 @@ public class UploadController implements Initializable {
         {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -139,4 +162,46 @@ public class UploadController implements Initializable {
 
     }
 
+//    @FXML
+//    private void newMenu() {
+//            System.out.println();
+//    }
+
+    // open saved file
+    // parse json data to AnalysedFile object
+    // pass to results page
+
+//    @FXML
+//    private void open(){
+//        FileChooser fc = new FileChooser();
+//        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+//        fc.getExtensionFilters().add(extFilter);
+//        File openFile = fc.showOpenDialog(new Stage());
+//
+//        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
+//        switchScene(a);
+//    }
+
+    // save analysis
+    // choose the file
+    // export AnalysedFile to json/csv/xml
+    // save to user destination
+
+//    @FXML
+//    private void save(){
+//        FileChooser fc = new FileChooser();
+//
+//        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+//        fc.getExtensionFilters().add(extFilter);
+//        File savedFile = fc.showOpenDialog(new Stage());
+//        if(savedFile != null) {
+//            AnalysedFile a = new AnalysedFile();
+//            a.exportToJSON(savedFile);
+//        }
+//    }
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//
+//    }
 }

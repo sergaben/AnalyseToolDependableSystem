@@ -1,7 +1,10 @@
 package Model;
 
+import java.io.File;
+
 public class AnalysedFile {
 
+    private String name;
     private int lines;
     private int comments;
     private int methods;
@@ -9,6 +12,7 @@ public class AnalysedFile {
     private int cyclomatic_comp;
     private int code_quality;
 
+    /* Test comment */
     public AnalysedFile() {
 
     }
@@ -20,6 +24,14 @@ public class AnalysedFile {
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
         this.code_quality = code_quality;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public int getLines() {
@@ -68,5 +80,30 @@ public class AnalysedFile {
 
     public void setCode_quality(int code_quality) {
         this.code_quality = code_quality;
+    }
+
+    /*
+    {
+      "name" : "mkyong",
+      "lines" : 0,
+      "comments" : null,
+      "methods" : "null",
+      "halstead_comp" : "null",
+      "cyclomatic_comp": "null",
+      "code_quality": "null"
+    }
+     */
+
+    public String exportToJSON(File file) {
+        String json = "{\n";
+
+        return json;
+    }
+
+    public static AnalysedFile getFromJSON(File file) {
+
+
+
+        return new AnalysedFile();
     }
 }

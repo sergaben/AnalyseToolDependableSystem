@@ -36,9 +36,7 @@ public class Counter3 {
             scanner.useDelimiter(OPENBRACE);
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine().trim();
-                if(!line.isEmpty()){
-                        lines.add(line);
-                }
+                lines.add(line);
             }
         }catch(IOException e){
             e.printStackTrace();
