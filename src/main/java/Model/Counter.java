@@ -23,7 +23,7 @@ public class Counter {
     // 4. if the token is in the hashmap add one to the integer related to that token
     // 5. if the token is not in the hashmap add it
     // 6. after that add a integer of 1 to the related token
-    public void identifyNOfOperators(String operatorAbreviation) {
+    public void identifyNoOfOperators(String operatorAbreviation) {
 
         int nOfOccurences = 1;
 

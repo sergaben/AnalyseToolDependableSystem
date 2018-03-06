@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.AnalysedFile;
-import OldCode.Counter3;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
