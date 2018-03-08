@@ -15,14 +15,10 @@ import java.nio.file.Paths;
 
 public class Main extends Application {
     private AnalysedFile analysedFile = new AnalysedFile();
+
     public void start(Stage stage) throws IOException {
 
-
-        //System.out.println(analysedFile.getNoOfClasses());
-
-        FXMLLoader loader = new FXMLLoader();
-        // this works because the Upload and Results were moved to resources
-        loader.setLocation(ClassLoader.getSystemResource("View/Upload.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
         Parent root = loader.load();
 
 //        Controller.UploadController uc = loader.<Controller.UploadController>getController();
