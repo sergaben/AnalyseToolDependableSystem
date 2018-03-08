@@ -1,4 +1,4 @@
-// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/Util\Operators.g4 by ANTLR 4.7
+// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/main/java/Util\Operators.g4 by ANTLR 4.7
 package Util.gen.Util;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -7,16 +7,6 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  * {@link OperatorsParser}.
  */
 public interface OperatorsListener extends ParseTreeListener {
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#javaSource}.
-	 * @param ctx the parse tree
-	 */
-	void enterJavaSource(OperatorsParser.JavaSourceContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#javaSource}.
-	 * @param ctx the parse tree
-	 */
-	void exitJavaSource(OperatorsParser.JavaSourceContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#compilationUnit}.
 	 * @param ctx the parse tree
@@ -27,16 +17,6 @@ public interface OperatorsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCompilationUnit(OperatorsParser.CompilationUnitContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#typeDecls}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeDecls(OperatorsParser.TypeDeclsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#typeDecls}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeDecls(OperatorsParser.TypeDeclsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#packageDeclaration}.
 	 * @param ctx the parse tree
@@ -68,125 +48,85 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitTypeDeclaration(OperatorsParser.TypeDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#classTypeDeclaration}.
+	 * Enter a parse tree produced by {@link OperatorsParser#modifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx);
+	void enterModifier(OperatorsParser.ModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#classTypeDeclaration}.
+	 * Exit a parse tree produced by {@link OperatorsParser#modifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx);
+	void exitModifier(OperatorsParser.ModifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#classExtendsClause}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classOrInterfaceModifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx);
+	void enterClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#classExtendsClause}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classOrInterfaceModifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx);
+	void exitClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#interfaceExtendsClause}.
+	 * Enter a parse tree produced by {@link OperatorsParser#variableModifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx);
+	void enterVariableModifier(OperatorsParser.VariableModifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#interfaceExtendsClause}.
+	 * Exit a parse tree produced by {@link OperatorsParser#variableModifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx);
+	void exitVariableModifier(OperatorsParser.VariableModifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#implementsClause}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterImplementsClause(OperatorsParser.ImplementsClauseContext ctx);
+	void enterClassDeclaration(OperatorsParser.ClassDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#implementsClause}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitImplementsClause(OperatorsParser.ImplementsClauseContext ctx);
+	void exitClassDeclaration(OperatorsParser.ClassDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeParameterList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx);
+	void enterTypeParameters(OperatorsParser.TypeParametersContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeParameterList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx);
+	void exitTypeParameters(OperatorsParser.TypeParametersContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeListClosing}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeParameter}.
 	 * @param ctx the parse tree
 	 */
-	void enterGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx);
+	void enterTypeParameter(OperatorsParser.TypeParameterContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeListClosing}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeParameter}.
 	 * @param ctx the parse tree
 	 */
-	void exitGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx);
+	void exitTypeParameter(OperatorsParser.TypeParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeParameter}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeBound}.
 	 * @param ctx the parse tree
 	 */
-	void enterGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx);
+	void enterTypeBound(OperatorsParser.TypeBoundContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeParameter}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeBound}.
 	 * @param ctx the parse tree
 	 */
-	void exitGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx);
+	void exitTypeBound(OperatorsParser.TypeBoundContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#bound}.
+	 * Enter a parse tree produced by {@link OperatorsParser#enumDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterBound(OperatorsParser.BoundContext ctx);
+	void enterEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#bound}.
+	 * Exit a parse tree produced by {@link OperatorsParser#enumDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitBound(OperatorsParser.BoundContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#enumTypeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#enumTypeDeclaration}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#enumBody}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumBody(OperatorsParser.EnumBodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#enumBody}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumBody(OperatorsParser.EnumBodyContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#enumScopeDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#enumScopeDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#enumClassScopeDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void enterEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#enumClassScopeDeclarations}.
-	 * @param ctx the parse tree
-	 */
-	void exitEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx);
+	void exitEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#enumConstants}.
 	 * @param ctx the parse tree
@@ -208,25 +148,25 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitEnumConstant(OperatorsParser.EnumConstantContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#interfaceTypeDeclaration}.
+	 * Enter a parse tree produced by {@link OperatorsParser#enumBodyDeclarations}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx);
+	void enterEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#interfaceTypeDeclaration}.
+	 * Exit a parse tree produced by {@link OperatorsParser#enumBodyDeclarations}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx);
+	void exitEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#typeList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#interfaceDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterTypeList(OperatorsParser.TypeListContext ctx);
+	void enterInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#typeList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#interfaceDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitTypeList(OperatorsParser.TypeListContext ctx);
+	void exitInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#classBody}.
 	 * @param ctx the parse tree
@@ -248,65 +188,185 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitInterfaceBody(OperatorsParser.InterfaceBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#classScopeDeclarations}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classBodyDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx);
+	void enterClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#classScopeDeclarations}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classBodyDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx);
+	void exitClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#interfaceScopeDeclarations}.
+	 * Enter a parse tree produced by {@link OperatorsParser#memberDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx);
+	void enterMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#interfaceScopeDeclarations}.
+	 * Exit a parse tree produced by {@link OperatorsParser#memberDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx);
+	void exitMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#classFieldDeclaratorList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#methodDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx);
+	void enterMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#classFieldDeclaratorList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#methodDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx);
+	void exitMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#classFieldDeclarator}.
+	 * Enter a parse tree produced by {@link OperatorsParser#methodBody}.
 	 * @param ctx the parse tree
 	 */
-	void enterClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx);
+	void enterMethodBody(OperatorsParser.MethodBodyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#classFieldDeclarator}.
+	 * Exit a parse tree produced by {@link OperatorsParser#methodBody}.
 	 * @param ctx the parse tree
 	 */
-	void exitClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx);
+	void exitMethodBody(OperatorsParser.MethodBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#interfaceFieldDeclaratorList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeTypeOrVoid}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx);
+	void enterTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#interfaceFieldDeclaratorList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeTypeOrVoid}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx);
+	void exitTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#interfaceFieldDeclarator}.
+	 * Enter a parse tree produced by {@link OperatorsParser#genericMethodDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx);
+	void enterGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#interfaceFieldDeclarator}.
+	 * Exit a parse tree produced by {@link OperatorsParser#genericMethodDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx);
+	void exitGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#genericConstructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#genericConstructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#constructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#constructorDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#fieldDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#fieldDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#interfaceBodyDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#interfaceBodyDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#constDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstDeclaration(OperatorsParser.ConstDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#constDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstDeclaration(OperatorsParser.ConstDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#constantDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void enterConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#constantDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void exitConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#genericInterfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#genericInterfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void enterVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 */
+	void exitVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#variableDeclaratorId}.
 	 * @param ctx the parse tree
@@ -328,26 +388,6 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitVariableInitializer(OperatorsParser.VariableInitializerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#arrayDeclarator}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#arrayDeclarator}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#arrayDeclaratorList}.
-	 * @param ctx the parse tree
-	 */
-	void enterArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#arrayDeclaratorList}.
-	 * @param ctx the parse tree
-	 */
-	void exitArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#arrayInitializer}.
 	 * @param ctx the parse tree
 	 */
@@ -358,205 +398,45 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitArrayInitializer(OperatorsParser.ArrayInitializerContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#throwsClause}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void enterThrowsClause(OperatorsParser.ThrowsClauseContext ctx);
+	void enterClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#throwsClause}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classOrInterfaceType}.
 	 * @param ctx the parse tree
 	 */
-	void exitThrowsClause(OperatorsParser.ThrowsClauseContext ctx);
+	void exitClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#modifierList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeArgument}.
 	 * @param ctx the parse tree
 	 */
-	void enterModifierList(OperatorsParser.ModifierListContext ctx);
+	void enterTypeArgument(OperatorsParser.TypeArgumentContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#modifierList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeArgument}.
 	 * @param ctx the parse tree
 	 */
-	void exitModifierList(OperatorsParser.ModifierListContext ctx);
+	void exitTypeArgument(OperatorsParser.TypeArgumentContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#modifier}.
+	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedNameList}.
 	 * @param ctx the parse tree
 	 */
-	void enterModifier(OperatorsParser.ModifierContext ctx);
+	void enterQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#modifier}.
+	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedNameList}.
 	 * @param ctx the parse tree
 	 */
-	void exitModifier(OperatorsParser.ModifierContext ctx);
+	void exitQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#localModifierList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#formalParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterLocalModifierList(OperatorsParser.LocalModifierListContext ctx);
+	void enterFormalParameters(OperatorsParser.FormalParametersContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#localModifierList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#formalParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitLocalModifierList(OperatorsParser.LocalModifierListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#localModifier}.
-	 * @param ctx the parse tree
-	 */
-	void enterLocalModifier(OperatorsParser.LocalModifierContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#localModifier}.
-	 * @param ctx the parse tree
-	 */
-	void exitLocalModifier(OperatorsParser.LocalModifierContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#type}.
-	 * @param ctx the parse tree
-	 */
-	void enterType(OperatorsParser.TypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#type}.
-	 * @param ctx the parse tree
-	 */
-	void exitType(OperatorsParser.TypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#simpleType}.
-	 * @param ctx the parse tree
-	 */
-	void enterSimpleType(OperatorsParser.SimpleTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#simpleType}.
-	 * @param ctx the parse tree
-	 */
-	void exitSimpleType(OperatorsParser.SimpleTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#objectType}.
-	 * @param ctx the parse tree
-	 */
-	void enterObjectType(OperatorsParser.ObjectTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#objectType}.
-	 * @param ctx the parse tree
-	 */
-	void exitObjectType(OperatorsParser.ObjectTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#objectTypeSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void enterObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#objectTypeSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void exitObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedTypeIdent}.
-	 * @param ctx the parse tree
-	 */
-	void enterQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedTypeIdent}.
-	 * @param ctx the parse tree
-	 */
-	void exitQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedTypeIdentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void enterQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedTypeIdentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void exitQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#typeIdent}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeIdent(OperatorsParser.TypeIdentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#typeIdent}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeIdent(OperatorsParser.TypeIdentContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#typeIdentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void enterTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#typeIdentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void exitTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#primitiveType}.
-	 * @param ctx the parse tree
-	 */
-	void enterPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#primitiveType}.
-	 * @param ctx the parse tree
-	 */
-	void exitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeArgumentList}.
-	 * @param ctx the parse tree
-	 */
-	void enterGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeArgumentList}.
-	 * @param ctx the parse tree
-	 */
-	void exitGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeArgument}.
-	 * @param ctx the parse tree
-	 */
-	void enterGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeArgument}.
-	 * @param ctx the parse tree
-	 */
-	void exitGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericWildcardBoundType}.
-	 * @param ctx the parse tree
-	 */
-	void enterGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericWildcardBoundType}.
-	 * @param ctx the parse tree
-	 */
-	void exitGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeArgumentListSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void enterGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeArgumentListSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void exitGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#genericTypeArgumentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void enterGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#genericTypeArgumentSimplified}.
-	 * @param ctx the parse tree
-	 */
-	void exitGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedIdentList}.
-	 * @param ctx the parse tree
-	 */
-	void enterQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedIdentList}.
-	 * @param ctx the parse tree
-	 */
-	void exitQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx);
+	void exitFormalParameters(OperatorsParser.FormalParametersContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#formalParameterList}.
 	 * @param ctx the parse tree
@@ -568,45 +448,65 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitFormalParameterList(OperatorsParser.FormalParameterListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#formalParameterStandardDecl}.
+	 * Enter a parse tree produced by {@link OperatorsParser#formalParameter}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx);
+	void enterFormalParameter(OperatorsParser.FormalParameterContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#formalParameterStandardDecl}.
+	 * Exit a parse tree produced by {@link OperatorsParser#formalParameter}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx);
+	void exitFormalParameter(OperatorsParser.FormalParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#formalParameterVarArgDecl}.
+	 * Enter a parse tree produced by {@link OperatorsParser#lastFormalParameter}.
 	 * @param ctx the parse tree
 	 */
-	void enterFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx);
+	void enterLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#formalParameterVarArgDecl}.
+	 * Exit a parse tree produced by {@link OperatorsParser#lastFormalParameter}.
 	 * @param ctx the parse tree
 	 */
-	void exitFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx);
+	void exitLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedIdentifier}.
+	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedName}.
 	 * @param ctx the parse tree
 	 */
-	void enterQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx);
+	void enterQualifiedName(OperatorsParser.QualifiedNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedIdentifier}.
+	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedName}.
 	 * @param ctx the parse tree
 	 */
-	void exitQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx);
+	void exitQualifiedName(OperatorsParser.QualifiedNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationList}.
+	 * Enter a parse tree produced by {@link OperatorsParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationList(OperatorsParser.AnnotationListContext ctx);
+	void enterLiteral(OperatorsParser.LiteralContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationList}.
+	 * Exit a parse tree produced by {@link OperatorsParser#literal}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationList(OperatorsParser.AnnotationListContext ctx);
+	void exitLiteral(OperatorsParser.LiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#integerLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#integerLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#floatLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void enterFloatLiteral(OperatorsParser.FloatLiteralContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#floatLiteral}.
+	 * @param ctx the parse tree
+	 */
+	void exitFloatLiteral(OperatorsParser.FloatLiteralContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#annotation}.
 	 * @param ctx the parse tree
@@ -618,65 +518,45 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitAnnotation(OperatorsParser.AnnotationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationInit}.
+	 * Enter a parse tree produced by {@link OperatorsParser#elementValuePairs}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationInit(OperatorsParser.AnnotationInitContext ctx);
+	void enterElementValuePairs(OperatorsParser.ElementValuePairsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationInit}.
+	 * Exit a parse tree produced by {@link OperatorsParser#elementValuePairs}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationInit(OperatorsParser.AnnotationInitContext ctx);
+	void exitElementValuePairs(OperatorsParser.ElementValuePairsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationInitializers}.
+	 * Enter a parse tree produced by {@link OperatorsParser#elementValuePair}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx);
+	void enterElementValuePair(OperatorsParser.ElementValuePairContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationInitializers}.
+	 * Exit a parse tree produced by {@link OperatorsParser#elementValuePair}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx);
+	void exitElementValuePair(OperatorsParser.ElementValuePairContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationInitializer}.
+	 * Enter a parse tree produced by {@link OperatorsParser#elementValue}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx);
+	void enterElementValue(OperatorsParser.ElementValueContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationInitializer}.
+	 * Exit a parse tree produced by {@link OperatorsParser#elementValue}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx);
+	void exitElementValue(OperatorsParser.ElementValueContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationElementValue}.
+	 * Enter a parse tree produced by {@link OperatorsParser#elementValueArrayInitializer}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx);
+	void enterElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationElementValue}.
+	 * Exit a parse tree produced by {@link OperatorsParser#elementValueArrayInitializer}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationElementValueExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationElementValueExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationElementValueArrayInitializer}.
-	 * @param ctx the parse tree
-	 */
-	void enterAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationElementValueArrayInitializer}.
-	 * @param ctx the parse tree
-	 */
-	void exitAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx);
+	void exitElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#annotationTypeDeclaration}.
 	 * @param ctx the parse tree
@@ -688,35 +568,75 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitAnnotationTypeDeclaration(OperatorsParser.AnnotationTypeDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationBody}.
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationTypeBody}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationBody(OperatorsParser.AnnotationBodyContext ctx);
+	void enterAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationBody}.
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationTypeBody}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationBody(OperatorsParser.AnnotationBodyContext ctx);
+	void exitAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationScopeDeclarations}.
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationTypeElementDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx);
+	void enterAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationScopeDeclarations}.
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationTypeElementDeclaration}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx);
+	void exitAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#annotationDefaultValue}.
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationTypeElementRest}.
 	 * @param ctx the parse tree
 	 */
-	void enterAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx);
+	void enterAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#annotationDefaultValue}.
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationTypeElementRest}.
 	 * @param ctx the parse tree
 	 */
-	void exitAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx);
+	void exitAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationMethodOrConstantRest}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationMethodOrConstantRest}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationMethodRest}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationMethodRest}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#annotationConstantRest}.
+	 * @param ctx the parse tree
+	 */
+	void enterAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#annotationConstantRest}.
+	 * @param ctx the parse tree
+	 */
+	void exitAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#defaultValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterDefaultValue(OperatorsParser.DefaultValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#defaultValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitDefaultValue(OperatorsParser.DefaultValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#block}.
 	 * @param ctx the parse tree
@@ -748,6 +668,16 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitLocalVariableDeclaration(OperatorsParser.LocalVariableDeclarationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#localTypeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void enterLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#localTypeDeclaration}.
+	 * @param ctx the parse tree
+	 */
+	void exitLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#statement}.
 	 * @param ctx the parse tree
 	 */
@@ -758,75 +688,75 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitStatement(OperatorsParser.StatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#if_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#doWhileStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterIf_statement(OperatorsParser.If_statementContext ctx);
+	void enterDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#if_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#doWhileStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitIf_statement(OperatorsParser.If_statementContext ctx);
+	void exitDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#switch_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#whileStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitch_statement(OperatorsParser.Switch_statementContext ctx);
+	void enterWhileStatement(OperatorsParser.WhileStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#switch_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#whileStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitch_statement(OperatorsParser.Switch_statementContext ctx);
+	void exitWhileStatement(OperatorsParser.WhileStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#do_while_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#forStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterDo_while_statement(OperatorsParser.Do_while_statementContext ctx);
+	void enterForStatement(OperatorsParser.ForStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#do_while_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#forStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitDo_while_statement(OperatorsParser.Do_while_statementContext ctx);
+	void exitForStatement(OperatorsParser.ForStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#while_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#ifStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterWhile_statement(OperatorsParser.While_statementContext ctx);
+	void enterIfStatement(OperatorsParser.IfStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#while_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#ifStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitWhile_statement(OperatorsParser.While_statementContext ctx);
+	void exitIfStatement(OperatorsParser.IfStatementContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#forEachLoop_forLoop_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#tryStatementNoResources}.
 	 * @param ctx the parse tree
 	 */
-	void enterForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx);
+	void enterTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#forEachLoop_forLoop_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#tryStatementNoResources}.
 	 * @param ctx the parse tree
 	 */
-	void exitForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx);
+	void exitTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#try_catch_finally_statement}.
+	 * Enter a parse tree produced by {@link OperatorsParser#tryStatementWithResources}.
 	 * @param ctx the parse tree
 	 */
-	void enterTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx);
+	void enterTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#try_catch_finally_statement}.
+	 * Exit a parse tree produced by {@link OperatorsParser#tryStatementWithResources}.
 	 * @param ctx the parse tree
 	 */
-	void exitTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx);
+	void exitTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#catches}.
+	 * Enter a parse tree produced by {@link OperatorsParser#switchStatement}.
 	 * @param ctx the parse tree
 	 */
-	void enterCatches(OperatorsParser.CatchesContext ctx);
+	void enterSwitchStatement(OperatorsParser.SwitchStatementContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#catches}.
+	 * Exit a parse tree produced by {@link OperatorsParser#switchStatement}.
 	 * @param ctx the parse tree
 	 */
-	void exitCatches(OperatorsParser.CatchesContext ctx);
+	void exitSwitchStatement(OperatorsParser.SwitchStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#catchClause}.
 	 * @param ctx the parse tree
@@ -838,55 +768,85 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitCatchClause(OperatorsParser.CatchClauseContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#finallyClause}.
+	 * Enter a parse tree produced by {@link OperatorsParser#catchType}.
 	 * @param ctx the parse tree
 	 */
-	void enterFinallyClause(OperatorsParser.FinallyClauseContext ctx);
+	void enterCatchType(OperatorsParser.CatchTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#finallyClause}.
+	 * Exit a parse tree produced by {@link OperatorsParser#catchType}.
 	 * @param ctx the parse tree
 	 */
-	void exitFinallyClause(OperatorsParser.FinallyClauseContext ctx);
+	void exitCatchType(OperatorsParser.CatchTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#switchBlockLabels}.
+	 * Enter a parse tree produced by {@link OperatorsParser#finallyBlock}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx);
+	void enterFinallyBlock(OperatorsParser.FinallyBlockContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#switchBlockLabels}.
+	 * Exit a parse tree produced by {@link OperatorsParser#finallyBlock}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx);
+	void exitFinallyBlock(OperatorsParser.FinallyBlockContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#switchCaseLabels}.
+	 * Enter a parse tree produced by {@link OperatorsParser#resourceSpecification}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx);
+	void enterResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#switchCaseLabels}.
+	 * Exit a parse tree produced by {@link OperatorsParser#resourceSpecification}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx);
+	void exitResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#switchCaseLabel}.
+	 * Enter a parse tree produced by {@link OperatorsParser#resources}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx);
+	void enterResources(OperatorsParser.ResourcesContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#switchCaseLabel}.
+	 * Exit a parse tree produced by {@link OperatorsParser#resources}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx);
+	void exitResources(OperatorsParser.ResourcesContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#switchDefaultLabel}.
+	 * Enter a parse tree produced by {@link OperatorsParser#resource}.
 	 * @param ctx the parse tree
 	 */
-	void enterSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx);
+	void enterResource(OperatorsParser.ResourceContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#switchDefaultLabel}.
+	 * Exit a parse tree produced by {@link OperatorsParser#resource}.
 	 * @param ctx the parse tree
 	 */
-	void exitSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx);
+	void exitResource(OperatorsParser.ResourceContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#switchLabel}.
+	 * @param ctx the parse tree
+	 */
+	void enterSwitchLabel(OperatorsParser.SwitchLabelContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#switchLabel}.
+	 * @param ctx the parse tree
+	 */
+	void exitSwitchLabel(OperatorsParser.SwitchLabelContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#forControl}.
+	 * @param ctx the parse tree
+	 */
+	void enterForControl(OperatorsParser.ForControlContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#forControl}.
+	 * @param ctx the parse tree
+	 */
+	void exitForControl(OperatorsParser.ForControlContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#forInit}.
 	 * @param ctx the parse tree
@@ -898,35 +858,25 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitForInit(OperatorsParser.ForInitContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#forCondition}.
+	 * Enter a parse tree produced by {@link OperatorsParser#enhancedForControl}.
 	 * @param ctx the parse tree
 	 */
-	void enterForCondition(OperatorsParser.ForConditionContext ctx);
+	void enterEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#forCondition}.
+	 * Exit a parse tree produced by {@link OperatorsParser#enhancedForControl}.
 	 * @param ctx the parse tree
 	 */
-	void exitForCondition(OperatorsParser.ForConditionContext ctx);
+	void exitEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#forUpdater}.
+	 * Enter a parse tree produced by {@link OperatorsParser#parExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterForUpdater(OperatorsParser.ForUpdaterContext ctx);
+	void enterParExpression(OperatorsParser.ParExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#forUpdater}.
+	 * Exit a parse tree produced by {@link OperatorsParser#parExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitForUpdater(OperatorsParser.ForUpdaterContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#parenthesizedExpression}.
-	 * @param ctx the parse tree
-	 */
-	void enterParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#parenthesizedExpression}.
-	 * @param ctx the parse tree
-	 */
-	void exitParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx);
+	void exitParExpression(OperatorsParser.ParExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#expressionList}.
 	 * @param ctx the parse tree
@@ -938,6 +888,16 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitExpressionList(OperatorsParser.ExpressionListContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link OperatorsParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void enterMethodCall(OperatorsParser.MethodCallContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link OperatorsParser#methodCall}.
+	 * @param ctx the parse tree
+	 */
+	void exitMethodCall(OperatorsParser.MethodCallContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#expression}.
 	 * @param ctx the parse tree
 	 */
@@ -948,215 +908,205 @@ public interface OperatorsListener extends ParseTreeListener {
 	 */
 	void exitExpression(OperatorsParser.ExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#assignmentExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#lambdaExpression}.
 	 * @param ctx the parse tree
 	 */
-	void enterAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx);
+	void enterLambdaExpression(OperatorsParser.LambdaExpressionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#assignmentExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#lambdaExpression}.
 	 * @param ctx the parse tree
 	 */
-	void exitAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx);
+	void exitLambdaExpression(OperatorsParser.LambdaExpressionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#conditionalExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#lambdaParameters}.
 	 * @param ctx the parse tree
 	 */
-	void enterConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx);
+	void enterLambdaParameters(OperatorsParser.LambdaParametersContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#conditionalExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#lambdaParameters}.
 	 * @param ctx the parse tree
 	 */
-	void exitConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx);
+	void exitLambdaParameters(OperatorsParser.LambdaParametersContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#logicalOrExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#lambdaBody}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx);
+	void enterLambdaBody(OperatorsParser.LambdaBodyContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#logicalOrExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#lambdaBody}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx);
+	void exitLambdaBody(OperatorsParser.LambdaBodyContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#logicalAndExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#primary}.
 	 * @param ctx the parse tree
 	 */
-	void enterLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx);
+	void enterPrimary(OperatorsParser.PrimaryContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#logicalAndExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#primary}.
 	 * @param ctx the parse tree
 	 */
-	void exitLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx);
+	void exitPrimary(OperatorsParser.PrimaryContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#inclusiveOrExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classType}.
 	 * @param ctx the parse tree
 	 */
-	void enterInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx);
+	void enterClassType(OperatorsParser.ClassTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#inclusiveOrExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classType}.
 	 * @param ctx the parse tree
 	 */
-	void exitInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx);
+	void exitClassType(OperatorsParser.ClassTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#exclusiveOrExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#creator}.
 	 * @param ctx the parse tree
 	 */
-	void enterExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx);
+	void enterCreator(OperatorsParser.CreatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#exclusiveOrExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#creator}.
 	 * @param ctx the parse tree
 	 */
-	void exitExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx);
+	void exitCreator(OperatorsParser.CreatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#andExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#createdName}.
 	 * @param ctx the parse tree
 	 */
-	void enterAndExpression(OperatorsParser.AndExpressionContext ctx);
+	void enterCreatedName(OperatorsParser.CreatedNameContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#andExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#createdName}.
 	 * @param ctx the parse tree
 	 */
-	void exitAndExpression(OperatorsParser.AndExpressionContext ctx);
+	void exitCreatedName(OperatorsParser.CreatedNameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#equalityExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#innerCreator}.
 	 * @param ctx the parse tree
 	 */
-	void enterEqualityExpression(OperatorsParser.EqualityExpressionContext ctx);
+	void enterInnerCreator(OperatorsParser.InnerCreatorContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#equalityExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#innerCreator}.
 	 * @param ctx the parse tree
 	 */
-	void exitEqualityExpression(OperatorsParser.EqualityExpressionContext ctx);
+	void exitInnerCreator(OperatorsParser.InnerCreatorContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#instanceOfExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#arrayCreatorRest}.
 	 * @param ctx the parse tree
 	 */
-	void enterInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx);
+	void enterArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#instanceOfExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#arrayCreatorRest}.
 	 * @param ctx the parse tree
 	 */
-	void exitInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx);
+	void exitArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#relationalExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#classCreatorRest}.
 	 * @param ctx the parse tree
 	 */
-	void enterRelationalExpression(OperatorsParser.RelationalExpressionContext ctx);
+	void enterClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#relationalExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#classCreatorRest}.
 	 * @param ctx the parse tree
 	 */
-	void exitRelationalExpression(OperatorsParser.RelationalExpressionContext ctx);
+	void exitClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#shiftExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#explicitGenericInvocation}.
 	 * @param ctx the parse tree
 	 */
-	void enterShiftExpression(OperatorsParser.ShiftExpressionContext ctx);
+	void enterExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#shiftExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#explicitGenericInvocation}.
 	 * @param ctx the parse tree
 	 */
-	void exitShiftExpression(OperatorsParser.ShiftExpressionContext ctx);
+	void exitExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#additiveExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 */
-	void enterAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx);
+	void enterTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#additiveExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 */
-	void exitAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx);
+	void exitTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#multiplicativeExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#nonWildcardTypeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 */
-	void enterMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx);
+	void enterNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#multiplicativeExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#nonWildcardTypeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 */
-	void exitMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx);
+	void exitNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#unaryExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#nonWildcardTypeArguments}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnaryExpression(OperatorsParser.UnaryExpressionContext ctx);
+	void enterNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#unaryExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#nonWildcardTypeArguments}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnaryExpression(OperatorsParser.UnaryExpressionContext ctx);
+	void exitNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#unaryExpressionNotPlusMinus}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeList}.
 	 * @param ctx the parse tree
 	 */
-	void enterUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx);
+	void enterTypeList(OperatorsParser.TypeListContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#unaryExpressionNotPlusMinus}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeList}.
 	 * @param ctx the parse tree
 	 */
-	void exitUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx);
+	void exitTypeList(OperatorsParser.TypeListContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#postfixedExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeType}.
 	 * @param ctx the parse tree
 	 */
-	void enterPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx);
+	void enterTypeType(OperatorsParser.TypeTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#postfixedExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeType}.
 	 * @param ctx the parse tree
 	 */
-	void exitPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx);
+	void exitTypeType(OperatorsParser.TypeTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#primaryExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#primitiveType}.
 	 * @param ctx the parse tree
 	 */
-	void enterPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx);
+	void enterPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#primaryExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#primitiveType}.
 	 * @param ctx the parse tree
 	 */
-	void exitPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx);
+	void exitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#qualifiedIdentExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#typeArguments}.
 	 * @param ctx the parse tree
 	 */
-	void enterQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx);
+	void enterTypeArguments(OperatorsParser.TypeArgumentsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#qualifiedIdentExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#typeArguments}.
 	 * @param ctx the parse tree
 	 */
-	void exitQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx);
+	void exitTypeArguments(OperatorsParser.TypeArgumentsContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#newExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#superSuffix}.
 	 * @param ctx the parse tree
 	 */
-	void enterNewExpression(OperatorsParser.NewExpressionContext ctx);
+	void enterSuperSuffix(OperatorsParser.SuperSuffixContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#newExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#superSuffix}.
 	 * @param ctx the parse tree
 	 */
-	void exitNewExpression(OperatorsParser.NewExpressionContext ctx);
+	void exitSuperSuffix(OperatorsParser.SuperSuffixContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#innerNewExpression}.
+	 * Enter a parse tree produced by {@link OperatorsParser#explicitGenericInvocationSuffix}.
 	 * @param ctx the parse tree
 	 */
-	void enterInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx);
+	void enterExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#innerNewExpression}.
+	 * Exit a parse tree produced by {@link OperatorsParser#explicitGenericInvocationSuffix}.
 	 * @param ctx the parse tree
 	 */
-	void exitInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#newArrayConstruction}.
-	 * @param ctx the parse tree
-	 */
-	void enterNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#newArrayConstruction}.
-	 * @param ctx the parse tree
-	 */
-	void exitNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx);
+	void exitExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link OperatorsParser#arguments}.
 	 * @param ctx the parse tree
@@ -1167,14 +1117,4 @@ public interface OperatorsListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArguments(OperatorsParser.ArgumentsContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link OperatorsParser#literal}.
-	 * @param ctx the parse tree
-	 */
-	void enterLiteral(OperatorsParser.LiteralContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link OperatorsParser#literal}.
-	 * @param ctx the parse tree
-	 */
-	void exitLiteral(OperatorsParser.LiteralContext ctx);
 }

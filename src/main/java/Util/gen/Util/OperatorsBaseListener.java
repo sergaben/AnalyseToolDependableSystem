@@ -1,4 +1,4 @@
-// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/Util\Operators.g4 by ANTLR 4.7
+// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/main/java/Util\Operators.g4 by ANTLR 4.7
 package Util.gen.Util;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -16,18 +16,6 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterJavaSource(OperatorsParser.JavaSourceContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitJavaSource(OperatorsParser.JavaSourceContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -35,18 +23,6 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCompilationUnit(OperatorsParser.CompilationUnitContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTypeDecls(OperatorsParser.TypeDeclsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypeDecls(OperatorsParser.TypeDeclsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -88,145 +64,97 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx) { }
+	@Override public void enterModifier(OperatorsParser.ModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx) { }
+	@Override public void exitModifier(OperatorsParser.ModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx) { }
+	@Override public void enterClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx) { }
+	@Override public void exitClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx) { }
+	@Override public void enterVariableModifier(OperatorsParser.VariableModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx) { }
+	@Override public void exitVariableModifier(OperatorsParser.VariableModifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterImplementsClause(OperatorsParser.ImplementsClauseContext ctx) { }
+	@Override public void enterClassDeclaration(OperatorsParser.ClassDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitImplementsClause(OperatorsParser.ImplementsClauseContext ctx) { }
+	@Override public void exitClassDeclaration(OperatorsParser.ClassDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx) { }
+	@Override public void enterTypeParameters(OperatorsParser.TypeParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx) { }
+	@Override public void exitTypeParameters(OperatorsParser.TypeParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx) { }
+	@Override public void enterTypeParameter(OperatorsParser.TypeParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx) { }
+	@Override public void exitTypeParameter(OperatorsParser.TypeParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx) { }
+	@Override public void enterTypeBound(OperatorsParser.TypeBoundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx) { }
+	@Override public void exitTypeBound(OperatorsParser.TypeBoundContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterBound(OperatorsParser.BoundContext ctx) { }
+	@Override public void enterEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitBound(OperatorsParser.BoundContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterEnumBody(OperatorsParser.EnumBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitEnumBody(OperatorsParser.EnumBodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx) { }
+	@Override public void exitEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -256,25 +184,25 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx) { }
+	@Override public void enterEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx) { }
+	@Override public void exitEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTypeList(OperatorsParser.TypeListContext ctx) { }
+	@Override public void enterInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTypeList(OperatorsParser.TypeListContext ctx) { }
+	@Override public void exitInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -304,73 +232,217 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx) { }
+	@Override public void enterClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx) { }
+	@Override public void exitClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx) { }
+	@Override public void enterMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx) { }
+	@Override public void exitMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx) { }
+	@Override public void enterMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx) { }
+	@Override public void exitMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx) { }
+	@Override public void enterMethodBody(OperatorsParser.MethodBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx) { }
+	@Override public void exitMethodBody(OperatorsParser.MethodBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx) { }
+	@Override public void enterTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx) { }
+	@Override public void exitTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx) { }
+	@Override public void enterGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx) { }
+	@Override public void exitGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstDeclaration(OperatorsParser.ConstDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstDeclaration(OperatorsParser.ConstDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -400,30 +472,6 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterArrayInitializer(OperatorsParser.ArrayInitializerContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -436,241 +484,49 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterThrowsClause(OperatorsParser.ThrowsClauseContext ctx) { }
+	@Override public void enterClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitThrowsClause(OperatorsParser.ThrowsClauseContext ctx) { }
+	@Override public void exitClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModifierList(OperatorsParser.ModifierListContext ctx) { }
+	@Override public void enterTypeArgument(OperatorsParser.TypeArgumentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModifierList(OperatorsParser.ModifierListContext ctx) { }
+	@Override public void exitTypeArgument(OperatorsParser.TypeArgumentContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModifier(OperatorsParser.ModifierContext ctx) { }
+	@Override public void enterQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModifier(OperatorsParser.ModifierContext ctx) { }
+	@Override public void exitQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLocalModifierList(OperatorsParser.LocalModifierListContext ctx) { }
+	@Override public void enterFormalParameters(OperatorsParser.FormalParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLocalModifierList(OperatorsParser.LocalModifierListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLocalModifier(OperatorsParser.LocalModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLocalModifier(OperatorsParser.LocalModifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterType(OperatorsParser.TypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitType(OperatorsParser.TypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSimpleType(OperatorsParser.SimpleTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimpleType(OperatorsParser.SimpleTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterObjectType(OperatorsParser.ObjectTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitObjectType(OperatorsParser.ObjectTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTypeIdent(OperatorsParser.TypeIdentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypeIdent(OperatorsParser.TypeIdentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx) { }
+	@Override public void exitFormalParameters(OperatorsParser.FormalParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -688,49 +544,73 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx) { }
+	@Override public void enterFormalParameter(OperatorsParser.FormalParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx) { }
+	@Override public void exitFormalParameter(OperatorsParser.FormalParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx) { }
+	@Override public void enterLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx) { }
+	@Override public void exitLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx) { }
+	@Override public void enterQualifiedName(OperatorsParser.QualifiedNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx) { }
+	@Override public void exitQualifiedName(OperatorsParser.QualifiedNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationList(OperatorsParser.AnnotationListContext ctx) { }
+	@Override public void enterLiteral(OperatorsParser.LiteralContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationList(OperatorsParser.AnnotationListContext ctx) { }
+	@Override public void exitLiteral(OperatorsParser.LiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFloatLiteral(OperatorsParser.FloatLiteralContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFloatLiteral(OperatorsParser.FloatLiteralContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -748,73 +628,49 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationInit(OperatorsParser.AnnotationInitContext ctx) { }
+	@Override public void enterElementValuePairs(OperatorsParser.ElementValuePairsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationInit(OperatorsParser.AnnotationInitContext ctx) { }
+	@Override public void exitElementValuePairs(OperatorsParser.ElementValuePairsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx) { }
+	@Override public void enterElementValuePair(OperatorsParser.ElementValuePairContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx) { }
+	@Override public void exitElementValuePair(OperatorsParser.ElementValuePairContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx) { }
+	@Override public void enterElementValue(OperatorsParser.ElementValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx) { }
+	@Override public void exitElementValue(OperatorsParser.ElementValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx) { }
+	@Override public void enterElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx) { }
+	@Override public void exitElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -832,37 +688,85 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationBody(OperatorsParser.AnnotationBodyContext ctx) { }
+	@Override public void enterAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationBody(OperatorsParser.AnnotationBodyContext ctx) { }
+	@Override public void exitAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx) { }
+	@Override public void enterAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx) { }
+	@Override public void exitAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx) { }
+	@Override public void enterAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx) { }
+	@Override public void exitAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDefaultValue(OperatorsParser.DefaultValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDefaultValue(OperatorsParser.DefaultValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -904,6 +808,18 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStatement(OperatorsParser.StatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -916,85 +832,85 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIf_statement(OperatorsParser.If_statementContext ctx) { }
+	@Override public void enterDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitIf_statement(OperatorsParser.If_statementContext ctx) { }
+	@Override public void exitDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSwitch_statement(OperatorsParser.Switch_statementContext ctx) { }
+	@Override public void enterWhileStatement(OperatorsParser.WhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSwitch_statement(OperatorsParser.Switch_statementContext ctx) { }
+	@Override public void exitWhileStatement(OperatorsParser.WhileStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDo_while_statement(OperatorsParser.Do_while_statementContext ctx) { }
+	@Override public void enterForStatement(OperatorsParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDo_while_statement(OperatorsParser.Do_while_statementContext ctx) { }
+	@Override public void exitForStatement(OperatorsParser.ForStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhile_statement(OperatorsParser.While_statementContext ctx) { }
+	@Override public void enterIfStatement(OperatorsParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitWhile_statement(OperatorsParser.While_statementContext ctx) { }
+	@Override public void exitIfStatement(OperatorsParser.IfStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx) { }
+	@Override public void enterTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx) { }
+	@Override public void exitTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx) { }
+	@Override public void enterTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx) { }
+	@Override public void exitTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCatches(OperatorsParser.CatchesContext ctx) { }
+	@Override public void enterSwitchStatement(OperatorsParser.SwitchStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCatches(OperatorsParser.CatchesContext ctx) { }
+	@Override public void exitSwitchStatement(OperatorsParser.SwitchStatementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1012,61 +928,97 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFinallyClause(OperatorsParser.FinallyClauseContext ctx) { }
+	@Override public void enterCatchType(OperatorsParser.CatchTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFinallyClause(OperatorsParser.FinallyClauseContext ctx) { }
+	@Override public void exitCatchType(OperatorsParser.CatchTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx) { }
+	@Override public void enterFinallyBlock(OperatorsParser.FinallyBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx) { }
+	@Override public void exitFinallyBlock(OperatorsParser.FinallyBlockContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx) { }
+	@Override public void enterResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx) { }
+	@Override public void exitResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx) { }
+	@Override public void enterResources(OperatorsParser.ResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx) { }
+	@Override public void exitResources(OperatorsParser.ResourcesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx) { }
+	@Override public void enterResource(OperatorsParser.ResourceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx) { }
+	@Override public void exitResource(OperatorsParser.ResourceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSwitchLabel(OperatorsParser.SwitchLabelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSwitchLabel(OperatorsParser.SwitchLabelContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForControl(OperatorsParser.ForControlContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForControl(OperatorsParser.ForControlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1084,37 +1036,25 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForCondition(OperatorsParser.ForConditionContext ctx) { }
+	@Override public void enterEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForCondition(OperatorsParser.ForConditionContext ctx) { }
+	@Override public void exitEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterForUpdater(OperatorsParser.ForUpdaterContext ctx) { }
+	@Override public void enterParExpression(OperatorsParser.ParExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitForUpdater(OperatorsParser.ForUpdaterContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx) { }
+	@Override public void exitParExpression(OperatorsParser.ParExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1132,6 +1072,18 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMethodCall(OperatorsParser.MethodCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMethodCall(OperatorsParser.MethodCallContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExpression(OperatorsParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1144,253 +1096,241 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx) { }
+	@Override public void enterLambdaExpression(OperatorsParser.LambdaExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx) { }
+	@Override public void exitLambdaExpression(OperatorsParser.LambdaExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx) { }
+	@Override public void enterLambdaParameters(OperatorsParser.LambdaParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx) { }
+	@Override public void exitLambdaParameters(OperatorsParser.LambdaParametersContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx) { }
+	@Override public void enterLambdaBody(OperatorsParser.LambdaBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx) { }
+	@Override public void exitLambdaBody(OperatorsParser.LambdaBodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx) { }
+	@Override public void enterPrimary(OperatorsParser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx) { }
+	@Override public void exitPrimary(OperatorsParser.PrimaryContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx) { }
+	@Override public void enterClassType(OperatorsParser.ClassTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx) { }
+	@Override public void exitClassType(OperatorsParser.ClassTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx) { }
+	@Override public void enterCreator(OperatorsParser.CreatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx) { }
+	@Override public void exitCreator(OperatorsParser.CreatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAndExpression(OperatorsParser.AndExpressionContext ctx) { }
+	@Override public void enterCreatedName(OperatorsParser.CreatedNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAndExpression(OperatorsParser.AndExpressionContext ctx) { }
+	@Override public void exitCreatedName(OperatorsParser.CreatedNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEqualityExpression(OperatorsParser.EqualityExpressionContext ctx) { }
+	@Override public void enterInnerCreator(OperatorsParser.InnerCreatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEqualityExpression(OperatorsParser.EqualityExpressionContext ctx) { }
+	@Override public void exitInnerCreator(OperatorsParser.InnerCreatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx) { }
+	@Override public void enterArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx) { }
+	@Override public void exitArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRelationalExpression(OperatorsParser.RelationalExpressionContext ctx) { }
+	@Override public void enterClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRelationalExpression(OperatorsParser.RelationalExpressionContext ctx) { }
+	@Override public void exitClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterShiftExpression(OperatorsParser.ShiftExpressionContext ctx) { }
+	@Override public void enterExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitShiftExpression(OperatorsParser.ShiftExpressionContext ctx) { }
+	@Override public void exitExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx) { }
+	@Override public void enterTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx) { }
+	@Override public void exitTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx) { }
+	@Override public void enterNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx) { }
+	@Override public void exitNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnaryExpression(OperatorsParser.UnaryExpressionContext ctx) { }
+	@Override public void enterNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnaryExpression(OperatorsParser.UnaryExpressionContext ctx) { }
+	@Override public void exitNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx) { }
+	@Override public void enterTypeList(OperatorsParser.TypeListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx) { }
+	@Override public void exitTypeList(OperatorsParser.TypeListContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx) { }
+	@Override public void enterTypeType(OperatorsParser.TypeTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx) { }
+	@Override public void exitTypeType(OperatorsParser.TypeTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx) { }
+	@Override public void enterPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx) { }
+	@Override public void exitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx) { }
+	@Override public void enterTypeArguments(OperatorsParser.TypeArgumentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx) { }
+	@Override public void exitTypeArguments(OperatorsParser.TypeArgumentsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNewExpression(OperatorsParser.NewExpressionContext ctx) { }
+	@Override public void enterSuperSuffix(OperatorsParser.SuperSuffixContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNewExpression(OperatorsParser.NewExpressionContext ctx) { }
+	@Override public void exitSuperSuffix(OperatorsParser.SuperSuffixContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx) { }
+	@Override public void enterExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx) { }
+	@Override public void exitExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1403,18 +1343,6 @@ public class OperatorsBaseListener implements OperatorsListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitArguments(OperatorsParser.ArgumentsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLiteral(OperatorsParser.LiteralContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLiteral(OperatorsParser.LiteralContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

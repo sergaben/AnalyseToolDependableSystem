@@ -30,14 +30,14 @@ public class ResultsController implements Initializable {
     public void setFile(AnalysedFile file) {
         this.file = file;
         this.lines.setText(String.valueOf(file.getLines()));
-        this.comments.setText(String.valueOf(file.getComments()));
+        this.comments.setText(String.valueOf(file.getTotalNoOfComments()));
     }
 
     public void switchScene()
     {
 
-        FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("../../resources/View/Upload.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
         Parent root;
         try
         {

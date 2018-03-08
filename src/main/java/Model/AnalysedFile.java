@@ -6,7 +6,10 @@ public class AnalysedFile {
 
     private String name;
     private int lines;
-    private int comments;
+    private int noOfClasses;
+    private int singleLineComments;
+    private int multilineComments;
+    private int totalNoOfComments;
     private int methods;
     private int halstead_comp;
     private int cyclomatic_comp;
@@ -17,9 +20,12 @@ public class AnalysedFile {
 
     }
     /*fafsafsdf*/
-    public AnalysedFile(int lines, int comments, int methods, int halstead_comp, int cyclomatic_comp, int code_quality) {
+    public AnalysedFile(int lines,int noOfClasses, int singleLineComments,int multilineComments,int totalNoOfComments, int methods, int halstead_comp, int cyclomatic_comp, int code_quality) {
         this.lines = lines;
-        this.comments = comments;
+        this.noOfClasses = noOfClasses;
+        this.singleLineComments = singleLineComments;
+        this.multilineComments = multilineComments;
+        this.totalNoOfComments = totalNoOfComments;
         this.methods = methods;
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
@@ -42,12 +48,32 @@ public class AnalysedFile {
         this.lines = lines;
     }
 
-    public int getComments() {
-        return comments;
+    public int getNoOfClasses() { return noOfClasses; }
+
+    public void setNoOfClasses(int noOfClasses) { this.noOfClasses = noOfClasses; }
+
+    public int getSingleLineComments() {
+        return singleLineComments;
     }
 
-    public void setComments(int comments) {
-        this.comments = comments;
+    public void setSingleLineComments(int singleLineComments) {
+        this.singleLineComments = singleLineComments;
+    }
+
+    public int getMultilineComments() {
+        return multilineComments;
+    }
+
+    public void setMultilineComments(int multilineComments) {
+        this.multilineComments = multilineComments;
+    }
+
+    public int getTotalNoOfComments() {
+        return totalNoOfComments;
+    }
+
+    public void setTotalNoOfComments(int totalNoOfComments) {
+        this.totalNoOfComments = totalNoOfComments;
     }
 
     public int getMethods() {

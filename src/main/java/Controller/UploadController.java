@@ -1,6 +1,8 @@
 package Controller;
 
+import Iteration1.Counter3;
 import Model.AnalysedFile;
+import Model.InitializeAnalysis;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +16,8 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -38,6 +42,10 @@ public class UploadController implements Initializable {
 
     private Scanner scanner;
 
+    private InitializeAnalysis initializeAnalysis;
+
+    private AnalysedFile analysedFile = new AnalysedFile();
+
     @FXML
     private void chooseFile(ActionEvent event) throws Exception {
         FileChooser fc = new FileChooser();
@@ -45,12 +53,12 @@ public class UploadController implements Initializable {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JAVA files (*.java)", "*.java");
         fc.getExtensionFilters().add(extFilter);
         uploaded_file = fc.showOpenDialog(new Stage());
-        if(uploaded_file != null) {
-            filepath_input.setText(uploaded_file.getPath());
-
-            TPane.disableProperty().setValue(true);
-            TPane.expandedProperty().setValue(false);
-        }
+//        if(uploaded_file != null) {
+//            filepath_input.setText(uploaded_file.getPath());
+//
+//            TPane.disableProperty().setValue(true);
+//            TPane.expandedProperty().setValue(false);
+//        }
     }
 
     @FXML
@@ -62,8 +70,12 @@ public class UploadController implements Initializable {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
+
                     // count lines and comments
 
+//                    String runSingleLineMethods = "something";
+//                    Counter3 counter3 = new Counter3(uploaded_file);
+//                    counter3.runSingleLineMethods();
                     // count methods
 
                     // halstead complexity
@@ -71,7 +83,7 @@ public class UploadController implements Initializable {
                     // cyclomatic complexity
                     // comment quality
 
-                    switchScene(analyse());
+                    //switchScene(analyse());
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
@@ -87,9 +99,19 @@ public class UploadController implements Initializable {
     }
 
     private AnalysedFile analyse() {
-        AnalysedFile aFile = new AnalysedFile();
+//        AnalysedFile aFile = new AnalysedFile();
         try {
-
+//            Path path = Paths.get("testFileForANTLR.java");
+//            File file = new File(path.toAbsolutePath().toString());
+            initializeAnalysis = new InitializeAnalysis();
+//            System.out.println("fasfadsfasfsafsdafsadfs");
+            initializeAnalysis.startAnalyserFile(analysedFile,uploaded_file);
+//            System.out.println(analysedFile.getSingleLineComments());
+//            System.out.println(analysedFile.getMultilineComments());
+//            System.out.println(analysedFile.getTotalNoOfComments());
+//            System.out.println(analysedFile.getLines());
+//            System.out.println(analysedFile.getNoOfClasses());
+//            System.out.println(analysedFile.getMethods());
 
 //            Counter counterClass = new Counter(uploaded_file);
 //            int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
@@ -106,7 +128,7 @@ public class UploadController implements Initializable {
         } finally {
 
         }
-        return aFile;
+        return analysedFile;
     }
 
     @FXML
@@ -137,8 +159,8 @@ public class UploadController implements Initializable {
     {
 
 
-        FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("../../resources/View/Results.fxml"));
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
         Parent root;
         try
         {
@@ -161,46 +183,42 @@ public class UploadController implements Initializable {
 
     }
 
-//    @FXML
-//    private void newMenu() {
-//            System.out.println();
-//    }
+    @FXML
+    private void newMenu() {
+            System.out.println();
+    }
 
-    // open saved file
-    // parse json data to AnalysedFile object
-    // pass to results page
+//     open saved file
+//     parse json data to AnalysedFile object
+//     pass to results page
 
-//    @FXML
-//    private void open(){
-//        FileChooser fc = new FileChooser();
-//        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-//        fc.getExtensionFilters().add(extFilter);
-//        File openFile = fc.showOpenDialog(new Stage());
-//
-//        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
-//        switchScene(a);
-//    }
+    @FXML
+    private void open(){
+        FileChooser fc = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File openFile = fc.showOpenDialog(new Stage());
 
-    // save analysis
-    // choose the file
-    // export AnalysedFile to json/csv/xml
-    // save to user destination
+        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
+        switchScene(a);
+    }
 
-//    @FXML
-//    private void save(){
-//        FileChooser fc = new FileChooser();
-//
-//        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-//        fc.getExtensionFilters().add(extFilter);
-//        File savedFile = fc.showOpenDialog(new Stage());
-//        if(savedFile != null) {
-//            AnalysedFile a = new AnalysedFile();
-//            a.exportToJSON(savedFile);
-//        }
-//    }
+//     save analysis
+//     choose the file
+//     export AnalysedFile to json/csv/xml
+//     save to user destination
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//
-//    }
+    @FXML
+    private void save(){
+        FileChooser fc = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File savedFile = fc.showOpenDialog(new Stage());
+        if(savedFile != null) {
+            AnalysedFile a = new AnalysedFile();
+            a.exportToJSON(savedFile);
+        }
+    }
+
 }

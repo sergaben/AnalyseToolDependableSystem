@@ -1,4 +1,4 @@
-// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/Util\Operators.g4 by ANTLR 4.7
+// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/main/java/Util\Operators.g4 by ANTLR 4.7
 package Util.gen.Util;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -17,21 +17,7 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitJavaSource(OperatorsParser.JavaSourceContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitCompilationUnit(OperatorsParser.CompilationUnitContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitTypeDecls(OperatorsParser.TypeDeclsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -59,84 +45,56 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitModifier(OperatorsParser.ModifierContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariableModifier(OperatorsParser.VariableModifierContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitImplementsClause(OperatorsParser.ImplementsClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassDeclaration(OperatorsParser.ClassDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeParameters(OperatorsParser.TypeParametersContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeParameter(OperatorsParser.TypeParameterContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeBound(OperatorsParser.TypeBoundContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitBound(OperatorsParser.BoundContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEnumBody(OperatorsParser.EnumBodyContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -157,14 +115,14 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTypeList(OperatorsParser.TypeListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -185,42 +143,126 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMethodBody(OperatorsParser.MethodBodyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx) { return visitChildren(ctx); }
+	@Override public T visitGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitConstDeclaration(OperatorsParser.ConstDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -241,20 +283,6 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitArrayInitializer(OperatorsParser.ArrayInitializerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -262,140 +290,28 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitThrowsClause(OperatorsParser.ThrowsClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitModifierList(OperatorsParser.ModifierListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeArgument(OperatorsParser.TypeArgumentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitModifier(OperatorsParser.ModifierContext ctx) { return visitChildren(ctx); }
+	@Override public T visitQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLocalModifierList(OperatorsParser.LocalModifierListContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitLocalModifier(OperatorsParser.LocalModifierContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitType(OperatorsParser.TypeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSimpleType(OperatorsParser.SimpleTypeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitObjectType(OperatorsParser.ObjectTypeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitTypeIdent(OperatorsParser.TypeIdentContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFormalParameters(OperatorsParser.FormalParametersContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -409,28 +325,42 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFormalParameter(OperatorsParser.FormalParameterContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx) { return visitChildren(ctx); }
+	@Override public T visitQualifiedName(OperatorsParser.QualifiedNameContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationList(OperatorsParser.AnnotationListContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLiteral(OperatorsParser.LiteralContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitFloatLiteral(OperatorsParser.FloatLiteralContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -444,42 +374,28 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationInit(OperatorsParser.AnnotationInitContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElementValuePairs(OperatorsParser.ElementValuePairsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElementValuePair(OperatorsParser.ElementValuePairContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElementValue(OperatorsParser.ElementValueContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx) { return visitChildren(ctx); }
+	@Override public T visitElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -493,21 +409,49 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationBody(OperatorsParser.AnnotationBodyContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitDefaultValue(OperatorsParser.DefaultValueContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -535,6 +479,13 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitStatement(OperatorsParser.StatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -542,49 +493,49 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIf_statement(OperatorsParser.If_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSwitch_statement(OperatorsParser.Switch_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitWhileStatement(OperatorsParser.WhileStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDo_while_statement(OperatorsParser.Do_while_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitForStatement(OperatorsParser.ForStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitWhile_statement(OperatorsParser.While_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIfStatement(OperatorsParser.IfStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCatches(OperatorsParser.CatchesContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSwitchStatement(OperatorsParser.SwitchStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -598,35 +549,56 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFinallyClause(OperatorsParser.FinallyClauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCatchType(OperatorsParser.CatchTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFinallyBlock(OperatorsParser.FinallyBlockContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx) { return visitChildren(ctx); }
+	@Override public T visitResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitResources(OperatorsParser.ResourcesContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitResource(OperatorsParser.ResourceContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitSwitchLabel(OperatorsParser.SwitchLabelContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitForControl(OperatorsParser.ForControlContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -640,21 +612,14 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitForCondition(OperatorsParser.ForConditionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitForUpdater(OperatorsParser.ForUpdaterContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParExpression(OperatorsParser.ParExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -668,6 +633,13 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitMethodCall(OperatorsParser.MethodCallContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitExpression(OperatorsParser.ExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -675,147 +647,140 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLambdaExpression(OperatorsParser.LambdaExpressionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLambdaParameters(OperatorsParser.LambdaParametersContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitLambdaBody(OperatorsParser.LambdaBodyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimary(OperatorsParser.PrimaryContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassType(OperatorsParser.ClassTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCreator(OperatorsParser.CreatorContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAndExpression(OperatorsParser.AndExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitCreatedName(OperatorsParser.CreatedNameContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitEqualityExpression(OperatorsParser.EqualityExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitInnerCreator(OperatorsParser.InnerCreatorContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitRelationalExpression(OperatorsParser.RelationalExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitShiftExpression(OperatorsParser.ShiftExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUnaryExpression(OperatorsParser.UnaryExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeList(OperatorsParser.TypeListContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeType(OperatorsParser.TypeTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTypeArguments(OperatorsParser.TypeArgumentsContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNewExpression(OperatorsParser.NewExpressionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSuperSuffix(OperatorsParser.SuperSuffixContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -823,11 +788,4 @@ public class OperatorsBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitArguments(OperatorsParser.ArgumentsContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitLiteral(OperatorsParser.LiteralContext ctx) { return visitChildren(ctx); }
 }

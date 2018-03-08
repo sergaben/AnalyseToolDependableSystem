@@ -1,4 +1,4 @@
-// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/Util\Operators.g4 by ANTLR 4.7
+// Generated from D:/Windows Desktop/Stuff/University Stuff/Year 3/Dependable Systems/Coursework - CV/analysisToolCoursework/AnalyseToolDependableSystem/src/main/java/Util\Operators.g4 by ANTLR 4.7
 package Util.gen.Util;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -11,23 +11,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#javaSource}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitJavaSource(OperatorsParser.JavaSourceContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#compilationUnit}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCompilationUnit(OperatorsParser.CompilationUnitContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#typeDecls}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeDecls(OperatorsParser.TypeDeclsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#packageDeclaration}.
 	 * @param ctx the parse tree
@@ -47,77 +35,53 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeDeclaration(OperatorsParser.TypeDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#classTypeDeclaration}.
+	 * Visit a parse tree produced by {@link OperatorsParser#modifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassTypeDeclaration(OperatorsParser.ClassTypeDeclarationContext ctx);
+	T visitModifier(OperatorsParser.ModifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#classExtendsClause}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classOrInterfaceModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassExtendsClause(OperatorsParser.ClassExtendsClauseContext ctx);
+	T visitClassOrInterfaceModifier(OperatorsParser.ClassOrInterfaceModifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#interfaceExtendsClause}.
+	 * Visit a parse tree produced by {@link OperatorsParser#variableModifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceExtendsClause(OperatorsParser.InterfaceExtendsClauseContext ctx);
+	T visitVariableModifier(OperatorsParser.VariableModifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#implementsClause}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitImplementsClause(OperatorsParser.ImplementsClauseContext ctx);
+	T visitClassDeclaration(OperatorsParser.ClassDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeParameterList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeParameters}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGenericTypeParameterList(OperatorsParser.GenericTypeParameterListContext ctx);
+	T visitTypeParameters(OperatorsParser.TypeParametersContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeListClosing}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeParameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGenericTypeListClosing(OperatorsParser.GenericTypeListClosingContext ctx);
+	T visitTypeParameter(OperatorsParser.TypeParameterContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeParameter}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeBound}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitGenericTypeParameter(OperatorsParser.GenericTypeParameterContext ctx);
+	T visitTypeBound(OperatorsParser.TypeBoundContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#bound}.
+	 * Visit a parse tree produced by {@link OperatorsParser#enumDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBound(OperatorsParser.BoundContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#enumTypeDeclaration}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumTypeDeclaration(OperatorsParser.EnumTypeDeclarationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#enumBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumBody(OperatorsParser.EnumBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#enumScopeDeclarations}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumScopeDeclarations(OperatorsParser.EnumScopeDeclarationsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#enumClassScopeDeclarations}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEnumClassScopeDeclarations(OperatorsParser.EnumClassScopeDeclarationsContext ctx);
+	T visitEnumDeclaration(OperatorsParser.EnumDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#enumConstants}.
 	 * @param ctx the parse tree
@@ -131,17 +95,17 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitEnumConstant(OperatorsParser.EnumConstantContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#interfaceTypeDeclaration}.
+	 * Visit a parse tree produced by {@link OperatorsParser#enumBodyDeclarations}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceTypeDeclaration(OperatorsParser.InterfaceTypeDeclarationContext ctx);
+	T visitEnumBodyDeclarations(OperatorsParser.EnumBodyDeclarationsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#typeList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#interfaceDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTypeList(OperatorsParser.TypeListContext ctx);
+	T visitInterfaceDeclaration(OperatorsParser.InterfaceDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#classBody}.
 	 * @param ctx the parse tree
@@ -155,41 +119,113 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitInterfaceBody(OperatorsParser.InterfaceBodyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#classScopeDeclarations}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classBodyDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassScopeDeclarations(OperatorsParser.ClassScopeDeclarationsContext ctx);
+	T visitClassBodyDeclaration(OperatorsParser.ClassBodyDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#interfaceScopeDeclarations}.
+	 * Visit a parse tree produced by {@link OperatorsParser#memberDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceScopeDeclarations(OperatorsParser.InterfaceScopeDeclarationsContext ctx);
+	T visitMemberDeclaration(OperatorsParser.MemberDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#classFieldDeclaratorList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#methodDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassFieldDeclaratorList(OperatorsParser.ClassFieldDeclaratorListContext ctx);
+	T visitMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#classFieldDeclarator}.
+	 * Visit a parse tree produced by {@link OperatorsParser#methodBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitClassFieldDeclarator(OperatorsParser.ClassFieldDeclaratorContext ctx);
+	T visitMethodBody(OperatorsParser.MethodBodyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#interfaceFieldDeclaratorList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeTypeOrVoid}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceFieldDeclaratorList(OperatorsParser.InterfaceFieldDeclaratorListContext ctx);
+	T visitTypeTypeOrVoid(OperatorsParser.TypeTypeOrVoidContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#interfaceFieldDeclarator}.
+	 * Visit a parse tree produced by {@link OperatorsParser#genericMethodDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInterfaceFieldDeclarator(OperatorsParser.InterfaceFieldDeclaratorContext ctx);
+	T visitGenericMethodDeclaration(OperatorsParser.GenericMethodDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#genericConstructorDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGenericConstructorDeclaration(OperatorsParser.GenericConstructorDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#constructorDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstructorDeclaration(OperatorsParser.ConstructorDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#fieldDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFieldDeclaration(OperatorsParser.FieldDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#interfaceBodyDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceBodyDeclaration(OperatorsParser.InterfaceBodyDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#interfaceMemberDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMemberDeclaration(OperatorsParser.InterfaceMemberDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#constDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstDeclaration(OperatorsParser.ConstDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#constantDeclarator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstantDeclarator(OperatorsParser.ConstantDeclaratorContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#interfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMethodDeclaration(OperatorsParser.InterfaceMethodDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#interfaceMethodModifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInterfaceMethodModifier(OperatorsParser.InterfaceMethodModifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#genericInterfaceMethodDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGenericInterfaceMethodDeclaration(OperatorsParser.GenericInterfaceMethodDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#variableDeclarators}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarators(OperatorsParser.VariableDeclaratorsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#variableDeclarator}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariableDeclarator(OperatorsParser.VariableDeclaratorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#variableDeclaratorId}.
 	 * @param ctx the parse tree
@@ -203,143 +239,35 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariableInitializer(OperatorsParser.VariableInitializerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#arrayDeclarator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArrayDeclarator(OperatorsParser.ArrayDeclaratorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#arrayDeclaratorList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitArrayDeclaratorList(OperatorsParser.ArrayDeclaratorListContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#arrayInitializer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArrayInitializer(OperatorsParser.ArrayInitializerContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#throwsClause}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classOrInterfaceType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitThrowsClause(OperatorsParser.ThrowsClauseContext ctx);
+	T visitClassOrInterfaceType(OperatorsParser.ClassOrInterfaceTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#modifierList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeArgument}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModifierList(OperatorsParser.ModifierListContext ctx);
+	T visitTypeArgument(OperatorsParser.TypeArgumentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#modifier}.
+	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedNameList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModifier(OperatorsParser.ModifierContext ctx);
+	T visitQualifiedNameList(OperatorsParser.QualifiedNameListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#localModifierList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#formalParameters}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLocalModifierList(OperatorsParser.LocalModifierListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#localModifier}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLocalModifier(OperatorsParser.LocalModifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#type}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitType(OperatorsParser.TypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#simpleType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSimpleType(OperatorsParser.SimpleTypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#objectType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitObjectType(OperatorsParser.ObjectTypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#objectTypeSimplified}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitObjectTypeSimplified(OperatorsParser.ObjectTypeSimplifiedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedTypeIdent}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitQualifiedTypeIdent(OperatorsParser.QualifiedTypeIdentContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedTypeIdentSimplified}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitQualifiedTypeIdentSimplified(OperatorsParser.QualifiedTypeIdentSimplifiedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#typeIdent}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeIdent(OperatorsParser.TypeIdentContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#typeIdentSimplified}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTypeIdentSimplified(OperatorsParser.TypeIdentSimplifiedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#primitiveType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeArgumentList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGenericTypeArgumentList(OperatorsParser.GenericTypeArgumentListContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeArgument}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGenericTypeArgument(OperatorsParser.GenericTypeArgumentContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericWildcardBoundType}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGenericWildcardBoundType(OperatorsParser.GenericWildcardBoundTypeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeArgumentListSimplified}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGenericTypeArgumentListSimplified(OperatorsParser.GenericTypeArgumentListSimplifiedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#genericTypeArgumentSimplified}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGenericTypeArgumentSimplified(OperatorsParser.GenericTypeArgumentSimplifiedContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedIdentList}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitQualifiedIdentList(OperatorsParser.QualifiedIdentListContext ctx);
+	T visitFormalParameters(OperatorsParser.FormalParametersContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#formalParameterList}.
 	 * @param ctx the parse tree
@@ -347,29 +275,41 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFormalParameterList(OperatorsParser.FormalParameterListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#formalParameterStandardDecl}.
+	 * Visit a parse tree produced by {@link OperatorsParser#formalParameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFormalParameterStandardDecl(OperatorsParser.FormalParameterStandardDeclContext ctx);
+	T visitFormalParameter(OperatorsParser.FormalParameterContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#formalParameterVarArgDecl}.
+	 * Visit a parse tree produced by {@link OperatorsParser#lastFormalParameter}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFormalParameterVarArgDecl(OperatorsParser.FormalParameterVarArgDeclContext ctx);
+	T visitLastFormalParameter(OperatorsParser.LastFormalParameterContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedIdentifier}.
+	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitQualifiedIdentifier(OperatorsParser.QualifiedIdentifierContext ctx);
+	T visitQualifiedName(OperatorsParser.QualifiedNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationList}.
+	 * Visit a parse tree produced by {@link OperatorsParser#literal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationList(OperatorsParser.AnnotationListContext ctx);
+	T visitLiteral(OperatorsParser.LiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#integerLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIntegerLiteral(OperatorsParser.IntegerLiteralContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#floatLiteral}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFloatLiteral(OperatorsParser.FloatLiteralContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#annotation}.
 	 * @param ctx the parse tree
@@ -377,41 +317,29 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAnnotation(OperatorsParser.AnnotationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationInit}.
+	 * Visit a parse tree produced by {@link OperatorsParser#elementValuePairs}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationInit(OperatorsParser.AnnotationInitContext ctx);
+	T visitElementValuePairs(OperatorsParser.ElementValuePairsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationInitializers}.
+	 * Visit a parse tree produced by {@link OperatorsParser#elementValuePair}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationInitializers(OperatorsParser.AnnotationInitializersContext ctx);
+	T visitElementValuePair(OperatorsParser.ElementValuePairContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationInitializer}.
+	 * Visit a parse tree produced by {@link OperatorsParser#elementValue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationInitializer(OperatorsParser.AnnotationInitializerContext ctx);
+	T visitElementValue(OperatorsParser.ElementValueContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationElementValue}.
+	 * Visit a parse tree produced by {@link OperatorsParser#elementValueArrayInitializer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationElementValue(OperatorsParser.AnnotationElementValueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationElementValueExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationElementValueExpression(OperatorsParser.AnnotationElementValueExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationElementValueArrayInitializer}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAnnotationElementValueArrayInitializer(OperatorsParser.AnnotationElementValueArrayInitializerContext ctx);
+	T visitElementValueArrayInitializer(OperatorsParser.ElementValueArrayInitializerContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#annotationTypeDeclaration}.
 	 * @param ctx the parse tree
@@ -419,23 +347,47 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAnnotationTypeDeclaration(OperatorsParser.AnnotationTypeDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationBody}.
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationTypeBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationBody(OperatorsParser.AnnotationBodyContext ctx);
+	T visitAnnotationTypeBody(OperatorsParser.AnnotationTypeBodyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationScopeDeclarations}.
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationTypeElementDeclaration}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationScopeDeclarations(OperatorsParser.AnnotationScopeDeclarationsContext ctx);
+	T visitAnnotationTypeElementDeclaration(OperatorsParser.AnnotationTypeElementDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#annotationDefaultValue}.
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationTypeElementRest}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAnnotationDefaultValue(OperatorsParser.AnnotationDefaultValueContext ctx);
+	T visitAnnotationTypeElementRest(OperatorsParser.AnnotationTypeElementRestContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationMethodOrConstantRest}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationMethodOrConstantRest(OperatorsParser.AnnotationMethodOrConstantRestContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationMethodRest}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationMethodRest(OperatorsParser.AnnotationMethodRestContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#annotationConstantRest}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAnnotationConstantRest(OperatorsParser.AnnotationConstantRestContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#defaultValue}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDefaultValue(OperatorsParser.DefaultValueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#block}.
 	 * @param ctx the parse tree
@@ -455,53 +407,59 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLocalVariableDeclaration(OperatorsParser.LocalVariableDeclarationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#localTypeDeclaration}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLocalTypeDeclaration(OperatorsParser.LocalTypeDeclarationContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitStatement(OperatorsParser.StatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#if_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#doWhileStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIf_statement(OperatorsParser.If_statementContext ctx);
+	T visitDoWhileStatement(OperatorsParser.DoWhileStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#switch_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#whileStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSwitch_statement(OperatorsParser.Switch_statementContext ctx);
+	T visitWhileStatement(OperatorsParser.WhileStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#do_while_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#forStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitDo_while_statement(OperatorsParser.Do_while_statementContext ctx);
+	T visitForStatement(OperatorsParser.ForStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#while_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#ifStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitWhile_statement(OperatorsParser.While_statementContext ctx);
+	T visitIfStatement(OperatorsParser.IfStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#forEachLoop_forLoop_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#tryStatementNoResources}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForEachLoop_forLoop_statement(OperatorsParser.ForEachLoop_forLoop_statementContext ctx);
+	T visitTryStatementNoResources(OperatorsParser.TryStatementNoResourcesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#try_catch_finally_statement}.
+	 * Visit a parse tree produced by {@link OperatorsParser#tryStatementWithResources}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTry_catch_finally_statement(OperatorsParser.Try_catch_finally_statementContext ctx);
+	T visitTryStatementWithResources(OperatorsParser.TryStatementWithResourcesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#catches}.
+	 * Visit a parse tree produced by {@link OperatorsParser#switchStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCatches(OperatorsParser.CatchesContext ctx);
+	T visitSwitchStatement(OperatorsParser.SwitchStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#catchClause}.
 	 * @param ctx the parse tree
@@ -509,35 +467,53 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCatchClause(OperatorsParser.CatchClauseContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#finallyClause}.
+	 * Visit a parse tree produced by {@link OperatorsParser#catchType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFinallyClause(OperatorsParser.FinallyClauseContext ctx);
+	T visitCatchType(OperatorsParser.CatchTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#switchBlockLabels}.
+	 * Visit a parse tree produced by {@link OperatorsParser#finallyBlock}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSwitchBlockLabels(OperatorsParser.SwitchBlockLabelsContext ctx);
+	T visitFinallyBlock(OperatorsParser.FinallyBlockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#switchCaseLabels}.
+	 * Visit a parse tree produced by {@link OperatorsParser#resourceSpecification}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSwitchCaseLabels(OperatorsParser.SwitchCaseLabelsContext ctx);
+	T visitResourceSpecification(OperatorsParser.ResourceSpecificationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#switchCaseLabel}.
+	 * Visit a parse tree produced by {@link OperatorsParser#resources}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSwitchCaseLabel(OperatorsParser.SwitchCaseLabelContext ctx);
+	T visitResources(OperatorsParser.ResourcesContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#switchDefaultLabel}.
+	 * Visit a parse tree produced by {@link OperatorsParser#resource}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSwitchDefaultLabel(OperatorsParser.SwitchDefaultLabelContext ctx);
+	T visitResource(OperatorsParser.ResourceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#switchBlockStatementGroup}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSwitchBlockStatementGroup(OperatorsParser.SwitchBlockStatementGroupContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#switchLabel}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSwitchLabel(OperatorsParser.SwitchLabelContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#forControl}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForControl(OperatorsParser.ForControlContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#forInit}.
 	 * @param ctx the parse tree
@@ -545,23 +521,17 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForInit(OperatorsParser.ForInitContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#forCondition}.
+	 * Visit a parse tree produced by {@link OperatorsParser#enhancedForControl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForCondition(OperatorsParser.ForConditionContext ctx);
+	T visitEnhancedForControl(OperatorsParser.EnhancedForControlContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#forUpdater}.
+	 * Visit a parse tree produced by {@link OperatorsParser#parExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitForUpdater(OperatorsParser.ForUpdaterContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#parenthesizedExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitParenthesizedExpression(OperatorsParser.ParenthesizedExpressionContext ctx);
+	T visitParExpression(OperatorsParser.ParExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#expressionList}.
 	 * @param ctx the parse tree
@@ -569,147 +539,141 @@ public interface OperatorsVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpressionList(OperatorsParser.ExpressionListContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link OperatorsParser#methodCall}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMethodCall(OperatorsParser.MethodCallContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitExpression(OperatorsParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#assignmentExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#lambdaExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssignmentExpression(OperatorsParser.AssignmentExpressionContext ctx);
+	T visitLambdaExpression(OperatorsParser.LambdaExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#conditionalExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#lambdaParameters}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitConditionalExpression(OperatorsParser.ConditionalExpressionContext ctx);
+	T visitLambdaParameters(OperatorsParser.LambdaParametersContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#logicalOrExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#lambdaBody}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLogicalOrExpression(OperatorsParser.LogicalOrExpressionContext ctx);
+	T visitLambdaBody(OperatorsParser.LambdaBodyContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#logicalAndExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#primary}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLogicalAndExpression(OperatorsParser.LogicalAndExpressionContext ctx);
+	T visitPrimary(OperatorsParser.PrimaryContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#inclusiveOrExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInclusiveOrExpression(OperatorsParser.InclusiveOrExpressionContext ctx);
+	T visitClassType(OperatorsParser.ClassTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#exclusiveOrExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#creator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitExclusiveOrExpression(OperatorsParser.ExclusiveOrExpressionContext ctx);
+	T visitCreator(OperatorsParser.CreatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#andExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#createdName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAndExpression(OperatorsParser.AndExpressionContext ctx);
+	T visitCreatedName(OperatorsParser.CreatedNameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#equalityExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#innerCreator}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitEqualityExpression(OperatorsParser.EqualityExpressionContext ctx);
+	T visitInnerCreator(OperatorsParser.InnerCreatorContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#instanceOfExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#arrayCreatorRest}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInstanceOfExpression(OperatorsParser.InstanceOfExpressionContext ctx);
+	T visitArrayCreatorRest(OperatorsParser.ArrayCreatorRestContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#relationalExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#classCreatorRest}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitRelationalExpression(OperatorsParser.RelationalExpressionContext ctx);
+	T visitClassCreatorRest(OperatorsParser.ClassCreatorRestContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#shiftExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#explicitGenericInvocation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitShiftExpression(OperatorsParser.ShiftExpressionContext ctx);
+	T visitExplicitGenericInvocation(OperatorsParser.ExplicitGenericInvocationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#additiveExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAdditiveExpression(OperatorsParser.AdditiveExpressionContext ctx);
+	T visitTypeArgumentsOrDiamond(OperatorsParser.TypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#multiplicativeExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#nonWildcardTypeArgumentsOrDiamond}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMultiplicativeExpression(OperatorsParser.MultiplicativeExpressionContext ctx);
+	T visitNonWildcardTypeArgumentsOrDiamond(OperatorsParser.NonWildcardTypeArgumentsOrDiamondContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#unaryExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#nonWildcardTypeArguments}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnaryExpression(OperatorsParser.UnaryExpressionContext ctx);
+	T visitNonWildcardTypeArguments(OperatorsParser.NonWildcardTypeArgumentsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#unaryExpressionNotPlusMinus}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitUnaryExpressionNotPlusMinus(OperatorsParser.UnaryExpressionNotPlusMinusContext ctx);
+	T visitTypeList(OperatorsParser.TypeListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#postfixedExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPostfixedExpression(OperatorsParser.PostfixedExpressionContext ctx);
+	T visitTypeType(OperatorsParser.TypeTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#primaryExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#primitiveType}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrimaryExpression(OperatorsParser.PrimaryExpressionContext ctx);
+	T visitPrimitiveType(OperatorsParser.PrimitiveTypeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#qualifiedIdentExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#typeArguments}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitQualifiedIdentExpression(OperatorsParser.QualifiedIdentExpressionContext ctx);
+	T visitTypeArguments(OperatorsParser.TypeArgumentsContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#newExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#superSuffix}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitNewExpression(OperatorsParser.NewExpressionContext ctx);
+	T visitSuperSuffix(OperatorsParser.SuperSuffixContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#innerNewExpression}.
+	 * Visit a parse tree produced by {@link OperatorsParser#explicitGenericInvocationSuffix}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInnerNewExpression(OperatorsParser.InnerNewExpressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#newArrayConstruction}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNewArrayConstruction(OperatorsParser.NewArrayConstructionContext ctx);
+	T visitExplicitGenericInvocationSuffix(OperatorsParser.ExplicitGenericInvocationSuffixContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link OperatorsParser#arguments}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitArguments(OperatorsParser.ArgumentsContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link OperatorsParser#literal}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLiteral(OperatorsParser.LiteralContext ctx);
 }

@@ -1,45 +1,33 @@
+/*
+ [The "BSD licence"]
+ Copyright (c) 2013 Terence Parr, Sam Harwell
+ Copyright (c) 2017 Ivan Kochurkin (upgrade to Java 8)
+ All rights reserved.
 
+ Redistribution and use in source and binary forms, with or without
+ modification, are permitted provided that the following conditions
+ are met:
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+ 3. The name of the author may not be used to endorse or promote products
+    derived from this software without specific prior written permission.
 
- /*
- * An ANTLRv4 capable Java 1.8 grammar for building ASTs.
-
- * This grammar is published under the ...
- *
- * BSD licence
- *
- * Copyright (c) 2007-2008 by HABELITZ Software Developments
- *
- * All rights reserved.
- *
- * http://www.habelitz.com
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- *  1. Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *  2. Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *  3. The name of the author may not be used to endorse or promote products
- *     derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY HABELITZ SOFTWARE DEVELOPMENTS ('HSD') ``AS IS''
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL 'HSD' BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
- * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
- * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- */
+ THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+ IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT,
+ INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT
+ NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
 
 grammar Operators;
-
 
 @lexer::members {
 /**
@@ -51,1034 +39,794 @@ grammar Operators;
  *  needed forever the lexer part of the grammar should be changed by replacing
  *  the 'if-else' stuff within the approprate lexer grammar actions.
  */
+// public int LoC = 0;
 public boolean preserveWhitespacesAndComments = false;
 private int channel;
 }
 
-// Parser rules
 
-//parse
-// : block EOF
-// ;
-//
-//block
-// : stat*
-// ;
-//
-//stat
-// : if_stat
-// | regular_stat
-// | assignment
-// | while_stat
-// | OTHER {System.out.println("unknown char: " + OTHER);}
-//// | switch_stat
-//
-// ;
-//system_println
-// : 'System.out.println'OPAR (STRING| expr) CPAR SCOL
-// ;
-//
-//regular_stat
-// : ID expr SCOL
-// | ID DOT expr SCOL
-// | ID DOT ID*? DOT*? expr SCOL
-// ;
-//
-//assignment
-// : ID ASSIGN expr SCOL {System.out.println(" why jump in here?");}
-// ;
-//
-////switch_stat
-//// : SWITCH expr OBRACE case_stat* DEFAULT? CBRACE
-//// ;
-//
-//if_stat
-// : IF condition_block (ELSEIF condition_block)*? (ELSE stat_block)?
-// ;
-////case_stat
-//// : CASE atom COLON stat_block* BREAK SCOL {System.out.prinln("it is working");}
-//// ;
-//condition_block
-// : expr stat_block
-// ;
-//
-//stat_block
-// : OBRACE block CBRACE
-// | stat
-// ;
-//
-//while_stat
-// : WHILE expr stat_block
-// ;
-javaSource
-    :   compilationUnit
-    | EOF
-    ;
 
 compilationUnit
-    :   annotationList
-        packageDeclaration?
-        importDeclaration*
-        typeDecls*
-    ;
-
-typeDecls
-    :   typeDeclaration
-    |   SCOL
+    : packageDeclaration? importDeclaration* typeDeclaration*  EOF // First get the typeDeclaration
     ;
 
 packageDeclaration
-    :   PACKAGE qualifiedIdentifier SCOL
+    : annotation* PACKAGE qualifiedName ';'
     ;
 
 importDeclaration
-    :   IMPORT STATIC? qualifiedIdentifier DOTSTAR? SCOL
+    : IMPORT STATIC? qualifiedName ('.' '*')? ';'
     ;
 
 typeDeclaration
-    :   modifierList
-        (   classTypeDeclaration
-        |   interfaceTypeDeclaration
-        |   enumTypeDeclaration
-        |   annotationTypeDeclaration
-        )
+    : classOrInterfaceModifier*
+      (classDeclaration | enumDeclaration | interfaceDeclaration | annotationTypeDeclaration) // 2. get the classDeclaration
+    | ';'
     ;
 
-classTypeDeclaration
-    :   CLASS IDENT genericTypeParameterList? classExtendsClause? implementsClause? classBody
+modifier
+    : classOrInterfaceModifier
+    | NATIVE
+    | SYNCHRONIZED
+    | TRANSIENT
+    | VOLATILE
     ;
 
-classExtendsClause
-    :   EXTENDS type
+classOrInterfaceModifier
+    : annotation
+    | PUBLIC
+    | PROTECTED
+    | PRIVATE
+    | STATIC
+    | ABSTRACT
+    | FINAL    // FINAL for class only -- does not apply to interfaces
+    | STRICTFP
     ;
 
-interfaceExtendsClause
-    :   EXTENDS typeList
+variableModifier
+    : FINAL
+    | annotation
     ;
 
-implementsClause
-    :   IMPLEMENTS typeList
+classDeclaration
+    : CLASS IDENTIFIER typeParameters?
+      (EXTENDS typeType)?
+      (IMPLEMENTS typeList)?
+      classBody // 3. get the classBody
     ;
 
-genericTypeParameterList
-    :   LT genericTypeParameter (COMMA genericTypeParameter)* genericTypeListClosing
-    ;
-genericTypeListClosing  // This 'trick' is fairly dirty - if there's some time a better solution should
-                        // be found to resolve the problem with nested generic type parameter lists
-                        // (i.e. <T1 extends AnyType<T2>> for generic type parameters or <T1<T2>> for
-                        // generic type arguments etc).
-    :   GT
-    |   SHIFT_LEFT
-    |   BIT_SHIFT_RIGHT
-    |   // nothing
+typeParameters
+    : '<' typeParameter (',' typeParameter)* '>'
     ;
 
-genericTypeParameter
-    :   IDENT bound?
+typeParameter
+    : annotation* IDENTIFIER (EXTENDS typeBound)?
     ;
 
-bound
-    :   EXTENDS type (AND type)*
+typeBound
+    : typeType ('&' typeType)*
     ;
 
-enumTypeDeclaration
-    :   ENUM IDENT implementsClause? enumBody
-    ;
-
-enumBody
-    :   OBRACE enumScopeDeclarations CBRACE
-    ;
-
-enumScopeDeclarations
-    :   enumConstants (COMMA)? enumClassScopeDeclarations?
-    ;
-
-enumClassScopeDeclarations
-    :   SCOL classScopeDeclarations*
+enumDeclaration
+    : ENUM IDENTIFIER (IMPLEMENTS typeList)? '{' enumConstants? ','? enumBodyDeclarations? '}'
     ;
 
 enumConstants
-    :   enumConstant (COMMA enumConstant)*
+    : enumConstant (',' enumConstant)*
     ;
 
 enumConstant
-    :   annotationList IDENT arguments? classBody?
+    : annotation* IDENTIFIER arguments? classBody?
     ;
 
-interfaceTypeDeclaration
-    :   INTERFACE IDENT genericTypeParameterList? interfaceExtendsClause? interfaceBody
+enumBodyDeclarations
+    : ';' classBodyDeclaration*
     ;
 
-typeList
-    :   type (COMMA type)*
+interfaceDeclaration
+    : INTERFACE IDENTIFIER typeParameters? (EXTENDS typeList)? interfaceBody
     ;
 
 classBody
-    :   OBRACE classScopeDeclarations* CBRACE
+    : LBRACE classBodyDeclaration* RBRACE // 4. get the classBodyDeclaration
     ;
 
 interfaceBody
-    :   OBRACE interfaceScopeDeclarations* CBRACE
+    : '{' interfaceBodyDeclaration* '}'
     ;
 
-classScopeDeclarations
-    :   block
-    |   STATIC block
-    |   modifierList
-        (   genericTypeParameterList?
-            (   type IDENT formalParameterList arrayDeclaratorList? throwsClause? (block | SCOL)
-            |   VOID IDENT formalParameterList throwsClause? (block | SCOL)
-            |   ident=IDENT formalParameterList throwsClause? block
-            )
-        |   type classFieldDeclaratorList SCOL
-        )
-    |   typeDeclaration
-    |   SCOL
+classBodyDeclaration
+    : ';'
+    | STATIC? block
+    | modifier* memberDeclaration // 5. get the memberDeclaration
     ;
 
-interfaceScopeDeclarations
-    :   modifierList
-        (   genericTypeParameterList?
-            (   type IDENT formalParameterList arrayDeclaratorList? throwsClause? SCOL
-            |   VOID IDENT formalParameterList throwsClause? SCOL
-            )
-        |   type interfaceFieldDeclaratorList SCOL
-        )
-    |   typeDeclaration
-    |   SCOL
+memberDeclaration
+    : methodDeclaration // 6. get the method declaration
+    | genericMethodDeclaration
+    | fieldDeclaration
+    | constructorDeclaration
+    | genericConstructorDeclaration
+    | interfaceDeclaration
+    | annotationTypeDeclaration
+    | classDeclaration
+    | enumDeclaration
     ;
 
-classFieldDeclaratorList
-    :   classFieldDeclarator (COMMA classFieldDeclarator)*
+/* We use rule this even for void methods which cannot have [] after parameters.
+   This simplifies grammar and we can consider void to be a type, which
+   renders the [] matching as a context-sensitive issue or a semantic check
+   for invalid return type after parsing.
+ */
+methodDeclaration
+    : typeTypeOrVoid IDENTIFIER formalParameters ('[' ']')*
+      (THROWS qualifiedNameList)?
+      methodBody
     ;
 
-classFieldDeclarator
-    :   variableDeclaratorId (ASSIGN variableInitializer)?
+methodBody
+    : block
+    | ';'
     ;
 
-interfaceFieldDeclaratorList
-    :   interfaceFieldDeclarator (COMMA interfaceFieldDeclarator)*
+typeTypeOrVoid
+    : typeType
+    | VOID
     ;
 
-interfaceFieldDeclarator
-    :   variableDeclaratorId ASSIGN variableInitializer
+genericMethodDeclaration
+    : typeParameters methodDeclaration
+    ;
+
+genericConstructorDeclaration
+    : typeParameters constructorDeclaration
+    ;
+
+constructorDeclaration
+    : IDENTIFIER formalParameters (THROWS qualifiedNameList)? constructorBody=block
+    ;
+
+fieldDeclaration
+    : typeType variableDeclarators ';'
+    ;
+
+interfaceBodyDeclaration
+    : modifier* interfaceMemberDeclaration
+    | ';'
+    ;
+
+interfaceMemberDeclaration
+    : constDeclaration
+    | interfaceMethodDeclaration
+    | genericInterfaceMethodDeclaration
+    | interfaceDeclaration
+    | annotationTypeDeclaration
+    | classDeclaration
+    | enumDeclaration
+    ;
+
+constDeclaration
+    : typeType constantDeclarator (',' constantDeclarator)* ';'
+    ;
+
+constantDeclarator
+    : IDENTIFIER ('[' ']')* '=' variableInitializer
+    ;
+
+// see matching of [] comment in methodDeclaratorRest
+// methodBody from Java8
+interfaceMethodDeclaration
+    : interfaceMethodModifier* (typeTypeOrVoid | typeParameters annotation* typeTypeOrVoid)
+      IDENTIFIER formalParameters ('[' ']')* (THROWS qualifiedNameList)? methodBody
+    ;
+
+// Java8
+interfaceMethodModifier
+    : annotation
+    | PUBLIC
+    | ABSTRACT
+    | DEFAULT
+    | STATIC
+    | STRICTFP
+    ;
+
+genericInterfaceMethodDeclaration
+    : typeParameters interfaceMethodDeclaration
+    ;
+
+variableDeclarators
+    : variableDeclarator (',' variableDeclarator)*
+    ;
+
+variableDeclarator
+    : variableDeclaratorId ('=' variableInitializer)?
     ;
 
 variableDeclaratorId
-    :   IDENT arrayDeclaratorList?
+    : IDENTIFIER ('[' ']')*
     ;
 
 variableInitializer
-    :   arrayInitializer
-    |   expression
-    ;
-
-arrayDeclarator
-    :   OBRACK CBRACK
-    ;
-
-arrayDeclaratorList
-    :   arrayDeclarator+
+    : arrayInitializer
+    | expression
     ;
 
 arrayInitializer
-    :   OBRACE (variableInitializer (COMMA variableInitializer)* COMMA?)? CBRACE
+    : '{' (variableInitializer (',' variableInitializer)* (',')? )? '}'
     ;
 
-throwsClause
-    :   THROWS qualifiedIdentList
+classOrInterfaceType
+    : IDENTIFIER typeArguments? ('.' IDENTIFIER typeArguments?)*
     ;
 
-modifierList
- : modifier*
- ;
-
-modifier
- : PUBLIC
- | PROTECTED
- | PRIVATE
- | STATIC
- | ABSTRACT
- | NATIVE
- | SYNC
- | TRANSIENT
- | VOLATILE
- | STRICTFP
- | localModifier
- ;
-
-localModifierList
-    :   localModifier*
+typeArgument
+    : typeType
+    | '?' ((EXTENDS | SUPER) typeType)?
     ;
 
-localModifier
-    :   FINAL
-    |   annotation
+qualifiedNameList
+    : qualifiedName (',' qualifiedName)*
     ;
 
-type
-    :   simpleType
-    |   objectType
-    ;
-
-simpleType // including static arrays of simple type elements
-    :   primitiveType arrayDeclaratorList?
-    ;
-
-objectType // including static arrays of object type reference elements
-    :   qualifiedTypeIdent arrayDeclaratorList?
-    ;
-
-objectTypeSimplified
-    :   qualifiedTypeIdentSimplified arrayDeclaratorList?
-    ;
-
-qualifiedTypeIdent
-    :   typeIdent (DOT typeIdent)*
-    ;
-
-qualifiedTypeIdentSimplified
-    :   typeIdentSimplified (DOT typeIdentSimplified)*
-    ;
-
-typeIdent
-    :   IDENT genericTypeArgumentList?
-    ;
-
-typeIdentSimplified
-    :   IDENT genericTypeArgumentListSimplified?
-    ;
-
-primitiveType
-    :   BOOLEAN
-    |   CHAR
-    |   BYTE
-    |   SHORT
-    |   INT
-    |   LONG
-    |   FLOAT
-    |   DOUBLE
-    ;
-
-genericTypeArgumentList
-    :   LT genericTypeArgument (COMMA genericTypeArgument)* genericTypeListClosing
-    ;
-
-genericTypeArgument
-    :   type
-    |   QUESTION genericWildcardBoundType?
-    ;
-
-genericWildcardBoundType
-    :   (EXTENDS | SUPER) type
-    ;
-
-genericTypeArgumentListSimplified
-    :   LT genericTypeArgumentSimplified (COMMA genericTypeArgumentSimplified)* genericTypeListClosing
-    ;
-
-genericTypeArgumentSimplified
-    :   type
-    |   QUESTION
-    ;
-
-qualifiedIdentList
-    :   qualifiedIdentifier (COMMA qualifiedIdentifier)*
+formalParameters
+    : '(' formalParameterList? ')'
     ;
 
 formalParameterList
-    :   OPAR
-        (   // Contains at least one standard argument declaration and optionally a variable argument declaration.
-            formalParameterStandardDecl (COMMA formalParameterStandardDecl)* (COMMA formalParameterVarArgDecl)?
-            // Contains a variable argument declaration only.
-        |   formalParameterVarArgDecl
-            // Contains nothing.
-        |
-        )
-        CPAR
+    : formalParameter (',' formalParameter)* (',' lastFormalParameter)?
+    | lastFormalParameter
     ;
 
-formalParameterStandardDecl
-    :   localModifierList type variableDeclaratorId
+formalParameter
+    : variableModifier* typeType variableDeclaratorId
     ;
 
-formalParameterVarArgDecl
-    :   localModifierList type ELLIPSIS variableDeclaratorId
+lastFormalParameter
+    : variableModifier* typeType '...' variableDeclaratorId
     ;
 
-qualifiedIdentifier
-    :   (   IDENT
-        )
-        (   DOT ident=IDENT
-        )*
+qualifiedName
+    : IDENTIFIER ('.' IDENTIFIER)*
+    ;
+
+literal
+    : integerLiteral
+    | floatLiteral
+    | CHAR_LITERAL
+    | STRING_LITERAL
+    | BOOL_LITERAL
+    | NULL_LITERAL
+    ;
+
+integerLiteral
+    : DECIMAL_LITERAL
+    | HEX_LITERAL
+    | OCT_LITERAL
+    | BINARY_LITERAL
+    ;
+
+floatLiteral
+    : FLOAT_LITERAL
+    | HEX_FLOAT_LITERAL
     ;
 
 // ANNOTATIONS
 
-annotationList
-    :   annotation*
-    ;
-
 annotation
-    :   AT qualifiedIdentifier annotationInit?
+    : '@' qualifiedName ('(' ( elementValuePairs | elementValue )? ')')?
     ;
 
-annotationInit
-    :   OPAR annotationInitializers CPAR
+elementValuePairs
+    : elementValuePair (',' elementValuePair)*
     ;
 
-annotationInitializers
-    :   annotationInitializer (COMMA annotationInitializer)*
-    |   annotationElementValue // implicite initialization of the annotation field 'value'
+elementValuePair
+    : IDENTIFIER '=' elementValue
     ;
 
-annotationInitializer
-    :   IDENT ASSIGN annotationElementValue
+elementValue
+    : expression
+    | annotation
+    | elementValueArrayInitializer
     ;
 
-annotationElementValue
-    :   annotationElementValueExpression
-    |   annotation
-    |   annotationElementValueArrayInitializer
-    ;
-
-annotationElementValueExpression
-    :   conditionalExpression
-    ;
-
-annotationElementValueArrayInitializer
-    :   OBRACE (annotationElementValue (COMMA annotationElementValue)*)? (COMMA)? CBRACE
+elementValueArrayInitializer
+    : '{' (elementValue (',' elementValue)*)? (',')? '}'
     ;
 
 annotationTypeDeclaration
-    :   AT INTERFACE IDENT annotationBody
+    : '@' INTERFACE IDENTIFIER annotationTypeBody
     ;
 
-annotationBody
-    :   OBRACE annotationScopeDeclarations* CBRACE
+annotationTypeBody
+    : '{' (annotationTypeElementDeclaration)* '}'
     ;
 
-annotationScopeDeclarations
-    :   modifierList type
-        (   IDENT OPAR CPAR annotationDefaultValue? SCOL
-        |   classFieldDeclaratorList SCOL
-        )
-    |   typeDeclaration
+annotationTypeElementDeclaration
+    : modifier* annotationTypeElementRest
+    | ';' // this is not allowed by the grammar, but apparently allowed by the actual compiler
     ;
 
-annotationDefaultValue
-    :   DEFAULT annotationElementValue
+annotationTypeElementRest
+    : typeType annotationMethodOrConstantRest ';'
+    | classDeclaration ';'?
+    | interfaceDeclaration ';'?
+    | enumDeclaration ';'?
+    | annotationTypeDeclaration ';'?
+    ;
+
+annotationMethodOrConstantRest
+    : annotationMethodRest
+    | annotationConstantRest
+    ;
+
+annotationMethodRest
+    : IDENTIFIER '(' ')' defaultValue?
+    ;
+
+annotationConstantRest
+    : variableDeclarators
+    ;
+
+defaultValue
+    : DEFAULT elementValue
     ;
 
 // STATEMENTS / BLOCKS
 
 block
-    :   OBRACE blockStatement* CBRACE
+    : '{' blockStatement* '}'
     ;
 
 blockStatement
-    :   localVariableDeclaration SCOL
-    |   typeDeclaration
-    |   statement
+    : localVariableDeclaration ';'
+    | statement
+    | localTypeDeclaration
     ;
 
 localVariableDeclaration
-    :   localModifierList type classFieldDeclaratorList
+    : variableModifier* typeType variableDeclarators
     ;
 
+localTypeDeclaration
+    : classOrInterfaceModifier*
+      (classDeclaration | interfaceDeclaration)
+    | ';'
+    ;
 
 statement
-    :   block
-    |   ASSERT expr1=expression
-        (   COLON expr2=expression SCOL
-        |   SCOL
-        )
-    |   if_statement
-    |   forEachLoop_forLoop_statement
-    |   while_statement
-    |   do_while_statement
-    |   try_catch_finally_statement
-    |   switch_statement
-    |   SYNC parenthesizedExpression block
-    |   RETURN expression? SCOL
-    |   THROW expression SCOL
-    |   BREAK IDENT? SCOL
-    |   CONTINUE IDENT? SCOL
-    |   IDENT COLON statement
-    |   expression SCOL
-    |   SCOL // Preserve empty statements.
-    ;
-if_statement
- : IF parenthesizedExpression ifStat=statement (ELSEIF parenthesizedExpression ifStat=statement)*? (ELSE elseStat=statement)?
- ;
-switch_statement
- : SWITCH parenthesizedExpression OBRACE switchBlockLabels CBRACE
- ;
-do_while_statement
- :DO statement WHILE parenthesizedExpression SCOL
- ;
-while_statement
- : WHILE parenthesizedExpression statement
- ;
-forEachLoop_forLoop_statement
-: FOR OPAR ( forInit SCOL forCondition SCOL forUpdater CPAR statement | localModifierList type IDENT COLON expression CPAR statement )
-;
-try_catch_finally_statement
- :TRY block (catches finallyClause? | finallyClause)
- ;
-catches
-    :   catchClause+
+    : blockLabel=block
+    | ASSERT expression (':' expression)? ';'
+    | ifStatement
+    | forStatement
+    | whileStatement
+    | doWhileStatement
+    | tryStatementNoResources
+    | tryStatementWithResources
+    | switchStatement
+    | SYNCHRONIZED parExpression block
+    | RETURN expression? ';'
+    | THROW expression ';'
+    | BREAK IDENTIFIER? ';'
+    | CONTINUE IDENTIFIER? ';'
+    | SEMI
+    | statementExpression=expression ';'
+    | identifierLabel=IDENTIFIER ':' statement
     ;
 
+doWhileStatement
+    :DO statement WHILE parExpression ';'
+    ;
+whileStatement
+    :WHILE parExpression statement
+    ;
+forStatement
+    :FOR '(' forControl ')' statement
+    ;
+ifStatement
+    :IF parExpression statement (ELSE statement)?
+    ;
+tryStatementNoResources
+    :TRY block (catchClause+ finallyBlock? | finallyBlock)
+    ;
+tryStatementWithResources
+    :TRY resourceSpecification block catchClause* finallyBlock?
+    ;
+switchStatement
+    :SWITCH parExpression '{' switchBlockStatementGroup* switchLabel* '}'
+    ;
 catchClause
-    :   CATCH OPAR formalParameterStandardDecl CPAR block
+    : CATCH '(' variableModifier* catchType IDENTIFIER ')' block
     ;
 
-finallyClause
-    :   FINALLY block
+catchType
+    : qualifiedName ('|' qualifiedName)*
     ;
 
-switchBlockLabels
-    :   switchCaseLabels switchDefaultLabel? switchCaseLabels
+finallyBlock
+    : FINALLY block
     ;
 
-switchCaseLabels
-    :   switchCaseLabel*
+resourceSpecification
+    : '(' resources ';'? ')'
     ;
 
-switchCaseLabel
-    :   CASE expression COLON blockStatement*
+resources
+    : resource (';' resource)*
     ;
 
-switchDefaultLabel
-    :   DEFAULT COLON blockStatement*
+resource
+    : variableModifier* classOrInterfaceType variableDeclaratorId '=' expression
+    ;
+
+/** Matches cases then statements, both of which are mandatory.
+ *  To handle empty cases at the end, we add switchLabel* to statement.
+ */
+switchBlockStatementGroup
+    : switchLabel+ blockStatement+
+    ;
+
+switchLabel
+    : CASE (constantExpression=expression | enumConstantName=IDENTIFIER) ':'
+    | DEFAULT ':'
+    ;
+
+forControl
+    : enhancedForControl
+    | forInit? ';' expression? ';' forUpdate=expressionList?
     ;
 
 forInit
-    :   localVariableDeclaration
-    |   expressionList
-    |
+    : localVariableDeclaration
+    | expressionList
     ;
 
-forCondition
-    :   expression?
-    ;
-
-forUpdater
-    :   expressionList?
+enhancedForControl
+    : variableModifier* typeType variableDeclaratorId ':' expression
     ;
 
 // EXPRESSIONS
 
-parenthesizedExpression
-    :   OPAR expression CPAR
+parExpression
+    : '(' expression ')'
     ;
 
 expressionList
-    :   expression (COMMA expression)*
+    : expression (',' expression)*
+    ;
+
+methodCall
+    : IDENTIFIER '(' expressionList? ')'
     ;
 
 expression
-    :   assignmentExpression
+    : primary
+    | expression bop='.'
+      (IDENTIFIER
+      | methodCall
+      | THIS
+      | NEW nonWildcardTypeArguments? innerCreator
+      | SUPER superSuffix
+      | explicitGenericInvocation
+      )
+    | expression '[' expression ']'
+    | methodCall
+    | NEW creator
+    | '(' typeType ')' expression
+    | expression postfix=('++' | '--')
+    | prefix=('+'|'-'|'++'|'--') expression
+    | prefix=('~'|'!') expression
+    | expression bop=('*'|'/'|'%') expression
+    | expression bop=('+'|'-') expression
+    | expression ('<' '<' | '>' '>' '>' | '>' '>') expression
+    | expression bop=('<=' | '>=' | '>' | '<') expression
+    | expression bop=INSTANCEOF typeType
+    | expression bop=('==' | '!=') expression
+    | expression bop='&' expression
+    | expression bop='^' expression
+    | expression bop='|' expression
+    | expression bop='&&' expression
+    | expression bop='||' expression
+    | expression bop='?' expression ':' expression
+    | <assoc=right> expression
+      bop=('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '>>=' | '>>>=' | '<<=' | '%=')
+      expression
+    | lambdaExpression // Java8
+
+    // Java 8 methodReference
+    | expression '::' typeArguments? IDENTIFIER
+    | typeType '::' (typeArguments? IDENTIFIER | NEW)
+    | classType '::' typeArguments? NEW
     ;
 
-assignmentExpression
-    :   conditionalExpression
-        (   (   ASSIGN
-            |   PLUS_ASSIGN
-            |   MINUS_ASSIGN
-            |   STAR_ASSIGN
-            |   DIV_ASSIGN
-            |   AND_ASSIGN
-            |   OR_ASSIGN
-            |   XOR_ASSIGN
-            |   MOD_ASSIGN
-            |   SHIFT_LEFT_ASSIGN
-            |   SHIFT_RIGHT_ASSIGN
-            |   BIT_SHIFT_RIGHT_ASSIGN
-        )
-        assignmentExpression)?
+// Java8
+lambdaExpression
+    : lambdaParameters '->' lambdaBody
     ;
 
-conditionalExpression
-    :   logicalOrExpression (QUESTION assignmentExpression COLON conditionalExpression)?
+// Java8
+lambdaParameters
+    : IDENTIFIER
+    | '(' formalParameterList? ')'
+    | '(' IDENTIFIER (',' IDENTIFIER)* ')'
     ;
 
-logicalOrExpression
-    :   logicalAndExpression (OR_LOGICAL logicalAndExpression)*
+// Java8
+lambdaBody
+    : expression
+    | block
     ;
 
-logicalAndExpression
-    :   inclusiveOrExpression (AND_LOGICAL inclusiveOrExpression)*
+primary
+    : '(' expression ')'
+    | THIS
+    | SUPER
+    | literal
+    | IDENTIFIER
+    | typeTypeOrVoid '.' CLASS
+    | nonWildcardTypeArguments (explicitGenericInvocationSuffix | THIS arguments)
     ;
 
-inclusiveOrExpression
-    :   exclusiveOrExpression (OR exclusiveOrExpression)*
+classType
+    : (classOrInterfaceType '.')? annotation* IDENTIFIER typeArguments?
     ;
 
-exclusiveOrExpression
-    :   andExpression (XOR andExpression)*
+creator
+    : nonWildcardTypeArguments createdName classCreatorRest
+    | createdName (arrayCreatorRest | classCreatorRest)
     ;
 
-andExpression
-    :   equalityExpression (AND equalityExpression)*
+createdName
+    : IDENTIFIER typeArgumentsOrDiamond? ('.' IDENTIFIER typeArgumentsOrDiamond?)*
+    | primitiveType
     ;
 
-equalityExpression
-    :   instanceOfExpression
-        (   (   EQ
-            |   NEQ
-            )
-            instanceOfExpression
-        )*
+innerCreator
+    : IDENTIFIER nonWildcardTypeArgumentsOrDiamond? classCreatorRest
     ;
 
-instanceOfExpression
-    :   relationalExpression (INSTANCEOF type)?
+arrayCreatorRest
+    : '[' (']' ('[' ']')* arrayInitializer | expression ']' ('[' expression ']')* ('[' ']')*)
     ;
 
-relationalExpression
-    :   shiftExpression
-        (   (   LTEQ
-            |   GTEQ
-            |   LT
-            |   GT
-            )
-            shiftExpression
-        )*
+classCreatorRest
+    : arguments classBody?
     ;
 
-shiftExpression
-    :   additiveExpression
-        (   (   BIT_SHIFT_RIGHT
-            |   SHIFT_RIGHT
-            |   SHIFT_LEFT
-            )
-            additiveExpression
-        )*
+explicitGenericInvocation
+    : nonWildcardTypeArguments explicitGenericInvocationSuffix
     ;
 
-additiveExpression
-    :   multiplicativeExpression
-        (   (   PLUS
-            |   MINUS
-            )
-            multiplicativeExpression
-        )*
+typeArgumentsOrDiamond
+    : '<' '>'
+    | typeArguments
     ;
 
-multiplicativeExpression
-    :   unaryExpression
-        (   (   MULT
-            |   DIV
-            |   MOD
-            )
-            unaryExpression
-        )*
+nonWildcardTypeArgumentsOrDiamond
+    : '<' '>'
+    | nonWildcardTypeArguments
     ;
 
-unaryExpression
-    :   PLUS unaryExpression
-    |   MINUS unaryExpression
-    |   INCREMENT postfixedExpression
-    |   DECREMENT postfixedExpression
-    |   unaryExpressionNotPlusMinus
+nonWildcardTypeArguments
+    : '<' typeList '>'
     ;
 
-unaryExpressionNotPlusMinus
-    :   NOT unaryExpression
-    |   LOGICAL_NOT unaryExpression
-    |   OPAR type CPAR unaryExpression
-    |   postfixedExpression
+typeList
+    : typeType (',' typeType)*
     ;
 
-postfixedExpression
-        // At first resolve the primary expression ...
-    :   (   primaryExpression
-        )
-        // ... and than the optional things that may follow a primary expression 0 or more times.
-        (   outerDot=DOT
-            (   (   genericTypeArgumentListSimplified?  // Note: generic type arguments are only valid for method calls, i.e. if there
-                                                        //       is an argument list.
-                    IDENT
-                )
-                (   arguments
-                )?
-            |   THIS
-            |   Super=SUPER arguments
-            |   (   SUPER innerDot=DOT IDENT
-                )
-                (   arguments
-                )?
-            |   innerNewExpression
-            )
-        |   OBRACK expression CBRACK
-        )*
-        // At the end there may follow a post increment/decrement.
-        (   INCREMENT
-        |   DECREMENT
-        )?
+typeType
+    : annotation? (classOrInterfaceType | primitiveType) ('[' ']')*
     ;
 
-primaryExpression
-    :   parenthesizedExpression
-    |   literal
-    |   newExpression
-    |   qualifiedIdentExpression
-    |   genericTypeArgumentListSimplified
-        (   SUPER
-            (   arguments
-            |   DOT IDENT arguments
-            )
-        |   IDENT arguments
-        |   THIS arguments
-        )
-    |   (   THIS
-        )
-        (   arguments
-        )?
-    |   SUPER arguments
-    |   (   SUPER DOT IDENT
-        )
-        (   arguments
-        |
-        )
-    |   (   primitiveType
-        )
-        (   arrayDeclarator
-        )*
-        DOT CLASS
-    |   VOID DOT CLASS
+primitiveType
+    : BOOLEAN
+    | CHAR
+    | BYTE
+    | SHORT
+    | INT
+    | LONG
+    | FLOAT
+    | DOUBLE
     ;
 
-qualifiedIdentExpression
-        // The qualified identifier itself is the starting point for this rule.
-    :   (   qualifiedIdentifier
-        )
-        // And now comes the stuff that may follow the qualified identifier.
-        (   (   arrayDeclarator
-            )+
-            (   DOT CLASS
-            )
-        |   arguments
-        |   outerDot=DOT
-            (   CLASS
-            |   genericTypeArgumentListSimplified
-                (   Super=SUPER arguments
-                |   SUPER innerDot=DOT IDENT arguments
-                |   IDENT arguments
-                )
-            |   THIS
-            |   Super=SUPER arguments
-            |   innerNewExpression
-            )
-        )?
+typeArguments
+    : '<' typeArgument (',' typeArgument)* '>'
     ;
 
-newExpression
-    :   NEW
-        (   primitiveType newArrayConstruction      // new static array of primitive type elements
-        |   genericTypeArgumentListSimplified? qualifiedTypeIdentSimplified
-            (   newArrayConstruction                // new static array of object type reference elements
-            |   arguments classBody?                // new object type via constructor invocation
-            )
-        )
+superSuffix
+    : arguments
+    | '.' IDENTIFIER arguments?
     ;
 
-innerNewExpression // something like 'InnerType innerType = outer.new InnerType();'
-    :   NEW genericTypeArgumentListSimplified? IDENT arguments classBody?
-    ;
-
-newArrayConstruction
-    :   arrayDeclaratorList arrayInitializer
+explicitGenericInvocationSuffix
+    : SUPER superSuffix
+    | IDENTIFIER arguments
     ;
 
 arguments
-    :   OPAR expressionList? CPAR
+    : '(' expressionList? ')'
     ;
 
-literal
-    :   HEX_LITERAL
-    |   OCTAL_LITERAL
-    |   DECIMAL_LITERAL
-    |   FLOATING_POINT_LITERAL
-    |   CHARACTER_LITERAL
-    |   STRING_LITERAL
-    |   TRUE
-    |   FALSE
-    |   NULL
-    ;
-//expr
-// : MINUS expr                           #unaryMinusExpr
-// | NOT expr                             #notExpr
-// | expr op=(MULT | DIV | MOD) expr      #multiplicationExpr
-// | expr op=(PLUS | MINUS) expr          #additiveExpr
-// | expr op=(LTEQ | GTEQ | LT | GT) expr #relationalExpr
-// | expr op=(EQ | NEQ) expr              #equalityExpr
-// | expr AND expr                        #andExpr
-// | expr OR expr                         #orExpr
-// | atom                                 #atomExpr
-// ;
-//
-//atom
-// : OPAR expr CPAR #parExpr
-// | (WHOLENUMBER | DECIMALNUMBER)  #numberAtom
-// | (TRUE | FALSE) #booleanAtom
-// | ID             #idAtom
-// | STRING         #stringAtom
-// | NULL            #nilAtom
-// ;
+  // Keywords
+ABSTRACT:           'abstract';
+  ASSERT:             'assert';
+  BOOLEAN:            'boolean';
+  BREAK:              'break';
+  BYTE:               'byte';
+  CASE:               'case';
+  CATCH:              'catch';
+  CHAR:               'char';
+  CLASS:              'class';
+  CONST:              'const';
+  CONTINUE:           'continue';
+  DEFAULT:            'default';
+  DO:                 'do';
+  DOWHILE:            'do' .*? 'while''('.*?')'';';
+  DOUBLE:             'double';
+  ELSE:               'else';
+  ENUM:               'enum';
+  EXTENDS:            'extends';
+  FINAL:              'final';
+  FINALLY:            'finally';
+  FLOAT:              'float';
+  FOR:                'for';
+  IF:                 'if';
+  GOTO:               'goto';
+  IMPLEMENTS:         'implements';
+  IMPORT:             'import';
+  INSTANCEOF:         'instanceof';
+  INT:                'int';
+  INTERFACE:          'interface';
+  LONG:               'long';
+  NATIVE:             'native';
+  NEW:                'new';
+  PACKAGE:            'package';
+  PRIVATE:            'private';
+  PROTECTED:          'protected';
+  PUBLIC:             'public';
+  RETURN:             'return';
+  SHORT:              'short';
+  STATIC:             'static';
+  STRICTFP:           'strictfp';
+  SUPER:              'super';
+  SWITCH:             'switch';
+  SYNCHRONIZED:       'synchronized';
+  THIS:               'this';
+  THROW:              'throw';
+  THROWS:             'throws';
+  TRANSIENT:          'transient';
+  TRY:                'try';
+  VOID:               'void';
+  VOLATILE:           'volatile';
+  WHILE:              'while';
 
+  // Literals
 
+  DECIMAL_LITERAL:    ('0' | [1-9] (Digits? | '_'+ Digits)) [lL]?;
+  HEX_LITERAL:        '0' [xX] [0-9a-fA-F] ([0-9a-fA-F_]* [0-9a-fA-F])? [lL]?;
+  OCT_LITERAL:        '0' '_'* [0-7] ([0-7_]* [0-7])? [lL]?;
+  BINARY_LITERAL:     '0' [bB] [01] ([01_]* [01])? [lL]?;
 
-// ---------------------- Lexer rules ------------------------
+  FLOAT_LITERAL:      (Digits '.' Digits? | '.' Digits) ExponentPart? [fFdD]?
+               |       Digits (ExponentPart [fFdD]? | [fFdD])
+               ;
 
-//MULTILINEORSINGLELINECOMMENTDELIMITER
-//:('//'|'/*'|'/**') . ('*/'?)-> skip
-//;
+  HEX_FLOAT_LITERAL:  '0' [xX] (HexDigits '.'? | HexDigits? '.' HexDigits) [pP] [+-]? Digits [fFdD]?;
 
- SINGLELINECOMMENT
-  :'//'~('\r' | '\n')*
-  {
-          if (!preserveWhitespacesAndComments) {
-              skip();
-          } else {
-              channel = HIDDEN;
-          }
-      }
-  ;
- BLOCKCOMMENT
-  : '/*'.*? '*/'
-  {
-          if (!preserveWhitespacesAndComments) {
-              skip();
-          } else {
-              channel = HIDDEN;
-          }
-      }
-  ;
-JAVADOCCOMMENT
-  : '/**' .*? '*/'
-  {
-          if (!preserveWhitespacesAndComments) {
-              skip();
-          } else {
-              channel = HIDDEN;
-          }
-      }
-  ;
-HEX_LITERAL : '0' ('x'|'X') HEX_DIGIT+ INTEGER_TYPE_SUFFIX? ;
+  BOOL_LITERAL:       'true'
+              |       'false'
+              ;
 
-DECIMAL_LITERAL : ('0' | '1'..'9' '0'..'9'*) INTEGER_TYPE_SUFFIX? ;
+  CHAR_LITERAL:       '\'' (~['\\\r\n] | EscapeSequence) '\'';
 
-OCTAL_LITERAL : '0' ('0'..'7')+ INTEGER_TYPE_SUFFIX? ;
+  STRING_LITERAL:     '"' (~["\\\r\n] | EscapeSequence)* '"';
 
-fragment
-HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F') ;
+  NULL_LITERAL:       'null';
 
-fragment
-INTEGER_TYPE_SUFFIX : ('l'|'L') ;
+  // Separators
 
-FLOATING_POINT_LITERAL
-    :   ('0'..'9')+
-        (
-            DOT ('0'..'9')* EXPONENT? FLOAT_TYPE_SUFFIX?
-        |   EXPONENT FLOAT_TYPE_SUFFIX?
-        |   FLOAT_TYPE_SUFFIX
-        )
-    |   DOT ('0'..'9')+ EXPONENT? FLOAT_TYPE_SUFFIX?
-    ;
+  LPAREN:'(';
+  RPAREN:             ')';
+  LBRACE:             '{';
+  RBRACE:             '}';
+  LBRACK:             '[';
+  RBRACK:             ']';
+  SEMI:               ';';
+  COMMA:              ',';
+  DOT:                '.';
 
-fragment
-EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
+  // Operators
 
-fragment
-FLOAT_TYPE_SUFFIX : ('f'|'F'|'d'|'D') ;
+  ASSIGN:             '=';
+  GT:                 '>';
+  LT:                 '<';
+  BANG:               '!';
+  TILDE:              '~';
+  QUESTION:           '?';
+  COLON:              ':';
+  EQUAL:              '==';
+  LE:                 '<=';
+  GE:                 '>=';
+  NOTEQUAL:           '!=';
+  AND:                '&&';
+  OR:                 '||';
+  INC:                '++';
+  DEC:                '--';
+  ADD:                '+';
+  SUB:                '-';
+  MUL:                '*';
+  DIV:                '/';
+  BITAND:             '&';
+  BITOR:              '|';
+  CARET:              '^';
+  MOD:                '%';
 
-CHARACTER_LITERAL
-    :   '\'' ( ESCAPE_SEQUENCE | ~('\''|'\\') ) '\''
-    ;
+  ADD_ASSIGN:         '+=';
+  SUB_ASSIGN:         '-=';
+  MUL_ASSIGN:         '*=';
+  DIV_ASSIGN:         '/=';
+  AND_ASSIGN:         '&=';
+  OR_ASSIGN:          '|=';
+  XOR_ASSIGN:         '^=';
+  MOD_ASSIGN:         '%=';
+  LSHIFT_ASSIGN:      '<<=';
+  RSHIFT_ASSIGN:      '>>=';
+  URSHIFT_ASSIGN:     '>>>=';
 
-STRING_LITERAL
-    :  '"' ( ESCAPE_SEQUENCE | ~('\\'|'"') )* '"'
-    ;
+  // Java 8 tokens
 
-fragment
-ESCAPE_SEQUENCE
-    :   '\\' ('b'|'t'|'n'|'f'|'r'|'//"'|'\''|'\\')
-    |   UNICODE_ESCAPE
-    |   OCTAL_ESCAPE
-    ;
+  ARROW:              '->';
+  COLONCOLON:         '::';
 
-fragment
-OCTAL_ESCAPE
-    :   '\\' ('0'..'3') ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7') ('0'..'7')
-    |   '\\' ('0'..'7')
-    ;
+  // Additional symbols not defined in the lexical specification
 
-fragment
-UNICODE_ESCAPE
-    :   '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
-    ;
+  AT:                 '@';
+  ELLIPSIS:           '...';
 
-// operators and other special chars
-AT:'@';
-UNDERSCORE:'_';
-EQ : '==';
-NEQ : '!=';
-GT : '>';
-LT : '<';
-GTEQ : '>=';
-LTEQ : '<=';
-OR_LOGICAL : '||';
-AND_LOGICAL : '&&';
-QUESTION:'?';
-COLON:':';
-INCREMENT:'++';
-DECREMENT:'--';
-LOGICAL_NOT : '!';
-MINUS : '-';
-MULT : '*';
-DIV : ('/');
-MOD : '%';
-MOD_ASSIGN:'%=';
-PLUS : '+';
-NOT:'~';
-SHIFT_LEFT:'<<';
-SHIFT_RIGHT:'>>';
-BIT_SHIFT_RIGHT:'>>>';
-BIT_SHIFT_RIGHT_ASSIGN:'>>>=';
-SHIFT_LEFT_ASSIGN:'<<=';
-SHIFT_RIGHT_ASSIGN:'>>=';
-AND:'&';
-AND_ASSIGN:'&=';
-OR:'|';
-OR_ASSIGN:'|=';
-XOR:'^';
-XOR_ASSIGN:'^=';
-SCOL : ';';
-ASSIGN : '=';
-PLUS_ASSIGN:'+=';
-MINUS_ASSIGN:'-=';
-DIV_ASSIGN:'/=';
-STAR_ASSIGN:'*=';
-ARROWLAMBDA:'->';
-DOUBLECOLON:'::';
-OPAR : '(';
-CPAR : ')';
-OBRACE : '{';
-CBRACE : '}';
-DOT:'.';
-DOTSTAR:'.*';
-TRUE : 'true';
-FALSE : 'false';
-NULL : 'null';
-COMMA :',';
-ELLIPSIS:'...';
-OBRACK: '[';
-CBRACK: ']';
+  // Whitespace and comments
 
-// Java Keywords
-ABSTRACT: 'abstract';
-CONTINUE:'continue';
-FOR:'for';
-NEW:'new';
-SWITCH:'switch';
-ASSERT:'assert';
-DEFAULT:'default';
-GOTO:'goto';
-PACKAGE:'package';
-SYNC:'synchronized';
-BOOLEAN:'boolean';
-DO:'do';
-IF : 'if';
-ELSEIF:'else if';
-PRIVATE:'private';
-THIS:'this';
-BREAK:'break';
-DOUBLE:'double';
-IMPLEMENTS:'double';
-PROTECTED:'protected';
-THROW:'throw';
-BYTE:'byte';
-ELSE : 'else';
-IMPORT:'import';
-PUBLIC:'public';
-THROWS:'throws';
-CASE:'case';
-ENUM:'enum';
-INSTANCEOF:'instanceof';
-RETURN:'return';
-TRANSIENT:'transient';
-CATCH:'catch';
-EXTENDS:'extends';
-INT:'int';
-SHORT:'short';
-TRY:'try';
-CHAR:'char';
-FINAL:'final';
-INTERFACE:'interface';
-STATIC:'static';
-VOID:'void';
-CLASS:'class';
-FINALLY:'finally';
-LONG:'long';
-STRICTFP:'strictfp';
-VOLATILE:'volatile';
-CONST:'const';
-FLOAT:'float';
-NATIVE:'native';
-SUPER:'super';
-WHILE : 'while';
-//////////////////
-//ID
-// : [a-zA-Z][a-zA-Z0-9]*
-// ;
+  WS:                 [ \t\r\n\u000C]+ -> skip;
 
-WHOLENUMBER
- : [0-9]+
- ;
+  BLOCKCOMMENT: '/*'.*? '*/' -> channel(HIDDEN);
+  JAVADOCCOMMENT: '/**' .*? '*/' -> channel(HIDDEN);
+  LINE_COMMENT:  '//' ~[\r\n]* -> channel(HIDDEN);
 
-DECIMALNUMBER
- : [0-9]+ '.' [0-9]*
- | '.' [0-9]+
- ;
+  // Identifiers
 
-STRING
- : '"' (~["\r\n] | '""')* '"'
- ;
-IDENT
-    :  JAVA_ID_START (JAVA_ID_PART)*
-    ;
+  IDENTIFIER:         Letter LetterOrDigit*;
 
-fragment
-JAVA_ID_START
-    :  '\u0024'
-    |  '\u0041'..'\u005a'
-    |  '\u005f'
-    |  '\u0061'..'\u007a'
-    |  '\u00c0'..'\u00d6'
-    |  '\u00d8'..'\u00f6'
-    |  '\u00f8'..'\u00ff'
-    |  '\u0100'..'\u1fff'
-    |  '\u3040'..'\u318f'
-    |  '\u3300'..'\u337f'
-    |  '\u3400'..'\u3d2d'
-    |  '\u4e00'..'\u9fff'
-    |  '\uf900'..'\ufaff'
-    ;
+  // Fragment rules
 
-fragment
-JAVA_ID_PART
-    :  JAVA_ID_START
-    |  '\u0030'..'\u0039'
-    ;
+  fragment ExponentPart
+      : [eE] [+-]? Digits
+      ;
 
-SPACE
-  : [ \t\r\n] -> skip
-  ;
+  fragment EscapeSequence
+      : '\\' [btnfr"'\\]
+      | '\\' ([0-3]? [0-7])? [0-7]
+      | '\\' 'u'+ HexDigit HexDigit HexDigit HexDigit
+      ;
 
-OTHER
- : .
- ;
+  fragment HexDigits
+      : HexDigit ((HexDigit | '_')* HexDigit)?
+      ;
+
+  fragment HexDigit
+      : [0-9a-fA-F]
+      ;
+
+  fragment Digits
+      : [0-9] ([0-9_]* [0-9])?
+      ;
+
+  fragment LetterOrDigit
+      : Letter
+      | [0-9]
+      ;
+
+  fragment Letter
+      : [a-zA-Z$_] // these are the "java letters" below 0x7F
+      | ~[\u0000-\u007F\uD800-\uDBFF] // covers all characters above 0x7F which are not a surrogate
+      | [\uD800-\uDBFF] [\uDC00-\uDFFF] // covers UTF-16 surrogate pairs encodings for U+10000 to U+10FFFF
+      ;

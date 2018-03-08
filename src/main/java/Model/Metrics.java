@@ -1,12 +1,10 @@
 package Model;
 
 /**
- * @author sergaben on 05/03/2018.
+ * @author sergaben on 07/03/2018.
  * @project AnalyseToolDependableSystem
  */
 public class Metrics {
-
-
 
     // To calculate Cyclomatic complexity we need to find every decision point
     // and all logical operators within the decision points and add them together and add 1
