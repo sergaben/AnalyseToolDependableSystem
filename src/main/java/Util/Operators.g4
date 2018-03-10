@@ -45,7 +45,13 @@ private int channel;
 }
 
 
+@parser::members {
+    private int ternaryOperatorsCC = 0;
 
+    public int getTernaryOperatorsCC(){
+        return ternaryOperatorsCC;
+    }
+}
 compilationUnit
     : packageDeclaration? importDeclaration* typeDeclaration*  EOF // First get the typeDeclaration
     ;
@@ -153,7 +159,7 @@ memberDeclaration
     | enumDeclaration
     ;
 
-/* We use rule this even for void methods which cannot have [] after parameters.
+/* We use rule this even for void noOfMethods which cannot have [] after parameters.
    This simplifies grammar and we can consider void to be a type, which
    renders the [] matching as a context-sensitive issue or a semantic check
    for invalid return type after parsing.
@@ -527,7 +533,7 @@ expression
     | expression bop='|' expression
     | expression bop='&&' expression
     | expression bop='||' expression
-    | expression bop='?' expression ':' expression
+    | expression bop='?' expression ':' expression {ternaryOperatorsCC += 2;}
     | <assoc=right> expression
       bop=('=' | '+=' | '-=' | '*=' | '/=' | '&=' | '|=' | '^=' | '>>=' | '>>>=' | '<<=' | '%=')
       expression
@@ -538,7 +544,6 @@ expression
     | typeType '::' (typeArguments? IDENTIFIER | NEW)
     | classType '::' typeArguments? NEW
     ;
-
 // Java8
 lambdaExpression
     : lambdaParameters '->' lambdaBody
@@ -742,8 +747,8 @@ ABSTRACT:           'abstract';
   GT:                 '>';
   LT:                 '<';
   BANG:               '!';
-  TILDE:              '~';
   QUESTION:           '?';
+  TILDE:              '~';
   COLON:              ':';
   EQUAL:              '==';
   LE:                 '<=';

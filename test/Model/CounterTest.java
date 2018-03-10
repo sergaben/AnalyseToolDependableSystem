@@ -24,7 +24,7 @@ public class CounterTest {
      * countNumCodeWords
      * countNumFunctions
      * countNumKeyWords
-     * calculateHalstead
+     * calculateHalsteadMetrics
      * calculateCyclomatic
      * calculateCommentQuality
      * calculateDiffQuality (code comparison)

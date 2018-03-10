@@ -28,7 +28,7 @@ public class OperatorsLexer extends Lexer {
 		FLOAT_LITERAL=56, HEX_FLOAT_LITERAL=57, BOOL_LITERAL=58, CHAR_LITERAL=59, 
 		STRING_LITERAL=60, NULL_LITERAL=61, LPAREN=62, RPAREN=63, LBRACE=64, RBRACE=65, 
 		LBRACK=66, RBRACK=67, SEMI=68, COMMA=69, DOT=70, ASSIGN=71, GT=72, LT=73, 
-		BANG=74, TILDE=75, QUESTION=76, COLON=77, EQUAL=78, LE=79, GE=80, NOTEQUAL=81, 
+		BANG=74, QUESTION=75, TILDE=76, COLON=77, EQUAL=78, LE=79, GE=80, NOTEQUAL=81, 
 		AND=82, OR=83, INC=84, DEC=85, ADD=86, SUB=87, MUL=88, DIV=89, BITAND=90, 
 		BITOR=91, CARET=92, MOD=93, ADD_ASSIGN=94, SUB_ASSIGN=95, MUL_ASSIGN=96, 
 		DIV_ASSIGN=97, AND_ASSIGN=98, OR_ASSIGN=99, XOR_ASSIGN=100, MOD_ASSIGN=101, 
@@ -54,7 +54,7 @@ public class OperatorsLexer extends Lexer {
 		"OCT_LITERAL", "BINARY_LITERAL", "FLOAT_LITERAL", "HEX_FLOAT_LITERAL", 
 		"BOOL_LITERAL", "CHAR_LITERAL", "STRING_LITERAL", "NULL_LITERAL", "LPAREN", 
 		"RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", "SEMI", "COMMA", "DOT", 
-		"ASSIGN", "GT", "LT", "BANG", "TILDE", "QUESTION", "COLON", "EQUAL", "LE", 
+		"ASSIGN", "GT", "LT", "BANG", "QUESTION", "TILDE", "COLON", "EQUAL", "LE", 
 		"GE", "NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", 
 		"BITAND", "BITOR", "CARET", "MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", 
 		"DIV_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", 
@@ -75,7 +75,7 @@ public class OperatorsLexer extends Lexer {
 		"'throw'", "'throws'", "'transient'", "'try'", "'void'", "'volatile'", 
 		"'while'", null, null, null, null, null, null, null, null, null, "'null'", 
 		"'('", "')'", "'{'", "'}'", "'['", "']'", "';'", "','", "'.'", "'='", 
-		"'>'", "'<'", "'!'", "'~'", "'?'", "':'", "'=='", "'<='", "'>='", "'!='", 
+		"'>'", "'<'", "'!'", "'?'", "'~'", "':'", "'=='", "'<='", "'>='", "'!='", 
 		"'&&'", "'||'", "'++'", "'--'", "'+'", "'-'", "'*'", "'/'", "'&'", "'|'", 
 		"'^'", "'%'", "'+='", "'-='", "'*='", "'/='", "'&='", "'|='", "'^='", 
 		"'%='", "'<<='", "'>>='", "'>>>='", "'->'", "'::'", "'@'", "'...'"
@@ -91,7 +91,7 @@ public class OperatorsLexer extends Lexer {
 		"HEX_LITERAL", "OCT_LITERAL", "BINARY_LITERAL", "FLOAT_LITERAL", "HEX_FLOAT_LITERAL", 
 		"BOOL_LITERAL", "CHAR_LITERAL", "STRING_LITERAL", "NULL_LITERAL", "LPAREN", 
 		"RPAREN", "LBRACE", "RBRACE", "LBRACK", "RBRACK", "SEMI", "COMMA", "DOT", 
-		"ASSIGN", "GT", "LT", "BANG", "TILDE", "QUESTION", "COLON", "EQUAL", "LE", 
+		"ASSIGN", "GT", "LT", "BANG", "QUESTION", "TILDE", "COLON", "EQUAL", "LE", 
 		"GE", "NOTEQUAL", "AND", "OR", "INC", "DEC", "ADD", "SUB", "MUL", "DIV", 
 		"BITAND", "BITOR", "CARET", "MOD", "ADD_ASSIGN", "SUB_ASSIGN", "MUL_ASSIGN", 
 		"DIV_ASSIGN", "AND_ASSIGN", "OR_ASSIGN", "XOR_ASSIGN", "MOD_ASSIGN", "LSHIFT_ASSIGN", 
@@ -448,8 +448,8 @@ public class OperatorsLexer extends Lexer {
 		"\u0301\7.\2\2\u0301\u008c\3\2\2\2\u0302\u0303\7\60\2\2\u0303\u008e\3\2"+
 		"\2\2\u0304\u0305\7?\2\2\u0305\u0090\3\2\2\2\u0306\u0307\7@\2\2\u0307\u0092"+
 		"\3\2\2\2\u0308\u0309\7>\2\2\u0309\u0094\3\2\2\2\u030a\u030b\7#\2\2\u030b"+
-		"\u0096\3\2\2\2\u030c\u030d\7\u0080\2\2\u030d\u0098\3\2\2\2\u030e\u030f"+
-		"\7A\2\2\u030f\u009a\3\2\2\2\u0310\u0311\7<\2\2\u0311\u009c\3\2\2\2\u0312"+
+		"\u0096\3\2\2\2\u030c\u030d\7A\2\2\u030d\u0098\3\2\2\2\u030e\u030f\7\u0080"+
+		"\2\2\u030f\u009a\3\2\2\2\u0310\u0311\7<\2\2\u0311\u009c\3\2\2\2\u0312"+
 		"\u0313\7?\2\2\u0313\u0314\7?\2\2\u0314\u009e\3\2\2\2\u0315\u0316\7>\2"+
 		"\2\u0316\u0317\7?\2\2\u0317\u00a0\3\2\2\2\u0318\u0319\7@\2\2\u0319\u031a"+
 		"\7?\2\2\u031a\u00a2\3\2\2\2\u031b\u031c\7#\2\2\u031c\u031d\7?\2\2\u031d"+

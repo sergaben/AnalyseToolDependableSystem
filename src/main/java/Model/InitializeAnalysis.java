@@ -14,13 +14,20 @@ public class InitializeAnalysis {
 
     private ArrayList<String> methodsWithDeclaration = new ArrayList<>();
     private ArrayList<String> allMethods = new ArrayList<>();
-    private ArrayList<Metrics> cyclometicComplexityMethods = new ArrayList<>();
-
+    private ArrayList<Method> cyclometicComplexityMethods = new ArrayList<>();
+    private int noOfDecisionPoint = 0;
+    private int noOfLogicalOperators;
     public InitializeAnalysis(){
+    }
+
+    public ArrayList<Method> getCyclometicComplexityMethods() {
+        return cyclometicComplexityMethods;
     }
 
     public void startAnalyserFile(AnalysedFile analysedFile, File code) throws IOException {
         JavaAnalyser javaAnalyser = new JavaAnalyser(code);
+        //System.out.println(javaAnalyser.getNumberOfTernaryExpressions());
+        Metrics metrics = new Metrics();
         Comment comment = new Comment();
         Operator operator = new Operator();
 
@@ -51,24 +58,93 @@ public class InitializeAnalysis {
         /*
             Get methods with their respective NoOfOperators and UniqueOperators
          */
+        allMethods.forEach(System.out::println);
         allMethods.forEach(operator::setOperatorsForMethods);
 
+//        operator.getNoOfMethods().forEach(method->{
+//            System.out.println("************************");
+//            System.out.println(method.getBodyMethod());
+//            System.out.println(method.getOperatorsOccurencesInMethod());
+//            System.out.println(method.getUniqueOperatorsInMethod());
+//            System.out.println("*************************");
+//        });
+
         operator.getMethods().forEach(method->{
+
             Iterator it = method.getOperatorsOccurencesInMethod().entrySet().iterator();
             while(it.hasNext()){
                 Map.Entry pair = (Map.Entry)it.next();
                 String value = pair.getValue().toString();
                 String key = pair.getKey().toString();
+                //System.out.println(key + " "+ value);
+                switch(key){
+                    case "IF":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("IF");
+                        break;
+                    case "FOR":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("FOR");
+                        break;
+                    case "CASE":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("CASE");
+                        break;
+                    case "CATCH":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("CATCH");
+                        break;
+                    case "ELSE":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("ELSE");
+                        break;
+                    case "WHILE":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("WHILE");
+                        break;
+                    case "DOWHILE":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("DOWHILE");
+                        break;
+                    case "TRY":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("TRY");
+                        break;
+                    case "RETURN":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("RETURN");
+                        break;
+                    case "AND":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("AND");
+                        break;
+                    case "OR":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("OR");
+                        break;
+                    case "BITAND":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("BITAND");
+                        break;
+                    case "BITOR":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("BITOR");
+                        break;
+                    case "BANG":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("BANG");
+                        break;
+                    case "CARET":
+                        noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("CARET");
+                        break;
+                    default:
+                        // do nothing
+                }
 
 //                hashMapAddTo.put(pair.getKey().toString(),Integer.parseInt(value));
                 it.remove();
+
+
+//                noOfLogicalOperators=0;
+//                noOfDecisionPoint=0;
             }
-            System.out.println("************************");
-            System.out.println(method.getBodyMethod());
-            System.out.println(method.getOperatorsOccurencesInMethod());
-            System.out.println(method.getUniqueOperatorsInMethod());
-            System.out.println("*************************");
+            try {
+                noOfLogicalOperators += javaAnalyser.getNumberOfTernaryExpressionsFromFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            cyclometicComplexityMethods.add(new Method(method.getBodyMethod(),metrics.calculateCyclomatic(noOfDecisionPoint,noOfLogicalOperators)));
         });
+//        System.out.println(noOfDecisionPoint);
+//        System.out.println(noOfLogicalOperators);
+
+//
 //
 //        Metrics metrics = new Metrics();
 //
@@ -84,7 +160,7 @@ public class InitializeAnalysis {
 ////            //System.out.println(tokenName+ " "+ token.getText());
 ////            if(tokenName.equals("LINE_COMMENT")){
 ////                comment.setSingleLineComments(token.getText());
-////                //counter.identifyNoOperatorsForMethod(tokenName);
+////                //noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
 ////            }else if(tokenName.equals("BLOCKCOMMENT")){
 ////                comment.setMultiLineComments(token.getText());
 ////            }
@@ -93,14 +169,14 @@ public class InitializeAnalysis {
 //
 //        //allMethods.forEach(System.out::println);
 //
-//        counter.setNumberOfMethods(allMethods.size());
-//        counter.setNumberOfClasses(listenerClass.getClassNames().size());
+//        noOfDecisionPoint.setNumberOfMethods(allMethods.size());
+//        noOfDecisionPoint.setNumberOfClasses(listenerClass.getClassNames().size());
 //
 //        allMethods.forEach(method->{
 //            metrics.setOperatorsForMethods(method);
 //        });
 
-//        metrics.getMethods().forEach(method->{
+//        metrics.getNoOfMethods().forEach(method->{
 //            System.out.println("**********************");
 //            System.out.println(method.getBodyMethod());
 //            System.out.println(method.getOperatorsOccurencesInMethod());
@@ -111,10 +187,10 @@ public class InitializeAnalysis {
 
 
 
-//        System.out.println("The number of comments in this file are: " + counter.getNumberOfComments());
-//        System.out.println("The lines of code (excluding whitespaces & including comments) in this file are: " + counter.getLinesOfCode());
-//        System.out.println("The number of methods in this file are: "+ counter.getNumberOfMethods());
-//        System.out.println("The number of classes in this file are: " + counter.getNumberOfClasses());
+//        System.out.println("The number of comments in this file are: " + noOfDecisionPoint.getNumberOfComments());
+//        System.out.println("The lines of code (excluding whitespaces & including comments) in this file are: " + noOfDecisionPoint.getLinesOfCode());
+//        System.out.println("The number of methods in this file are: "+ noOfDecisionPoint.getNumberOfMethods());
+//        System.out.println("The number of classes in this file are: " + noOfDecisionPoint.getNumberOfClasses());
 //        Iterator it = methodClass.getOperatorsForMethods().entrySet().iterator();
 //        while(it.hasNext()){
 //            Map.Entry pair = (Map.Entry)it.next();
@@ -144,9 +220,9 @@ public class InitializeAnalysis {
         //allMethods.forEach(System.out::println);
 
 //        allMethods.forEach(method->{
-//            counter.identifyNoOperatorsForMethod(method);
+//            noOfDecisionPoint.identifyNoOperatorsForMethod(method);
 //            System.out.println("*************************************");
-//            Iterator it = counter.getOperatorsOccurencesInMethod().entrySet().iterator();
+//            Iterator it = noOfDecisionPoint.getOperatorsOccurencesInMethod().entrySet().iterator();
 //            while(it.hasNext()){
 //                Map.Entry pair = (Map.Entry)it.next();
 //                System.out.println(pair.getKey() + " = " + pair.getValue());
@@ -163,18 +239,19 @@ public class InitializeAnalysis {
 //                tokenName = OperatorsLexer.VOCABULARY.getSymbolicName(token.getType());
 //                //System.out.println(tokenName+ " "+ token.getText());
 //                if(!tokenName.equals("WS")){
-//                    counter.identifyNoOperatorsForMethod(tokenName);
+//                    noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
 //                }
 //            }
 //
 //        });
 //        allMethods.forEach(System.out::println);
+        analysedFile.setCyclometicComplexityMethods(cyclometicComplexityMethods);
         analysedFile.setNoOfClasses(javaAnalyser.getClassNames().size());
-        analysedFile.setLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
+        analysedFile.setNoOfLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
         analysedFile.setMultilineComments(comment.getMultiLineComments().size());
         analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
-        analysedFile.setMethods(allMethods.size());
+        analysedFile.setNoOfMethods(allMethods.size());
 
 
     }
@@ -205,7 +282,7 @@ public class InitializeAnalysis {
 ////            //System.out.println(tokenName+ " "+ token.getText());
 ////            if(tokenName.equals("LINE_COMMENT")){
 ////                comment.setSingleLineComments(token.getText());
-////                //counter.identifyNoOperatorsForMethod(tokenName);
+////                //noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
 ////            }else if(tokenName.equals("BLOCKCOMMENT")){
 ////                comment.setMultiLineComments(token.getText());
 ////            }
@@ -227,14 +304,14 @@ public class InitializeAnalysis {
 //        }
 //        //allMethods.forEach(System.out::println);
 //
-//        counter.setNumberOfMethods(allMethods.size());
-//        counter.setNumberOfClasses(listenerClass.getClassNames().size());
+//        noOfDecisionPoint.setNumberOfMethods(allMethods.size());
+//        noOfDecisionPoint.setNumberOfClasses(listenerClass.getClassNames().size());
 //
 //        allMethods.forEach(method->{
 //            metrics.setOperatorsForMethods(method);
 //        });
 
-//        metrics.getMethods().forEach(method->{
+//        metrics.getNoOfMethods().forEach(method->{
 //            System.out.println("**********************");
 //            System.out.println(method.getBodyMethod());
 //            System.out.println(method.getOperatorsOccurencesInMethod());
@@ -245,10 +322,10 @@ public class InitializeAnalysis {
 
 
 
-//        System.out.println("The number of comments in this file are: " + counter.getNumberOfComments());
-//        System.out.println("The lines of code (excluding whitespaces & including comments) in this file are: " + counter.getLinesOfCode());
-//        System.out.println("The number of methods in this file are: "+ counter.getNumberOfMethods());
-//        System.out.println("The number of classes in this file are: " + counter.getNumberOfClasses());
+//        System.out.println("The number of comments in this file are: " + noOfDecisionPoint.getNumberOfComments());
+//        System.out.println("The lines of code (excluding whitespaces & including comments) in this file are: " + noOfDecisionPoint.getLinesOfCode());
+//        System.out.println("The number of methods in this file are: "+ noOfDecisionPoint.getNumberOfMethods());
+//        System.out.println("The number of classes in this file are: " + noOfDecisionPoint.getNumberOfClasses());
 //        Iterator it = methodClass.getOperatorsForMethods().entrySet().iterator();
 //        while(it.hasNext()){
 //            Map.Entry pair = (Map.Entry)it.next();
@@ -278,9 +355,9 @@ public class InitializeAnalysis {
         //allMethods.forEach(System.out::println);
 
 //        allMethods.forEach(method->{
-//            counter.identifyNoOperatorsForMethod(method);
+//            noOfDecisionPoint.identifyNoOperatorsForMethod(method);
 //            System.out.println("*************************************");
-//            Iterator it = counter.getOperatorsOccurencesInMethod().entrySet().iterator();
+//            Iterator it = noOfDecisionPoint.getOperatorsOccurencesInMethod().entrySet().iterator();
 //            while(it.hasNext()){
 //                Map.Entry pair = (Map.Entry)it.next();
 //                System.out.println(pair.getKey() + " = " + pair.getValue());
@@ -297,7 +374,7 @@ public class InitializeAnalysis {
 //                tokenName = OperatorsLexer.VOCABULARY.getSymbolicName(token.getType());
 //                //System.out.println(tokenName+ " "+ token.getText());
 //                if(!tokenName.equals("WS")){
-//                    counter.identifyNoOperatorsForMethod(tokenName);
+//                    noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
 //                }
 //            }
 //

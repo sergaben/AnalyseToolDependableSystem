@@ -21,6 +21,8 @@ public class JavaAnalyser implements HelperMethods{
     private ArrayList<String> methods = new ArrayList<>();
     private ArrayList<String> classNames = new ArrayList<>();
     private ArrayList<String> classBodyDeclarations = new ArrayList<>();
+    private int numberOfTernaryExpressions =0;
+    private OperatorsParser parser;
     private CharStream charStream;
     private File code;
     private String inputText;
@@ -50,7 +52,7 @@ public class JavaAnalyser implements HelperMethods{
         charStream = CharStreams.fromFileName(code.getName());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
-        OperatorsParser parser = new OperatorsParser(tokens);
+        parser = new OperatorsParser(tokens);
 
         Listener listener = new Listener(charStream,lexer);
         parser.compilationUnit().enterRule(listener);
@@ -62,8 +64,7 @@ public class JavaAnalyser implements HelperMethods{
        charStream = CharStreams.fromString(inputText);
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
-        OperatorsParser parser = new OperatorsParser(tokens);
-        numberOfLinesWithoutAndComments = getLinesOfCode(parser);
+         parser = new OperatorsParser(tokens);
 
         Listener listener = new Listener(charStream,lexer);
         parser.compilationUnit().enterRule(listener);
@@ -74,24 +75,43 @@ public class JavaAnalyser implements HelperMethods{
         charStream = CharStreams.fromFileName(code.getName());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
-        OperatorsParser parser = new OperatorsParser(tokens);
-        numberOfLinesWithoutAndComments = getLinesOfCode(parser);
+         parser = new OperatorsParser(tokens);
+        numberOfLinesWithoutAndComments = getLinesOfCode(parser).get(0);
+
         return numberOfLinesWithoutAndComments;
+    }
+
+    public int getNumberOfTernaryExpressionsFromFile() throws IOException {
+        charStream = CharStreams.fromFileName(code.getName());
+        OperatorsLexer lexer = new OperatorsLexer(charStream);
+        TokenStream tokens = new CommonTokenStream(lexer);
+        parser = new OperatorsParser(tokens);
+        numberOfTernaryExpressions = getLinesOfCode(parser).get(1);
+        return numberOfTernaryExpressions;
+    }
+
+    public int getNumberOfTernaryExpressionsFromText(){
+        charStream = CharStreams.fromString(inputText);
+        OperatorsLexer lexer = new OperatorsLexer(charStream);
+        TokenStream tokens = new CommonTokenStream(lexer);
+        parser = new OperatorsParser(tokens);
+        numberOfTernaryExpressions = getLinesOfCode(parser).get(1);
+        return numberOfTernaryExpressions;
     }
 
     public int getNumberOfLinesWithoutSpacesAndCommentsFromInputText(){
         charStream = CharStreams.fromString(inputText);
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
-        OperatorsParser parser = new OperatorsParser(tokens);
-        numberOfLinesWithoutAndComments = getLinesOfCode(parser);
+         parser = new OperatorsParser(tokens);
+        numberOfLinesWithoutAndComments = getLinesOfCode(parser).get(0);
+
         return numberOfLinesWithoutAndComments;
     }
 
     public void extractCommentsFromFile(Comment comment, File code) throws IOException {
         CharStream charStream = CharStreams.fromPath(code.toPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
-
         iterateThroughLexerFindComments(comment,lexer);
 
     }
@@ -242,6 +262,7 @@ public class JavaAnalyser implements HelperMethods{
             Interval interval = new Interval(a,b);
             //System.out.println(ctx.getText());
             methods.add(input.getText(interval));
+
         }
     }
 }
