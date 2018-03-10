@@ -105,6 +105,9 @@ public class InitializeAnalysis {
                     case "RETURN":
                         noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("RETURN");
                         break;
+                    case "BREAK":
+                        noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("BREAK");
+                        break;
                     case "AND":
                         noOfLogicalOperators += method.getOperatorsOccurencesInMethod().get("AND");
                         break;

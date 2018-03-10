@@ -39,7 +39,7 @@ public class Metrics {
 
         double halsteadComplexity = (distinctOperators / 2) * (totalNumberOfOperands / distinctOperands);
 
-        System.out.println("Halstead Complexity = " + halsteadComplexity + "%");
+        System.out.println("Halstead Complexity = " + halsteadComplexity);
     }
 
     public double volume(int programLength,int vocabularySize){
