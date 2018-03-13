@@ -1,8 +1,7 @@
 package Controller;
 
-import Iteration1.Counter3;
 import Model.AnalysedFile;
-import Model.InitializeAnalysis;
+import Model.Analysis;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,8 +15,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.net.URL;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -42,7 +39,7 @@ public class UploadController implements Initializable {
 
     private Scanner scanner;
 
-    private InitializeAnalysis initializeAnalysis;
+    private Analysis analysis;
 
     private AnalysedFile analysedFile = new AnalysedFile();
 
@@ -101,34 +98,11 @@ public class UploadController implements Initializable {
     private AnalysedFile analyse() {
 //        AnalysedFile aFile = new AnalysedFile();
         try {
-//            Path path = Paths.get("testFileForANTLR.java");
-//            File file = new File(path.toAbsolutePath().toString());
-            initializeAnalysis = new InitializeAnalysis();
-//            System.out.println("fasfadsfasfsafsdafsadfs");
-            initializeAnalysis.startAnalyserFile(analysedFile,uploaded_file);
-//            System.out.println(analysedFile.getSingleLineComments());
-//            System.out.println(analysedFile.getMultilineComments());
-//            System.out.println(analysedFile.getTotalNoOfComments());
-//            System.out.println(analysedFile.getNoOfLines());
-//            System.out.println(analysedFile.getNoOfClasses());
-//            System.out.println(analysedFile.getNoOfMethods());
-            analysedFile.getCyclometicComplexityMethods().forEach(cyclomaticComplexity->{
-//                System.out.println("//////////////////");
-//                System.out.println(cyclomaticComplexity.getBodyMethod());
-//                System.out.println("Cyclomatic complexity for the above method: "+ cyclomaticComplexity.getCyclomaticComplexity());
-//                System.out.println("Cyclomatic complexity = "+ cyclomaticComplexity.getCyclomaticComplexity() + "%");
-//
-//                System.out.println("//////////////////");
-            });
 
+            analysis = new Analysis();
+            analysis.startAnalyserFile(analysedFile,uploaded_file);
 
-
-//            Counter counterClass = new Counter(uploaded_file);
-//            int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
-//            comments += counterClass.countMultiLineCommentsInFile("/**", "*/");
-//            aFile.setNoOfLines(counterClass.countLinesInFile());
-//            aFile.setComments(comments );
-
+//            analysis.
             // count methods
             // halstead complexity
             // cyclomatic complexity

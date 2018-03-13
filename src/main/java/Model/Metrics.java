@@ -5,13 +5,15 @@ package Model;
  * @project AnalyseToolDependableSystem
  */
 public class Metrics {
-
-
-
     // To calculate Cyclomatic complexity we need to find every decision point
     // and all logical operators within the decision points and add them together and add 1
     // to final sum.
-
+    private double volume;
+    private double difficultyLevel;
+    private double programLevel;
+    private double effort;
+    private double time;
+    private double noOfDeliveredBugs;
     // decision points example: for, if, else if, while, do while, switch etc.
     // logical operators example: !, &, |, ^, &&, ||
     // These values will be pulled and stored in variables from reading the files
@@ -36,28 +38,54 @@ public class Metrics {
 
         int vocabularySize = distinctOperands + distinctOperators;
         int programLength = totalNumberOfOperands + totalNumberOfOperators;
-
-        double halsteadComplexity = (distinctOperators / 2) * (totalNumberOfOperands / distinctOperands);
-
-        System.out.println("Halstead Complexity = " + halsteadComplexity);
+        this.volume = volume(programLength,vocabularySize);
+        this.difficultyLevel = difficultyLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
+        this.programLevel = programLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
+        this.effort = effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands);
+        this.time = time(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands);
+        this.noOfDeliveredBugs = numberOfDeliveredBugs(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands);
     }
 
-    public double volume(int programLength,int vocabularySize){
+    private double volume(int programLength, int vocabularySize){
         return programLength * (Math.log(vocabularySize)/Math.log(2));
     }
-    public double difficultyLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+    private double difficultyLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
         return (distinctOperators/2) * (totalNumberOfOperands/distinctOperands);
     }
-    public double programLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+    private double programLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
         return 1/ difficultyLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
     }
-    public double effort(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+    private double effort(int programLength, int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
         return volume(programLength,vocabularySize) * difficultyLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
     }
-    public double time(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+    private double time(int programLength, int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
         return effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) / 18;
     }
-    public double numberOfDeliveredBugs(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+    private double numberOfDeliveredBugs(int programLength, int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
         return (effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) * (2/3))/3000;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public double getDifficultyLevel() {
+        return difficultyLevel;
+    }
+
+    public double getProgramLevel() {
+        return programLevel;
+    }
+
+    public double getEffort() {
+        return effort;
+    }
+
+    public double getTime() {
+        return time;
+    }
+
+    public double getNoOfDeliveredBugs() {
+        return noOfDeliveredBugs;
     }
 }

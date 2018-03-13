@@ -27,7 +27,6 @@ public interface HelperMethods {
             it.remove();
         }
     }
-
     default public void iterateThroughLexerFindComments(Comment comment, Lexer lexer){
         String tokenName;
         for(Token token = lexer.nextToken(); token.getType() != Token.EOF ; token = lexer.nextToken()){

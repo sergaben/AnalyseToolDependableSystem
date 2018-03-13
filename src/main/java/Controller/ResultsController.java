@@ -25,7 +25,8 @@ public class ResultsController implements Initializable {
     private Label noOfMethods;
     @FXML
     private Label cyclomaticComplexity;
-
+    @FXML
+    private Label halsteadComplexity;
     @FXML
     private void exit() {
         Platform.exit();
@@ -37,8 +38,9 @@ public class ResultsController implements Initializable {
         this.noOfLines.setText(String.valueOf(file.getNoOfLines()));
         this.comments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.noOfMethods.setText(String.valueOf(file.getNoOfMethods()));
+        this.halsteadComplexity.setText(String.valueOf(file.getHalstead_comp()));
         // The code below has to be changed to allow multiple methods
-        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()) + "%");
+        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()));
     }
 
     public void switchScene()

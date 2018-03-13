@@ -12,7 +12,7 @@ public class AnalysedFile {
     private int multilineComments;
     private int totalNoOfComments;
     private int noOfMethods;
-    private int halstead_comp;
+    private double halstead_comp;
     private ArrayList<Method> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
     private int code_quality;
@@ -94,11 +94,11 @@ public class AnalysedFile {
         this.noOfMethods = noOfMethods;
     }
 
-    public int getHalstead_comp() {
+    public double getHalstead_comp() {
         return halstead_comp;
     }
 
-    public void setHalstead_comp(int halstead_comp) {
+    public void setHalstead_comp(double halstead_comp) {
         this.halstead_comp = halstead_comp;
     }
 
