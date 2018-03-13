@@ -1,6 +1,10 @@
 package Controller;
 
-import Model.InitializeAnalysis;
+
+import Model.AnalysedFile;
+import Model.Analysis;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -26,7 +30,8 @@ public class UploadController extends DefaultController implements Initializable
     private MenuItem save;
 
     private File uploaded_file;
-    private InitializeAnalysis initializeAnalysis;
+
+    private Analysis analysis;
 
     @FXML
     private void chooseFile() {
@@ -66,8 +71,10 @@ public class UploadController extends DefaultController implements Initializable
 
     private void analyse() {
         try {
-            initializeAnalysis = new InitializeAnalysis();
-            initializeAnalysis.startAnalyserFile(this.file, uploaded_file);
+
+            analysis = new Analysis();
+            analysis.startAnalyserFile(analysedFile,uploaded_file);
+          
         } catch (Exception e) {
             e.printStackTrace();
         }

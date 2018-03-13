@@ -30,6 +30,9 @@ public class ResultsController extends DefaultController {
 
     public void setFile(AnalysedFile file) {
         this.file = file;
+        this.halstead.setText(String.valueOf(file.getHalstead_comp()));
+        // The code below has to be changed to allow multiple methods
+        this.cyclomatic.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
         this.lines.setText(String.valueOf(file.getNoOfLines()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));

@@ -656,34 +656,34 @@ arguments
   // Keywords
 ABSTRACT:           'abstract';
   ASSERT:             'assert';
-  BOOLEAN:            'boolean';
+  BOOLEAN:            'boolean'; // OPERAND
   BREAK:              'break';
-  BYTE:               'byte';
+  BYTE:               'byte'; // OPERAND
   CASE:               'case';
   CATCH:              'catch';
-  CHAR:               'char';
+  CHAR:               'char'; // OPERAND
   CLASS:              'class';
   CONST:              'const';
   CONTINUE:           'continue';
   DEFAULT:            'default';
   DO:                 'do';
   DOWHILE:            'do' .*? 'while''('.*?')'';';
-  DOUBLE:             'double';
+  DOUBLE:             'double'; // OPERAND
   ELSE:               'else';
   ENUM:               'enum';
   EXTENDS:            'extends';
   FINAL:              'final';
   FINALLY:            'finally';
-  FLOAT:              'float';
+  FLOAT:              'float'; // OPERAND
   FOR:                'for';
   IF:                 'if';
   GOTO:               'goto';
   IMPLEMENTS:         'implements';
   IMPORT:             'import';
   INSTANCEOF:         'instanceof';
-  INT:                'int';
+  INT:                'int'; // OPERAND
   INTERFACE:          'interface';
-  LONG:               'long';
+  LONG:               'long'; // OPERAND
   NATIVE:             'native';
   NEW:                'new';
   PACKAGE:            'package';
@@ -691,7 +691,7 @@ ABSTRACT:           'abstract';
   PROTECTED:          'protected';
   PUBLIC:             'public';
   RETURN:             'return';
-  SHORT:              'short';
+  SHORT:              'short'; //OPERAND
   STATIC:             'static';
   STRICTFP:           'strictfp';
   SUPER:              'super';
@@ -708,24 +708,24 @@ ABSTRACT:           'abstract';
 
   // Literals
 
-  DECIMAL_LITERAL:    ('0' | [1-9] (Digits? | '_'+ Digits)) [lL]?;
-  HEX_LITERAL:        '0' [xX] [0-9a-fA-F] ([0-9a-fA-F_]* [0-9a-fA-F])? [lL]?;
-  OCT_LITERAL:        '0' '_'* [0-7] ([0-7_]* [0-7])? [lL]?;
-  BINARY_LITERAL:     '0' [bB] [01] ([01_]* [01])? [lL]?;
+  DECIMAL_LITERAL:    ('0' | [1-9] (Digits? | '_'+ Digits)) [lL]?; // OPERAND
+  HEX_LITERAL:        '0' [xX] [0-9a-fA-F] ([0-9a-fA-F_]* [0-9a-fA-F])? [lL]?; // OPERAND
+  OCT_LITERAL:        '0' '_'* [0-7] ([0-7_]* [0-7])? [lL]?; // OPERAND
+  BINARY_LITERAL:     '0' [bB] [01] ([01_]* [01])? [lL]?; // OPERAND
 
   FLOAT_LITERAL:      (Digits '.' Digits? | '.' Digits) ExponentPart? [fFdD]?
-               |       Digits (ExponentPart [fFdD]? | [fFdD])
+               |       Digits (ExponentPart [fFdD]? | [fFdD]) // OPERAND
                ;
 
   HEX_FLOAT_LITERAL:  '0' [xX] (HexDigits '.'? | HexDigits? '.' HexDigits) [pP] [+-]? Digits [fFdD]?;
 
   BOOL_LITERAL:       'true'
-              |       'false'
+              |       'false' // OPERAND
               ;
 
-  CHAR_LITERAL:       '\'' (~['\\\r\n] | EscapeSequence) '\'';
+  CHAR_LITERAL:       '\'' (~['\\\r\n] | EscapeSequence) '\''; // OPERAND
 
-  STRING_LITERAL:     '"' (~["\\\r\n] | EscapeSequence)* '"';
+  STRING_LITERAL:     '"' (~["\\\r\n] | EscapeSequence)* '"'; // OPERAND
 
   NULL_LITERAL:       'null';
 
