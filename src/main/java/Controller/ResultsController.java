@@ -1,71 +1,54 @@
 package Controller;
 
 import Model.AnalysedFile;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ResultsController implements Initializable {
+public class ResultsController extends DefaultController {
 
     @FXML
-    private Label noOfLines;
+    private Label lines;
     @FXML
-    private Label comments;
-    private AnalysedFile file;
+    private Label numComments;
     @FXML
-    private Label noOfMethods;
+    private Label methods;
     @FXML
-    private Label cyclomaticComplexity;
+    private Label halstead;
     @FXML
-    private Label halsteadComplexity;
+    private Label cyclomatic;
     @FXML
-    private void exit() {
-        Platform.exit();
-    }
+    private Label commentQual;
 
     public void setFile(AnalysedFile file) {
         this.file = file;
-        System.out.println(file.getNoOfLines());
-        this.noOfLines.setText(String.valueOf(file.getNoOfLines()));
-        this.comments.setText(String.valueOf(file.getTotalNoOfComments()));
-        this.noOfMethods.setText(String.valueOf(file.getNoOfMethods()));
-        this.halsteadComplexity.setText(String.valueOf(file.getHalstead_comp()));
+        this.halstead.setText(String.valueOf(file.getHalstead_comp()));
         // The code below has to be changed to allow multiple methods
-        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
+        this.cyclomatic.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
+        this.lines.setText(String.valueOf(file.getNoOfLines()));
+        this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
+        this.methods.setText(String.valueOf(file.getNoOfMethods()));
     }
 
-    public void switchScene()
-    {
+    @FXML
+    protected void switchScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ClassLoader.getSystemResource("View/Upload.fxml"));
+            Parent root = loader.load();
 
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
-        Parent root;
-        try
-        {
-            root = (Parent)loader.load();
-            UploadController controller = (UploadController) loader.getController();
-
-            Stage stage = (Stage) this.noOfLines.getScene().getWindow();
+            Stage stage = (Stage) this.lines.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 550));
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
     }
 }

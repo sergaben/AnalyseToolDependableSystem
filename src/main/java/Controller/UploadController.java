@@ -1,5 +1,6 @@
 package Controller;
 
+
 import Model.AnalysedFile;
 import Model.Analysis;
 import javafx.application.Platform;
@@ -16,9 +17,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 
-public class UploadController implements Initializable {
+public class UploadController extends DefaultController implements Initializable {
 
     @FXML
     private TextField filepath_input;
@@ -27,39 +27,26 @@ public class UploadController implements Initializable {
     @FXML
     private MenuBar menuBar;
     @FXML
-    private TitledPane TPane;
-    @FXML
-    private CheckBox halstead;
-    @FXML
-    private CheckBox cyclomatic;
-    @FXML
-    private CheckBox commentQual;
+    private MenuItem save;
 
     private File uploaded_file;
 
-    private Scanner scanner;
-
     private Analysis analysis;
 
-    private AnalysedFile analysedFile = new AnalysedFile();
-
     @FXML
-    private void chooseFile(ActionEvent event) throws Exception {
+    private void chooseFile() {
         FileChooser fc = new FileChooser();
 
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JAVA files (*.java)", "*.java");
         fc.getExtensionFilters().add(extFilter);
         uploaded_file = fc.showOpenDialog(new Stage());
-//        if(uploaded_file != null) {
-//            filepath_input.setText(uploaded_file.getPath());
-//
-//            TPane.disableProperty().setValue(true);
-//            TPane.expandedProperty().setValue(false);
-//        }
+        if(uploaded_file != null) {
+            filepath_input.setText(uploaded_file.getPath());
+        }
     }
 
     @FXML
-    private void runAnalysis() throws Exception {
+    private void runAnalysis() {
         if (uploaded_file == null) {
             if (!pasteBox.getText().isEmpty()) {
                 try {
@@ -67,20 +54,6 @@ public class UploadController implements Initializable {
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
-
-                    // count lines and comments
-
-//                    String runSingleLineMethods = "something";
-//                    Counter3 counter3 = new Counter3(uploaded_file);
-//                    counter3.runSingleLineMethods();
-                    // count methods
-
-                    // halstead complexity
-
-                    // cyclomatic complexity
-                    // comment quality
-
-                    //switchScene(analyse());
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
@@ -91,41 +64,26 @@ public class UploadController implements Initializable {
                 );
             }
         } else {
-            switchScene(analyse());
+            analyse();
+            switchScene();
         }
     }
 
-    private AnalysedFile analyse() {
-//        AnalysedFile aFile = new AnalysedFile();
+    private void analyse() {
         try {
 
             analysis = new Analysis();
             analysis.startAnalyserFile(analysedFile,uploaded_file);
-
-//            analysis.
-            // count methods
-            // halstead complexity
-            // cyclomatic complexity
-            // comment quality
+          
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-
         }
-        return analysedFile;
     }
 
     @FXML
     private void clear() {
         filepath_input.clear();
         uploaded_file = null;
-        TPane.disableProperty().setValue(false);
-        TPane.expandedProperty().setValue(true);
-    }
-
-    @FXML
-    private void exit() {
-        Platform.exit();
     }
 
     private void showErrorDialog(String header, String message) {
@@ -137,72 +95,26 @@ public class UploadController implements Initializable {
     }
 
 
-//    public void switchScene(AnalysedFile aFile) {
-//    }
-    private void switchScene(AnalysedFile aFile)
+    protected void switchScene()
     {
-
-
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
         Parent root;
-        try
-        {
-            root = (Parent)loader.load();
-            ResultsController controller = (ResultsController) loader.getController();
+        try {
+            root = loader.load();
+            ResultsController controller = loader.getController();
 
-            controller.setFile(aFile);
+            controller.setFile(this.file);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 550));
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
+    public void initialize(URL url, ResourceBundle bundle) {
+        this.save.disableProperty().setValue(true);
     }
-
-    @FXML
-    private void newMenu() {
-            System.out.println();
-    }
-
-//     open saved file
-//     parse json data to AnalysedFile object
-//     pass to results page
-
-    @FXML
-    private void open(){
-        FileChooser fc = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-        fc.getExtensionFilters().add(extFilter);
-        File openFile = fc.showOpenDialog(new Stage());
-
-        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
-        switchScene(a);
-    }
-
-//     save analysis
-//     choose the file
-//     export AnalysedFile to json/csv/xml
-//     save to user destination
-
-    @FXML
-    private void save(){
-        FileChooser fc = new FileChooser();
-
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-        fc.getExtensionFilters().add(extFilter);
-        File savedFile = fc.showOpenDialog(new Stage());
-        if(savedFile != null) {
-            AnalysedFile a = new AnalysedFile();
-            a.exportToJSON(savedFile);
-        }
-    }
-
 }

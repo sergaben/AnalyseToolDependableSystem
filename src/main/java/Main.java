@@ -1,5 +1,3 @@
-
-import Model.AnalysedFile;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,18 +7,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
-    private AnalysedFile analysedFile = new AnalysedFile();
+
     public void start(Stage stage) throws IOException {
 
-
-        //System.out.println(analysedFile.getNoOfClasses());
-
-        FXMLLoader loader = new FXMLLoader();
-        // this works because the Upload and Results were moved to resources
-        loader.setLocation(ClassLoader.getSystemResource("View/Upload.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
         Parent root = loader.load();
-
-//        Controller.UploadController uc = loader.<Controller.UploadController>getController();
 
         Scene scene = new Scene(root, 500, 575);
         stage.setTitle("Alpha Analysis");
