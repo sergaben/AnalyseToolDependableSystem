@@ -1,14 +1,9 @@
 package Model;
 
 import java.io.*;
-import java.util.ArrayList;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
-
-import java.util.List;
 
 public class AnalysedFile {
 
@@ -20,15 +15,13 @@ public class AnalysedFile {
     private int totalNoOfComments;
     private int noOfMethods;
     private int halstead_comp;
-    private ArrayList<Method> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
     private int code_quality;
 
-    /* Test comment */
     public AnalysedFile() {
 
     }
-    /*fafsafsdf*/
+
     public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_comp, int cyclomatic_comp, int code_quality) {
         this.noOfLines = noOfLines;
         this.noOfClasses = noOfClasses;
@@ -39,14 +32,6 @@ public class AnalysedFile {
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
         this.code_quality = code_quality;
-    }
-
-    public ArrayList<Method> getCyclometicComplexityMethods() {
-        return cyclometicComplexityMethods;
-    }
-
-    public void setCyclometicComplexityMethods(ArrayList<Method> cyclometicComplexityMethods) {
-        this.cyclometicComplexityMethods = cyclometicComplexityMethods;
     }
 
     public void setName(String name) {
@@ -126,18 +111,20 @@ public class AnalysedFile {
     }
 
     /*
-        {
-          "name" : <string>,
-          "noOfLines" : <int>,
-          "noOfClasses" : <int>,
-          "singleLineComments" : <int>,
-          "multilineComments" : <int>,
-          "totalNoOfComments" : <int>,
-          "noOfMethods" : <int>,
-          "halstead_comp" : <int>,
-          "cyclomatic_comp" : <int>,
-          "code_quality" : <int>
-        }
+     * Converts AnalysedFile object to JSON and writes to file
+     * in the following format:
+     *   {
+     *     "name" : <string>,
+     *     "noOfLines" : <int>,
+     *     "noOfClasses" : <int>,
+     *     "singleLineComments" : <int>,
+     *     "multilineComments" : <int>,
+     *     "totalNoOfComments" : <int>,
+     *     "noOfMethods" : <int>,
+     *     "halstead_comp" : <int>,
+     *     "cyclomatic_comp" : <int>,
+     *     "code_quality" : <int>
+     *   }
      */
     public static void exportToJSON(AnalysedFile af, File file) throws IOException {
         try {
@@ -154,6 +141,9 @@ public class AnalysedFile {
         }
     }
 
+    /*
+     * Reads .atds file and converts to AnalysedFile object
+     */
     public static AnalysedFile getFromJSON(File file) {
         AnalysedFile af = new AnalysedFile();
         ObjectMapper mapper = new ObjectMapper();

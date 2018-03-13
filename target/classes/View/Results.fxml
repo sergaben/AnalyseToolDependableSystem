@@ -5,9 +5,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
+
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.ResultsController">
@@ -18,7 +18,7 @@
                 <MenuItem text="New..." />
                 <MenuItem text="Open" />
                 <MenuItem text="Save" onAction="#save" />
-                <MenuItem text="Exit" />
+                <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>
     </MenuBar>

@@ -5,9 +5,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
+
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.ResultsController">
@@ -18,7 +18,7 @@
                 <MenuItem text="New..." />
                 <MenuItem text="Open" />
                 <MenuItem text="Save" onAction="#save" />
-                <MenuItem text="Exit" />
+                <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>
     </MenuBar>
@@ -30,15 +30,17 @@
         </stylesheets>
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <Label text="# of noOfLines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <Label text="" fx:id="noOfLines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label text="# of comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <Label text="" fx:id="comments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Label text="# of noOfMethods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <Label text="" fx:id="noOfMethods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label text="" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label text="" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="halstead" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
         <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label text="" fx:id="cyclomaticComplexity" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-        <Label text="Model.Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     </GridPane>
 </AnchorPane>
