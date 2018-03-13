@@ -53,12 +53,12 @@ public class UploadController implements Initializable {
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("JAVA files (*.java)", "*.java");
         fc.getExtensionFilters().add(extFilter);
         uploaded_file = fc.showOpenDialog(new Stage());
-//        if(uploaded_file != null) {
-//            filepath_input.setText(uploaded_file.getPath());
-//
-//            TPane.disableProperty().setValue(true);
-//            TPane.expandedProperty().setValue(false);
-//        }
+        if(uploaded_file != null) {
+            filepath_input.setText(uploaded_file.getPath());
+
+            //TPane.disableProperty().setValue(true);
+            //TPane.expandedProperty().setValue(false);
+        }
     }
 
     @FXML
@@ -101,24 +101,24 @@ public class UploadController implements Initializable {
     private AnalysedFile analyse() {
 //        AnalysedFile aFile = new AnalysedFile();
         try {
-//            Path path = Paths.get("testFileForANTLR.java");
-//            File file = new File(path.toAbsolutePath().toString());
+//          Path path = Paths.get("testFileForANTLR.java");
+//          File file = new File(path.toAbsolutePath().toString());
             initializeAnalysis = new InitializeAnalysis();
-//            System.out.println("fasfadsfasfsafsdafsadfs");
+//          System.out.println("fasfadsfasfsafsdafsadfs");
             initializeAnalysis.startAnalyserFile(analysedFile,uploaded_file);
-//            System.out.println(analysedFile.getSingleLineComments());
-//            System.out.println(analysedFile.getMultilineComments());
-//            System.out.println(analysedFile.getTotalNoOfComments());
-//            System.out.println(analysedFile.getNoOfLines());
-//            System.out.println(analysedFile.getNoOfClasses());
-//            System.out.println(analysedFile.getNoOfMethods());
+//          System.out.println(analysedFile.getSingleLineComments());
+//          System.out.println(analysedFile.getMultilineComments());
+//          System.out.println(analysedFile.getTotalNoOfComments());
+//          System.out.println(analysedFile.getNoOfLines());
+//          System.out.println(analysedFile.getNoOfClasses());
+//          System.out.println(analysedFile.getNoOfMethods());
             analysedFile.getCyclometicComplexityMethods().forEach(cyclomaticComplexity->{
-//                System.out.println("//////////////////");
-//                System.out.println(cyclomaticComplexity.getBodyMethod());
-//                System.out.println("Cyclomatic complexity for the above method: "+ cyclomaticComplexity.getCyclomaticComplexity());
-//                System.out.println("Cyclomatic complexity = "+ cyclomaticComplexity.getCyclomaticComplexity() + "%");
+//          System.out.println("//////////////////");
+//          System.out.println(cyclomaticComplexity.getBodyMethod());
+//          System.out.println("Cyclomatic complexity for the above method: "+ cyclomaticComplexity.getCyclomaticComplexity());
+//          System.out.println("Cyclomatic complexity = "+ cyclomaticComplexity.getCyclomaticComplexity() + "%");
 //
-//                System.out.println("//////////////////");
+//          System.out.println("//////////////////");
             });
 
 
@@ -163,8 +163,6 @@ public class UploadController implements Initializable {
     }
 
 
-//    public void switchScene(AnalysedFile aFile) {
-//    }
     private void switchScene(AnalysedFile aFile)
     {
 
@@ -198,8 +196,8 @@ public class UploadController implements Initializable {
             System.out.println();
     }
 
-//     open saved file
-//     parse json data to AnalysedFile object
+//     open saved (.atds) file
+//     rename to .java file
 //     pass to results page
 
     @FXML
@@ -211,24 +209,6 @@ public class UploadController implements Initializable {
 
         AnalysedFile a = AnalysedFile.getFromJSON(openFile);
         switchScene(a);
-    }
-
-//     save analysis
-//     choose the file
-//     export AnalysedFile to json/csv/xml
-//     save to user destination
-
-    @FXML
-    private void save(){
-        FileChooser fc = new FileChooser();
-
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-        fc.getExtensionFilters().add(extFilter);
-        File savedFile = fc.showOpenDialog(new Stage());
-        if(savedFile != null) {
-            AnalysedFile a = new AnalysedFile();
-            a.exportToJSON(savedFile);
-        }
     }
 
 }

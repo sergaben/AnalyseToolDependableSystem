@@ -8,8 +8,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,7 +40,7 @@ public class ResultsController implements Initializable {
         this.comments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.noOfMethods.setText(String.valueOf(file.getNoOfMethods()));
         // The code below has to be changed to allow multiple methods
-        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()) + "%");
+        //this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()) + "%");
     }
 
     public void switchScene()
@@ -60,6 +62,28 @@ public class ResultsController implements Initializable {
             e.printStackTrace();
         }
 
+    }
+
+//     save analysis:
+//     choose save location
+//     convert AnalysedFile.java to '<saved_filename>.atds'
+//     save to user destination
+
+    @FXML
+    private void save(){
+        FileChooser fc = new FileChooser();
+
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File savedFile = fc.showSaveDialog(new Stage());
+        if(savedFile != null) {
+            try {
+                this.file.setName(savedFile.getName());
+                AnalysedFile.exportToJSON(this.file, savedFile);
+            } catch(IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override

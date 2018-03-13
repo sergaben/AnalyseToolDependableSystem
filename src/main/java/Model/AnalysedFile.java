@@ -1,7 +1,14 @@
 package Model;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import java.util.List;
 
 public class AnalysedFile {
 
@@ -119,27 +126,58 @@ public class AnalysedFile {
     }
 
     /*
-    {
-      "name" : "mkyong",
-      "noOfLines" : 0,
-      "comments" : null,
-      "noOfMethods" : "null",
-      "halstead_comp" : "null",
-      "cyclomatic_comp": "null",
-      "code_quality": "null"
-    }
+        {
+          "name" : <string>,
+          "noOfLines" : <int>,
+          "noOfClasses" : <int>,
+          "singleLineComments" : <int>,
+          "multilineComments" : <int>,
+          "totalNoOfComments" : <int>,
+          "noOfMethods" : <int>,
+          "halstead_comp" : <int>,
+          "cyclomatic_comp" : <int>,
+          "code_quality" : <int>
+        }
      */
+    public static void exportToJSON(AnalysedFile af, File file) throws IOException {
+        try {
+            // convert AnalysedFile object to JSON
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            String json = ow.writeValueAsString(af);
 
-    public String exportToJSON(File file) {
-        String json = "{\n";
-
-        return json;
+            // write JSON string to file
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+            writer.write(json);
+            writer.close();
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 
     public static AnalysedFile getFromJSON(File file) {
+        AnalysedFile af = new AnalysedFile();
+        ObjectMapper mapper = new ObjectMapper();
 
 
+        try {
+            // Read JSON from file
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
 
-        return new AnalysedFile();
+            while (line != null) {
+                sb.append(line);
+                line = br.readLine();
+            }
+            String json = sb.toString();
+
+            // Convert JSON to AnalysedFile
+            af = mapper.readValue(json, AnalysedFile.class);
+            br.close();
+
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+        return af;
     }
 }
