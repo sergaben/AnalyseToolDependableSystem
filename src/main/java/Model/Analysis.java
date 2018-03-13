@@ -14,15 +14,16 @@ public class Analysis {
 
     private ArrayList<String> methodsWithDeclaration = new ArrayList<>();
     private ArrayList<String> allMethods = new ArrayList<>();
-    private ArrayList<Method> cyclometicComplexityMethods = new ArrayList<>();
+    private ArrayList<Method> cyclomaticComplexityMethods = new ArrayList<>();
+    private ArrayList<Integer> cyclomaticComplexityResults = new ArrayList<>();
     private int noOfDecisionPoint = 0;
     private int noOfLogicalOperators;
     private double halsteadComplexity;
     public Analysis(){
     }
 
-    public ArrayList<Method> getCyclometicComplexityMethods() {
-        return cyclometicComplexityMethods;
+    public ArrayList<Method> getCyclomaticComplexityMethods() {
+        return cyclomaticComplexityMethods;
     }
 
     public void startAnalyserFile(AnalysedFile analysedFile, File code) throws IOException {
@@ -318,14 +319,15 @@ public class Analysis {
                 e.printStackTrace();
             }
 
-            cyclometicComplexityMethods.add(new Method(method.getBodyMethod(),metrics.calculateCyclomatic(noOfDecisionPoint,noOfLogicalOperators)));
+            cyclomaticComplexityMethods.add(new Method(method.getBodyMethod(),metrics.calculateCyclomatic(noOfDecisionPoint,noOfLogicalOperators)));
+            cyclomaticComplexityResults.add(metrics.calculateCyclomatic(noOfDecisionPoint,noOfLogicalOperators));
             noOfDecisionPoint = 0;
             noOfLogicalOperators = 0;
         });
     }
 
     private void setUpResults(AnalysedFile analysedFile, JavaAnalyser javaAnalyser, Comment comment) throws IOException {
-        analysedFile.setCyclometicComplexityMethods(cyclometicComplexityMethods);
+        analysedFile.setCyclometicComplexityMethods(cyclomaticComplexityResults);
         analysedFile.setHalstead_comp(halsteadComplexity);
         analysedFile.setNoOfClasses(javaAnalyser.getClassNames().size());
         analysedFile.setNoOfLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());

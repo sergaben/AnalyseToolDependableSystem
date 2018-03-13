@@ -40,7 +40,7 @@ public class ResultsController implements Initializable {
         this.noOfMethods.setText(String.valueOf(file.getNoOfMethods()));
         this.halsteadComplexity.setText(String.valueOf(file.getHalstead_comp()));
         // The code below has to be changed to allow multiple methods
-        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()));
+        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
     }
 
     public void switchScene()
