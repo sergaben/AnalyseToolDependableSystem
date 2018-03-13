@@ -16,8 +16,8 @@
         <menus>
             <Menu text="File">
                 <MenuItem text="New..." />
-                <MenuItem text="Open" />
-                <MenuItem text="Save" onAction="#save" />
+                <MenuItem fx:id="open" text="Open" onAction="#open" />
+                <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>

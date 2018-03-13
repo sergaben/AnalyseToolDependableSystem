@@ -1,10 +1,9 @@
 package Controller;
 
-import Model.AnalysedFile;
 import Model.InitializeAnalysis;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -12,8 +11,10 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class UploadController {
+public class UploadController extends DefaultController implements Initializable {
 
     @FXML
     private TextField filepath_input;
@@ -21,12 +22,11 @@ public class UploadController {
     private TextArea pasteBox;
     @FXML
     private MenuBar menuBar;
+    @FXML
+    private MenuItem save;
 
     private File uploaded_file;
-
     private InitializeAnalysis initializeAnalysis;
-
-    private AnalysedFile analysedFile = new AnalysedFile();
 
     @FXML
     private void chooseFile() {
@@ -59,29 +59,24 @@ public class UploadController {
                 );
             }
         } else {
-            switchScene(analyse());
+            analyse();
+            switchScene();
         }
     }
 
-    private AnalysedFile analyse() {
+    private void analyse() {
         try {
             initializeAnalysis = new InitializeAnalysis();
-            initializeAnalysis.startAnalyserFile(analysedFile, uploaded_file);
+            initializeAnalysis.startAnalyserFile(this.file, uploaded_file);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return analysedFile;
     }
 
     @FXML
     private void clear() {
         filepath_input.clear();
         uploaded_file = null;
-    }
-
-    @FXML
-    private void exit() {
-        Platform.exit();
     }
 
     private void showErrorDialog(String header, String message) {
@@ -93,38 +88,26 @@ public class UploadController {
     }
 
 
-    private void switchScene(AnalysedFile aFile)
+    protected void switchScene()
     {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
         Parent root;
-        try
-        {
+        try {
             root = loader.load();
             ResultsController controller = loader.getController();
 
-            controller.setFile(aFile);
+            controller.setFile(this.file);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 550));
-        }
-        catch (IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /* Open saved (.atds) file,
-     * pass to results page
-     */
-    @FXML
-    private void open(){
-        FileChooser fc = new FileChooser();
-        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
-        fc.getExtensionFilters().add(extFilter);
-        File openFile = fc.showOpenDialog(new Stage());
-
-        AnalysedFile a = AnalysedFile.getFromJSON(openFile);
-        switchScene(a);
+    @Override
+    public void initialize(URL url, ResourceBundle bundle) {
+        this.save.disableProperty().setValue(true);
     }
 }
