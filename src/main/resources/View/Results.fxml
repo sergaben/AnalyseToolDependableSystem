@@ -26,7 +26,7 @@
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" />
     <GridPane styleClass="root" AnchorPane.topAnchor="30" hgap="20" vgap="15" >
         <stylesheets>
-            <URL value="@../../java/Style.css" />
+            <URL value="@Style.css" />
         </stylesheets>
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>

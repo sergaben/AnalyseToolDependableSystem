@@ -73,7 +73,7 @@ public class UploadController extends DefaultController implements Initializable
         try {
 
             analysis = new Analysis();
-            analysis.startAnalyserFile(analysedFile,uploaded_file);
+            analysis.startAnalyserFile(this.file,uploaded_file);
           
         } catch (Exception e) {
             e.printStackTrace();

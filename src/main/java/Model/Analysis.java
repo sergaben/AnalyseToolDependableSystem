@@ -34,6 +34,7 @@ public class Analysis {
 
         javaAnalyser.parseFromFile();
         javaAnalyser.extractCommentsFromFile(comment,code);
+//        comment.getSingleLineComments().forEach();
         getRidOfDeclarationMethod(javaAnalyser);
         getConstructorsFromFile(javaAnalyser);
         addOperatorsToMethods(operator);

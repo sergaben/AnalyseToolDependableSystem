@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class DefaultController {
 
-    protected AnalysedFile file;
+    protected AnalysedFile file = new AnalysedFile();
 
     protected void switchScene() {
 
