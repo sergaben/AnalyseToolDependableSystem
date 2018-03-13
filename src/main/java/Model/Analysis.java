@@ -337,6 +337,6 @@ public class Analysis {
 
     private void getHalsteadComplexity(Metrics metrics, int uniqueOperators, int uniqueOperands, int totalNoOfOperators, int totalNoOfOperands){
         metrics.calculateHalsteadMetrics(uniqueOperators,uniqueOperands,totalNoOfOperands,totalNoOfOperators);
-       this.halsteadComplexity = metrics.getNoOfDeliveredBugs();
+       this.halsteadComplexity = metrics.getDifficultyLevel();
     }
 }
