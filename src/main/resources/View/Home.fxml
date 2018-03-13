@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.HomeController">
+    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
+        <menus>
+            <Menu text="File">
+                <MenuItem text="New..." />
+                <MenuItem fx:id="open" text="Open" onAction="#open" />
+                <MenuItem fx:id="save" text="Save" onAction="#save" />
+                <MenuItem text="Exit" onAction="#exit" />
+            </Menu>
+        </menus>
+    </MenuBar>
+    <GridPane AnchorPane.topAnchor="30" alignment="center" hgap="20" vgap="20" >
+        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+        <!-- Title -->
+        <Label text="Alpha Analysis" />
+        <!-- Logo -->
+        <!-- Introduction -->
+        <!-- Buttons - startAnalysis -->
+    </GridPane>
+</AnchorPane>

@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class DefaultController {
 
-    protected AnalysedFile file;
+    protected AnalysedFile file = new AnalysedFile();
 
     protected void switchScene() {
 
@@ -26,7 +26,7 @@ public class DefaultController {
         fc.getExtensionFilters().add(extFilter);
         File openFile = fc.showOpenDialog(new Stage());
 
-        file = AnalysedFile.getFromJSON(openFile);
+        this.file = AnalysedFile.getFromJSON(openFile);
         switchScene();
     }
 
