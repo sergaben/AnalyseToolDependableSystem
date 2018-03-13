@@ -1,17 +1,19 @@
 package Model;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class AnalysedFile {
 
     private String name;
-    private int lines;
+    private int noOfLines;
     private int noOfClasses;
     private int singleLineComments;
     private int multilineComments;
     private int totalNoOfComments;
-    private int methods;
+    private int noOfMethods;
     private int halstead_comp;
+    private ArrayList<Method> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
     private int code_quality;
 
@@ -20,16 +22,24 @@ public class AnalysedFile {
 
     }
     /*fafsafsdf*/
-    public AnalysedFile(int lines,int noOfClasses, int singleLineComments,int multilineComments,int totalNoOfComments, int methods, int halstead_comp, int cyclomatic_comp, int code_quality) {
-        this.lines = lines;
+    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_comp, int cyclomatic_comp, int code_quality) {
+        this.noOfLines = noOfLines;
         this.noOfClasses = noOfClasses;
         this.singleLineComments = singleLineComments;
         this.multilineComments = multilineComments;
         this.totalNoOfComments = totalNoOfComments;
-        this.methods = methods;
+        this.noOfMethods = noOfMethods;
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
         this.code_quality = code_quality;
+    }
+
+    public ArrayList<Method> getCyclometicComplexityMethods() {
+        return cyclometicComplexityMethods;
+    }
+
+    public void setCyclometicComplexityMethods(ArrayList<Method> cyclometicComplexityMethods) {
+        this.cyclometicComplexityMethods = cyclometicComplexityMethods;
     }
 
     public void setName(String name) {
@@ -40,12 +50,12 @@ public class AnalysedFile {
         return this.name;
     }
 
-    public int getLines() {
-        return lines;
+    public int getNoOfLines() {
+        return noOfLines;
     }
 
-    public void setLines(int lines) {
-        this.lines = lines;
+    public void setNoOfLines(int noOfLines) {
+        this.noOfLines = noOfLines;
     }
 
     public int getNoOfClasses() { return noOfClasses; }
@@ -76,12 +86,12 @@ public class AnalysedFile {
         this.totalNoOfComments = totalNoOfComments;
     }
 
-    public int getMethods() {
-        return methods;
+    public int getNoOfMethods() {
+        return noOfMethods;
     }
 
-    public void setMethods(int methods) {
-        this.methods = methods;
+    public void setNoOfMethods(int noOfMethods) {
+        this.noOfMethods = noOfMethods;
     }
 
     public int getHalstead_comp() {
@@ -111,9 +121,9 @@ public class AnalysedFile {
     /*
     {
       "name" : "mkyong",
-      "lines" : 0,
+      "noOfLines" : 0,
       "comments" : null,
-      "methods" : "null",
+      "noOfMethods" : "null",
       "halstead_comp" : "null",
       "cyclomatic_comp": "null",
       "code_quality": "null"

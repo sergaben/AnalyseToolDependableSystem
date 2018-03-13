@@ -17,6 +17,7 @@ import java.util.*;
  * @project AnalyseToolDependableSystem
  */
 public interface HelperMethods {
+
     default public void iterateThroughCollectionAndAddTo(HashMap<String,Integer> hashMapIterateThrough, HashMap<String,Integer> hashMapAddTo){
         Iterator it = hashMapIterateThrough.entrySet().iterator();
         while(it.hasNext()){
@@ -39,8 +40,9 @@ public interface HelperMethods {
         }
     }
 
-    default public int getLinesOfCode(OperatorsParser parser){
+    default public ArrayList<Integer> getLinesOfCode(OperatorsParser parser){
         Set<Integer> loc = new HashSet<>();
+        ArrayList<Integer> locAndNumberOfTernaryExpression = new ArrayList<>();
         ParseTreeWalker.DEFAULT.walk(new OperatorsBaseListener(){
             @Override
             public void visitTerminal(TerminalNode node){
@@ -49,6 +51,9 @@ public interface HelperMethods {
                 }
             }
         },parser.compilationUnit());
-        return loc.size();
+        locAndNumberOfTernaryExpression.add(loc.size());
+        locAndNumberOfTernaryExpression.add(parser.getTernaryOperatorsCC());
+        return locAndNumberOfTernaryExpression;
     }
+
 }

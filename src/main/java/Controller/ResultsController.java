@@ -17,10 +17,14 @@ import java.util.ResourceBundle;
 public class ResultsController implements Initializable {
 
     @FXML
-    private Label lines;
+    private Label noOfLines;
     @FXML
     private Label comments;
     private AnalysedFile file;
+    @FXML
+    private Label noOfMethods;
+    @FXML
+    private Label cyclomaticComplexity;
 
     @FXML
     private void exit() {
@@ -29,8 +33,12 @@ public class ResultsController implements Initializable {
 
     public void setFile(AnalysedFile file) {
         this.file = file;
-        this.lines.setText(String.valueOf(file.getLines()));
+        System.out.println(file.getNoOfLines());
+        this.noOfLines.setText(String.valueOf(file.getNoOfLines()));
         this.comments.setText(String.valueOf(file.getTotalNoOfComments()));
+        this.noOfMethods.setText(String.valueOf(file.getNoOfMethods()));
+        // The code below has to be changed to allow multiple methods
+        this.cyclomaticComplexity.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0).getCyclomaticComplexity()) + "%");
     }
 
     public void switchScene()
@@ -44,7 +52,7 @@ public class ResultsController implements Initializable {
             root = (Parent)loader.load();
             UploadController controller = (UploadController) loader.getController();
 
-            Stage stage = (Stage) this.lines.getScene().getWindow();
+            Stage stage = (Stage) this.noOfLines.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 550));
         }
         catch (IOException e)

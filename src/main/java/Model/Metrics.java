@@ -6,6 +6,8 @@ package Model;
  */
 public class Metrics {
 
+
+
     // To calculate Cyclomatic complexity we need to find every decision point
     // and all logical operators within the decision points and add them together and add 1
     // to final sum.
@@ -14,22 +16,11 @@ public class Metrics {
     // logical operators example: !, &, |, ^, &&, ||
     // These values will be pulled and stored in variables from reading the files
 
-    public void calculateCyclomatic(int decisionPoints, int logicalOperators){
-        double cyclomaticCompexity = (decisionPoints + logicalOperators) + 1;
+    // idea taken from src:
+    // https://www.javaworld.com/article/2074995/dealing-cyclomatic-complexity-in-java-code.html
 
-        // idea taken from src:
-        // https://www.javaworld.com/article/2074995/dealing-cyclomatic-complexity-in-java-code.html
-
-        System.out.println("Cyclomatic Complexity = "+ cyclomaticCompexity + "%");
-        if(decisionPoints <= 10){
-            System.out.println("By Cyclomatic Complexity the application is Normal");
-        } else if(decisionPoints > 10 && decisionPoints <= 20){
-            System.out.println("By Cyclomatic Complexity the application is Moderate");
-        } else if(decisionPoints > 20 && decisionPoints <= 50){
-            System.out.println("By Cyclomatic Complexity the application is Risky");
-        } else {
-            System.out.println("By Cyclomatic Complexity the application is Unstable");
-        }
+    public int calculateCyclomatic(int decisionPoints, int logicalOperators){
+        return decisionPoints + logicalOperators + 1;
     }
 
     /**
@@ -41,10 +32,32 @@ public class Metrics {
     // just test examples: the numbers will be replaced with variables which these values are
     // stored in from scanning the file and finding the operands and operators.
 
-    public void calculateHalstead(int distinctOperators, int distinctOperands, int totalNumberOfOperands, int totalNumberOfOperators){
+    public void calculateHalsteadMetrics(int distinctOperators /* n1 */, int distinctOperands /* n2 */, int totalNumberOfOperands /* N2 */, int totalNumberOfOperators /* N1 */){
+
+        int vocabularySize = distinctOperands + distinctOperators;
+        int programLength = totalNumberOfOperands + totalNumberOfOperators;
 
         double halsteadComplexity = (distinctOperators / 2) * (totalNumberOfOperands / distinctOperands);
 
-        System.out.println("Halstead Complexity = " + halsteadComplexity + "%");
+        System.out.println("Halstead Complexity = " + halsteadComplexity);
+    }
+
+    public double volume(int programLength,int vocabularySize){
+        return programLength * (Math.log(vocabularySize)/Math.log(2));
+    }
+    public double difficultyLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+        return (distinctOperators/2) * (totalNumberOfOperands/distinctOperands);
+    }
+    public double programLevel(int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+        return 1/ difficultyLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
+    }
+    public double effort(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+        return volume(programLength,vocabularySize) * difficultyLevel(distinctOperators,totalNumberOfOperands,distinctOperands);
+    }
+    public double time(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+        return effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) / 18;
+    }
+    public double numberOfDeliveredBugs(int programLength,int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
+        return (effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) * (2/3))/3000;
     }
 }

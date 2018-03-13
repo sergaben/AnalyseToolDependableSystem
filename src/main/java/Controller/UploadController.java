@@ -109,14 +109,24 @@ public class UploadController implements Initializable {
 //            System.out.println(analysedFile.getSingleLineComments());
 //            System.out.println(analysedFile.getMultilineComments());
 //            System.out.println(analysedFile.getTotalNoOfComments());
-//            System.out.println(analysedFile.getLines());
+//            System.out.println(analysedFile.getNoOfLines());
 //            System.out.println(analysedFile.getNoOfClasses());
-//            System.out.println(analysedFile.getMethods());
+//            System.out.println(analysedFile.getNoOfMethods());
+            analysedFile.getCyclometicComplexityMethods().forEach(cyclomaticComplexity->{
+//                System.out.println("//////////////////");
+//                System.out.println(cyclomaticComplexity.getBodyMethod());
+//                System.out.println("Cyclomatic complexity for the above method: "+ cyclomaticComplexity.getCyclomaticComplexity());
+//                System.out.println("Cyclomatic complexity = "+ cyclomaticComplexity.getCyclomaticComplexity() + "%");
+//
+//                System.out.println("//////////////////");
+            });
+
+
 
 //            Counter counterClass = new Counter(uploaded_file);
 //            int comments = counterClass.countMultiLineCommentsInFile("/*", "*/");
 //            comments += counterClass.countMultiLineCommentsInFile("/**", "*/");
-//            aFile.setLines(counterClass.countLinesInFile());
+//            aFile.setNoOfLines(counterClass.countLinesInFile());
 //            aFile.setComments(comments );
 
             // count methods
