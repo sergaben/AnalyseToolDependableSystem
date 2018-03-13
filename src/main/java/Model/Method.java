@@ -2,7 +2,7 @@ package Model;
 
 import Util.HelperMethods;
 
-import java.util.LinkedHashMap;
+import java.util.*;
 
 /**
  * @author sergaben on 07/03/2018.
@@ -13,7 +13,27 @@ public class Method implements HelperMethods {
     private int cyclomaticComplexity;
     private LinkedHashMap<String,Integer> operatorsOccurencesInMethod = new LinkedHashMap<>();
     private LinkedHashMap<String,Integer> uniqueOperatorsInMethod = new LinkedHashMap<>();
+    private ArrayList<String> operandsOccurencesInMethod = new ArrayList<>();
+    private Set<String> uniqueOperandsInMethod = new HashSet<>();
 
+
+    public Method(String bodyMethod, LinkedHashMap<String,Integer> operatorsInMethod, LinkedHashMap<String,Integer> uniqueOperators, ArrayList<String> operandsIdentifiers, Set<String> uniqueOperands){
+        this.bodyMethod = bodyMethod;
+        iterateThroughCollectionAndAddTo(operatorsInMethod,operatorsOccurencesInMethod);
+        iterateThroughCollectionAndAddTo(uniqueOperators,uniqueOperatorsInMethod);
+        this.operandsOccurencesInMethod.addAll(operandsIdentifiers);
+        this.uniqueOperandsInMethod = uniqueOperands;
+//        iterateThroughCollection(operandsIdentifiers,operandsOccurencesInMethod);
+    }
+
+
+    public Method(String bodyMethod, LinkedHashMap<String,Integer> operatorsInMethod, LinkedHashMap<String,Integer> uniqueOperators, ArrayList<String> operandsIdentifiers){
+        this.bodyMethod = bodyMethod;
+        iterateThroughCollectionAndAddTo(operatorsInMethod,operatorsOccurencesInMethod);
+        iterateThroughCollectionAndAddTo(uniqueOperators,uniqueOperatorsInMethod);
+        this.operandsOccurencesInMethod.addAll(operandsIdentifiers);
+//        iterateThroughCollection(operandsIdentifiers,operandsOccurencesInMethod);
+    }
 
     public Method(String bodyMethod, LinkedHashMap<String,Integer> operatorsInMethod, LinkedHashMap<String,Integer> uniqueOperators){
         this.bodyMethod = bodyMethod;
@@ -47,5 +67,13 @@ public class Method implements HelperMethods {
 
     public LinkedHashMap<String, Integer> getOperatorsOccurencesInMethod() {
         return operatorsOccurencesInMethod;
+    }
+
+    public ArrayList<String> getOperandsOccurencesInMethod() {
+        return operandsOccurencesInMethod;
+    }
+
+    public Set<String> getUniqueOperandsInMethod() {
+        return uniqueOperandsInMethod;
     }
 }
