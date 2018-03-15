@@ -10,7 +10,7 @@ public class Main extends Application {
 
     public void start(Stage stage) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Upload.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("View/Home.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 500, 575);

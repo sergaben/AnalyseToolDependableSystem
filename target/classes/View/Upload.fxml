@@ -4,6 +4,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.UploadController">
@@ -12,15 +14,24 @@
             <Menu text="File">
                 <Menu text="New" >
                     <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
-                    <MenuItem text="Code Comparison" />
                 </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
+            <Menu text="Help">
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
+            </Menu>
         </menus>
     </MenuBar>
-    <GridPane AnchorPane.topAnchor="30" alignment="center" hgap="20" vgap="20" >
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
+               AnchorPane.topAnchor="35" AnchorPane.leftAnchor="225" >
+        <image>
+            <Image url="@logo-pic.png" />
+        </image>
+    </ImageView>
+    <GridPane AnchorPane.topAnchor="70" alignment="center" hgap="20" vgap="20" >
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label text="Upload a file for analysis:"
                GridPane.columnIndex="1" GridPane.rowIndex="1" />

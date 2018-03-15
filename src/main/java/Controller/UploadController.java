@@ -16,8 +16,6 @@ public class UploadController extends DefaultController implements Initializable
     private TextField filepath_input;
     @FXML
     private TextArea pasteBox;
-    @FXML
-    private MenuItem save;
 
     private File uploaded_file;
 

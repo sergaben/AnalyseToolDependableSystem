@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
@@ -16,7 +17,14 @@ public class DefaultController {
 
     @FXML
     protected MenuBar menuBar;
+    @FXML
+    protected MenuItem save, open;
     protected AnalysedFile file = new AnalysedFile();
+
+    @FXML
+    protected void openUserManual() {
+
+    }
 
     @FXML
     protected void goToResults() {
@@ -29,7 +37,7 @@ public class DefaultController {
             controller.setFile(this.file);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 500, 550));
+            stage.setScene(new Scene(root, 500, 650));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,7 +52,7 @@ public class DefaultController {
             root = loader.load();
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 500, 550));
+            stage.setScene(new Scene(root, 500, 600));
         } catch (IOException e) {
             e.printStackTrace();
         }

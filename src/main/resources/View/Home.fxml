@@ -19,11 +19,13 @@
             <Menu text="File">
                 <Menu text="New" >
                     <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
-                    <MenuItem text="Code Comparison" onAction="#comparison"/>
                 </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
             </Menu>
         </menus>
     </MenuBar>
@@ -35,9 +37,7 @@
         </image>
     </ImageView>
     <!-- Buttons - startAnalysis -->
-    <Button text="Single Analysis" onAction="#singleAnalysis"
-            AnchorPane.bottomAnchor="60" AnchorPane.rightAnchor="200" />
-    <Button text="Code Comparison" onAction="#comparison"
+    <Button text="Start Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="60" AnchorPane.rightAnchor="50" />
     <GridPane AnchorPane.topAnchor="180" alignment="center" hgap="20" vgap="20" >
         <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>

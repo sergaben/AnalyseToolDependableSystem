@@ -5,6 +5,8 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.ResultsController">
@@ -12,20 +14,32 @@
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
         <menus>
             <Menu text="File">
-                <MenuItem text="New..." />
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
+            <Menu text="Help">
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
+            </Menu>
         </menus>
     </MenuBar>
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
+               AnchorPane.topAnchor="35" AnchorPane.leftAnchor="225" >
+        <image>
+            <Image url="@logo-pic.png" />
+        </image>
+    </ImageView>
     <Button text="Save Results" onAction="#save"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="320" />
     <Button text="Compare Results" onAction="#comparison"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="175" />
     <Button text="Start New Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" />
-    <GridPane styleClass="root" AnchorPane.topAnchor="30" hgap="20" vgap="15" >
+    <GridPane styleClass="root" AnchorPane.topAnchor="100" hgap="20" vgap="15" >
         <stylesheets>
             <URL value="@Style.css" />
         </stylesheets>

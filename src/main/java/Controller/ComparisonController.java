@@ -2,9 +2,12 @@ package Controller;
 
 import Model.AnalysedFile;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ComparisonController extends DefaultController {
+public class ComparisonController extends DefaultController implements Initializable {
 
     private AnalysedFile aFile1, aFile2;
     @FXML
@@ -53,5 +56,9 @@ public class ComparisonController extends DefaultController {
         }
         this.cyclomatic2.setText(String.valueOf(cyclomaticComp));
         this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()));
+    }
+
+    public void initialize(URL url, ResourceBundle rb) {
+        this.save.disableProperty().setValue(true);
     }
 }
