@@ -15,6 +15,7 @@ public class Main extends Application {
 
         Scene scene = new Scene(root, 500, 575);
         stage.setTitle("Alpha Analysis");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

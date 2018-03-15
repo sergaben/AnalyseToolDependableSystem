@@ -11,7 +11,7 @@ public interface OperatorsListener extends ParseTreeListener {
 	 * Enter a parse tree produced by {@link OperatorsParser#compilationUnit}.
 	 * @param ctx the parse tree
 	 */
-	void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx);
+	void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx) ;
 	/**
 	 * Exit a parse tree produced by {@link OperatorsParser#compilationUnit}.
 	 * @param ctx the parse tree

@@ -1,8 +1,4 @@
-public class Test1{
-/**
- * developed in the NetBeans 7.3.1 programming environment
- * draws the board based on the constants for rows and cols
- */
+
 void initialiseBoard(String[][] board, char sampleGame) {
     int rankNo;
     int fileNo;
@@ -66,4 +62,3 @@ void initialiseBoard(String[][] board, char sampleGame) {
       }
     }
   }
-}

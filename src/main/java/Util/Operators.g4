@@ -667,7 +667,7 @@ ABSTRACT:           'abstract';
   CONTINUE:           'continue';
   DEFAULT:            'default';
   DO:                 'do';
-  DOWHILE:            'do' .*? 'while''('.*?')'';';
+//  DOWHILE:            'do' .*? 'while''('.*?')'';';
   DOUBLE:             'double'; // OPERAND
   ELSE:               'else';
   ENUM:               'enum';

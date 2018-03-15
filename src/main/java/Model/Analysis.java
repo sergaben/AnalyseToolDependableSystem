@@ -70,6 +70,7 @@ public class Analysis {
         getCyclomaticComplexity(operator,javaAnalyser,metrics);
 
         setUpResults(analysedFile,javaAnalyser,comment);
+
     }
 
     private void getRidOfDeclarationMethod(JavaAnalyser javaAnalyser){
