@@ -41,7 +41,8 @@ public class Analysis {
             return true;
         }else{
             javaAnalyser.extractCommentsFromFile(comment,code);
-            analysedFile.setCommentQuality(comment.getCommentQuality());
+            System.out.println(comment.getMultiLineComments().size() + comment.getSingleLineComments().size());
+//            System.out.println(comment.getSingleLineComments().size());
             getRidOfDeclarationMethod(javaAnalyser);
             getConstructorsFromFile(javaAnalyser);
             addOperatorsToMethods(operator);
@@ -185,6 +186,9 @@ public class Analysis {
     }
 
     private void setUpResults(AnalysedFile analysedFile, JavaAnalyser javaAnalyser, Comment comment) throws IOException {
+        int totalNumberOfComments = comment.getSingleLineComments().size() + comment.getMultiLineComments().size();
+        analysedFile.setCommentQuality(comment.getCommentQuality());
+        analysedFile.setNoOfLinesOfCode(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
         analysedFile.setCyclometicComplexityMethods(cyclomaticComplexityResults);
         analysedFile.setHalstead_difficulty(halsteadDifficulty);
         analysedFile.setHalstead_bugs(halsteadBugs);
@@ -193,10 +197,10 @@ public class Analysis {
         analysedFile.setHalstead_time(halsteadTime);
         analysedFile.setHalstead_volume(halsteadVolume);
         analysedFile.setNoOfClasses(javaAnalyser.getClassNames().size());
-        analysedFile.setNoOfLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
+        analysedFile.setNoOfLinesInFile(javaAnalyser.getNumberOfLinesInTheFile());
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
         analysedFile.setMultilineComments(comment.getMultiLineComments().size());
-        analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
+        analysedFile.setTotalNoOfComments(totalNumberOfComments);
         analysedFile.setNoOfMethods(allMethods.size());
     }
 

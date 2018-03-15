@@ -18,7 +18,7 @@ public class ResultsController extends DefaultController {
     private static DecimalFormat df = new DecimalFormat("0.00000");
 
     @FXML
-    private Label name, lines, numComments, methods, halsteadDifficulty, cyclomatic,
+    private Label name, linesNoCommentsNoWhiteSpaces,linesInFile, numComments, methods, halsteadDifficulty, cyclomatic,
             halsteadTime, halsteadVolume, halsteadEffort, halsteadProgramLevel,
             halsteadBugs, commentQual, hald_lbl, halb_lbl, hale_lbl, halv_lbl,
             halt_lbl, halp_lbl, cyc_lbl, com_lbl;
@@ -26,8 +26,8 @@ public class ResultsController extends DefaultController {
     public void setFile(AnalysedFile file, boolean bHal, boolean bCyc, boolean bCom) {
         this.file = file;
         this.name.setText(this.file.getName());
-
-        this.lines.setText(String.valueOf(file.getNoOfLines()));
+        this.linesInFile.setText(String.valueOf(this.file.getNoOfLinesInFile()));
+        this.linesNoCommentsNoWhiteSpaces.setText(String.valueOf(file.getNoOfLinesOfCode()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));
 

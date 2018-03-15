@@ -48,27 +48,29 @@
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label id="name" fx:id="name"  GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-        <Label text="Number of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-        <Label id="lbl_1" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-        <Label id="lbl_1" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-        <Label id="lbl_1" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Label fx:id="hald_lbl" text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Label id="lbl_2" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <Label fx:id="hale_lbl" text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label id="lbl_2" fx:id="halsteadEffort" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-        <Label fx:id="halv_lbl" text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-        <Label id="lbl_2" fx:id="halsteadVolume" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-        <Label fx:id="halt_lbl" text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-        <Label id="lbl_2" fx:id="halsteadTime" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
-        <Label fx:id="halp_lbl" text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-        <Label id="lbl_2" fx:id="halsteadProgramLevel" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-        <Label fx:id="halb_lbl" text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
-        <Label id="lbl_2" fx:id="halsteadBugs" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
-        <Label fx:id="cyc_lbl" text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
-        <Label id="lbl_3" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
-        <Label fx:id="com_lbl" text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
-        <Label id="lbl_3" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+        <Label text="Number of Lines of Code: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label id="lbl_1" fx:id="linesNoCommentsNoWhiteSpaces" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Number of Lines in the file: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label id="lbl_1" fx:id="linesInFile" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label id="lbl_1" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label id="lbl_1" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label fx:id="hald_lbl" text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label id="lbl_2" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label fx:id="hale_lbl" text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label id="lbl_2" fx:id="halsteadEffort" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label fx:id="halv_lbl" text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label id="lbl_2" fx:id="halsteadVolume" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label fx:id="halt_lbl" text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label id="lbl_2" fx:id="halsteadTime" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label fx:id="halp_lbl" text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label id="lbl_2" fx:id="halsteadProgramLevel" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label fx:id="halb_lbl" text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label id="lbl_2" fx:id="halsteadBugs" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label fx:id="cyc_lbl" text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label id="lbl_3" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+        <Label fx:id="com_lbl" text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+        <Label id="lbl_3" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
     </GridPane>
 </AnchorPane>

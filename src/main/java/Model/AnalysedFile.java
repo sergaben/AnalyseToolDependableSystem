@@ -15,7 +15,8 @@ public class AnalysedFile {
    private int totalNoOfOperands;
    private int noOfUniqueOperands;
     private String name;
-    private int noOfLines;
+    private int noOfLinesInFile;
+    private int noOfLinesOfCode;
     private int noOfClasses;
     private int singleLineComments;
     private int multilineComments;
@@ -35,8 +36,8 @@ public class AnalysedFile {
 
     }
 
-    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_difficulty, int cyclomatic_comp, int code_quality) {
-        this.noOfLines = noOfLines;
+    public AnalysedFile(int noOfLinesInFile, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_difficulty, int cyclomatic_comp, int code_quality) {
+        this.noOfLinesInFile = noOfLinesInFile;
         this.noOfClasses = noOfClasses;
         this.singleLineComments = singleLineComments;
         this.multilineComments = multilineComments;
@@ -62,12 +63,12 @@ public class AnalysedFile {
         return this.name;
     }
 
-    public int getNoOfLines() {
-        return noOfLines;
+    public int getNoOfLinesInFile() {
+        return noOfLinesInFile;
     }
 
-    public void setNoOfLines(int noOfLines) {
-        this.noOfLines = noOfLines;
+    public void setNoOfLinesInFile(int noOfLinesInFile) {
+        this.noOfLinesInFile = noOfLinesInFile;
     }
 
     public int getNoOfClasses() { return noOfClasses; }
@@ -261,5 +262,13 @@ public class AnalysedFile {
             e.printStackTrace();
         }
         return af;
+    }
+
+    public int getNoOfLinesOfCode() {
+        return noOfLinesOfCode;
+    }
+
+    public void setNoOfLinesOfCode(int noOfLinesOfCode) {
+        this.noOfLinesOfCode = noOfLinesOfCode;
     }
 }
