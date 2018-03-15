@@ -18,6 +18,8 @@ public class UploadController extends DefaultController implements Initializable
     private TextArea pasteBox;
     @FXML
     private TitledPane TPane;
+    @FXML
+    private CheckBox halstead, cyclomatic, commentQual;
 
     private File uploaded_file;
 
@@ -46,6 +48,7 @@ public class UploadController extends DefaultController implements Initializable
                     bw.write(pasteBox.getText());
                     bw.close();
                     analyse();
+                    setCheckBox();
                     goToResults();
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
@@ -58,7 +61,20 @@ public class UploadController extends DefaultController implements Initializable
             }
         } else {
             analyse();
+            setCheckBox();
             goToResults();
+        }
+    }
+
+    private void setCheckBox() {
+        if(halstead.isSelected()) {
+            this.bHal = true;
+        }
+        if(cyclomatic.isSelected()) {
+            this.bCyc = true;
+        }
+        if(commentQual.isSelected()) {
+            this.bCom = true;
         }
     }
 

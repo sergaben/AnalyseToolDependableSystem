@@ -20,26 +20,47 @@ public class ResultsController extends DefaultController {
     @FXML
     private Label name, lines, numComments, methods, halsteadDifficulty, cyclomatic,
             halsteadTime, halsteadVolume, halsteadEffort, halsteadProgramLevel,
-            halsteadBugs, commentQual;
+            halsteadBugs, commentQual, hald_lbl, halb_lbl, hale_lbl, halv_lbl,
+            halt_lbl, halp_lbl, cyc_lbl, com_lbl;
 
-    public void setFile(AnalysedFile file) {
+    public void setFile(AnalysedFile file, boolean bHal, boolean bCyc, boolean bCom) {
         this.file = file;
         this.name.setText(this.file.getName());
-        this.halsteadDifficulty.setText(String.format("%.3f",file.getHalstead_difficulty()));
-        this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
-        this.halsteadEffort.setText(String.format("%.3f",file.getHalstead_effort()));
-        this.halsteadTime.setText(String.format("%.3f",file.getHalstead_time()) + " seconds");
-        this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
-        this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
-        int cyclomaticComp = 0;
-        for(int i : file.getCyclometicComplexityMethods()) {
-            cyclomaticComp += i;
-        }
-        this.cyclomatic.setText(String.valueOf(cyclomaticComp));
+
         this.lines.setText(String.valueOf(file.getNoOfLines()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));
-        this.commentQual.setText(String.valueOf(file.getCommentQuality()) + "%");
+
+        if (bHal) {
+            this.halsteadDifficulty.setText(String.format("%.3f", file.getHalstead_difficulty()));
+            this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
+            this.halsteadEffort.setText(String.format("%.3f", file.getHalstead_effort()));
+            this.halsteadTime.setText(String.format("%.3f", file.getHalstead_time()) + " seconds");
+            this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
+            this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
+        } else {
+            this.halp_lbl.disableProperty().setValue(true);
+            this.hald_lbl.disableProperty().setValue(true);
+            this.halb_lbl.disableProperty().setValue(true);
+            this.halv_lbl.disableProperty().setValue(true);
+            this.halt_lbl.disableProperty().setValue(true);
+            this.hale_lbl.disableProperty().setValue(true);
+        }
+
+        if(bCyc) {
+            int cyclomaticComp = 0;
+            for (int i : file.getCyclometicComplexityMethods()) {
+                cyclomaticComp += i;
+            }
+            this.cyclomatic.setText(String.valueOf(cyclomaticComp));
+        } else {
+            this.cyc_lbl.disableProperty().setValue(true);
+        }
+        if (bCom) {
+            this.commentQual.setText(String.valueOf(file.getCommentQuality()) + "%");
+        } else {
+            this.com_lbl.disableProperty().setValue(true);
+        }
     }
 
     private AnalysedFile getComparisonFile(){

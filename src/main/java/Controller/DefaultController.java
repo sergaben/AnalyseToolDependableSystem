@@ -25,6 +25,10 @@ public class DefaultController {
     protected MenuItem save, open;
     protected AnalysedFile file = new AnalysedFile();
 
+    protected boolean bHal = false;
+    protected boolean bCyc = false;
+    protected boolean bCom = false;
+
     @FXML
     protected void openUserManual() throws URISyntaxException {
         URI newUri = new URI("https://drive.google.com/drive/folders/1AgUreEBHZAb1p2FyMb0Ggl0V_wNNqqkK");
@@ -47,7 +51,7 @@ public class DefaultController {
         try {
             root = loader.load();
             ResultsController controller = loader.getController();
-            controller.setFile(this.file);
+            controller.setFile(this.file, bHal, bCyc, bCom);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 650));
