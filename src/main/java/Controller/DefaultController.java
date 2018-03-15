@@ -10,8 +10,12 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class DefaultController {
 
@@ -22,8 +26,17 @@ public class DefaultController {
     protected AnalysedFile file = new AnalysedFile();
 
     @FXML
-    protected void openUserManual() {
+    protected void openUserManual() throws URISyntaxException {
+        URI newUri = new URI("https://drive.google.com/drive/folders/1AgUreEBHZAb1p2FyMb0Ggl0V_wNNqqkK");
+        Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+        if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
+            try {
+                desktop.browse(newUri);
 
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
