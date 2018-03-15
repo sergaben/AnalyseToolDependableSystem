@@ -44,11 +44,11 @@
         <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" fx:id="name" maxWidth="200"
                GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="Number of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <Label text="" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
         <Label text="" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
@@ -72,11 +72,11 @@
         <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" fx:id="name2" maxWidth="200"
                GridPane.columnIndex="0" GridPane.rowIndex="0"/>
-        <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="Number of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-        <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <Label text="" fx:id="numComments2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-        <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="" fx:id="methods2" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
         <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
         <Label text="" fx:id="halsteadDifficulty2" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
