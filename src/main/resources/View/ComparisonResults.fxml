@@ -28,7 +28,8 @@
     <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
               AnchorPane.topAnchor="90" AnchorPane.leftAnchor="0" >
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        <Label id="results_lbl" fx:id="name" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label id="results_lbl" fx:id="name" maxWidth="200"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
@@ -55,7 +56,8 @@
     <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
               AnchorPane.topAnchor="90" AnchorPane.rightAnchor="0" >
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        <Label id="results_lbl" fx:id="name2" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label id="results_lbl" fx:id="name2" maxWidth="200"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
