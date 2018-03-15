@@ -72,16 +72,16 @@ public class Analysis {
         setUpResults(analysedFile,javaAnalyser,comment);
     }
 
-    public void startAnalyserInputText(AnalysedFile analysedFile, String code) {
-        JavaAnalyser javaAnalyser = new JavaAnalyser(code);
-        Comment comment = new Comment();
-        javaAnalyser.parseFromInputText();
-        javaAnalyser.extractCommentsFromTextInput(comment,code);
-
-        analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
-        analysedFile.setMultilineComments(comment.getMultiLineComments().size());
-        analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
-    }
+//    public void startAnalyserInputText(AnalysedFile analysedFile, String code) {
+//        JavaAnalyser javaAnalyser = new JavaAnalyser(code);
+//        Comment comment = new Comment();
+//        javaAnalyser.parseFromInputText();
+//        javaAnalyser.extractCommentsFromTextInput(comment,code);
+//
+//        analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
+//        analysedFile.setMultilineComments(comment.getMultiLineComments().size());
+//        analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
+//    }
 
     private void getRidOfDeclarationMethod(JavaAnalyser javaAnalyser){
          /*

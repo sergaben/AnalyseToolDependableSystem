@@ -4,8 +4,10 @@ import Model.AnalysedFile;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class ComparisonController extends DefaultController {
+import java.text.DecimalFormat;
 
+public class ComparisonController extends DefaultController {
+    private static DecimalFormat df = new DecimalFormat("0.00000");
     private AnalysedFile aFile1, aFile2;
     @FXML
     private Label name, lines, numComments, methods, halsteadDifficulty,
@@ -24,12 +26,12 @@ public class ComparisonController extends DefaultController {
         this.lines.setText(String.valueOf(aFile1.getNoOfLines()));
         this.numComments.setText(String.valueOf(aFile1.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(aFile1.getNoOfMethods()));
-        this.halsteadDifficulty.setText(String.valueOf(aFile1.getHalstead_difficulty()));
-        this.halsteadEffort.setText(String.valueOf(aFile1.getHalstead_effort()));
-        this.halsteadVolume.setText(String.valueOf(aFile1.getHalstead_volume()));
-        this.halsteadTime.setText(String.valueOf(aFile1.getHalstead_time()));
-        this.halsteadBugs.setText(String.valueOf(aFile1.getHalstead_bugs()));
-        this.halsteadProgramLevel.setText(String.format("%.3f", aFile1.getHalstead_programLevel()));
+        this.halsteadDifficulty.setText(String.format("%.3f",aFile1.getHalstead_difficulty()));
+        this.halsteadEffort.setText(String.format("%.3f",aFile1.getHalstead_effort()));
+        this.halsteadVolume.setText(String.format("%.3f",aFile1.getHalstead_volume()));
+        this.halsteadTime.setText(String.format("%.3f",aFile1.getHalstead_time()));
+        this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
+        this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
         int cyclomaticComp = 0;
         for(int i : aFile1.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
@@ -41,12 +43,12 @@ public class ComparisonController extends DefaultController {
         this.lines2.setText(String.valueOf(aFile2.getNoOfLines()));
         this.numComments2.setText(String.valueOf(aFile2.getTotalNoOfComments()));
         this.methods2.setText(String.valueOf(aFile2.getNoOfMethods()));
-        this.halsteadDifficulty2.setText(String.valueOf(aFile2.getHalstead_difficulty()));
-        this.halsteadEffort2.setText(String.valueOf(aFile2.getHalstead_effort()));
-        this.halsteadVolume2.setText(String.valueOf(aFile2.getHalstead_volume()));
-        this.halsteadTime2.setText(String.valueOf(aFile2.getHalstead_time()));
-        this.halsteadBugs2.setText(String.valueOf(aFile2.getHalstead_bugs()));
-        this.halsteadProgramLevel2.setText(String.format("%.3f", aFile2.getHalstead_programLevel()));
+        this.halsteadDifficulty2.setText(String.format("%.3f",aFile2.getHalstead_difficulty()));
+        this.halsteadEffort2.setText(String.format("%.3f",aFile2.getHalstead_effort()));
+        this.halsteadVolume2.setText(String.format("%.3f",aFile2.getHalstead_volume()));
+        this.halsteadTime2.setText(String.format("%.3f",aFile2.getHalstead_time()));
+        this.halsteadBugs2.setText(String.valueOf(df.format(file.getHalstead_bugs())));
+        this.halsteadProgramLevel2.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
         cyclomaticComp = 0;
         for(int i : aFile2.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;

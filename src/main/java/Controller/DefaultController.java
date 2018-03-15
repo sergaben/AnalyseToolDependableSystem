@@ -29,7 +29,7 @@ public class DefaultController {
             controller.setFile(this.file);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 500, 550));
+            stage.setScene(new Scene(root, 500, 650));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -15,6 +15,8 @@ import java.text.DecimalFormat;
 
 public class ResultsController extends DefaultController {
 
+    private static DecimalFormat df = new DecimalFormat("0.00000");
+
     @FXML
     private Label lines, numComments, methods, halsteadDifficulty, cyclomatic,
             halsteadTime, halsteadVolume, halsteadEffort, halsteadProgramLevel,
@@ -23,11 +25,11 @@ public class ResultsController extends DefaultController {
     public void setFile(AnalysedFile file) {
         this.file = file;
         this.halsteadDifficulty.setText(String.format("%.3f",file.getHalstead_difficulty()));
-        this.halsteadBugs.setText(String.format("%.3f",file.getHalstead_bugs()));
+        this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
         this.halsteadEffort.setText(String.format("%.3f",file.getHalstead_effort()));
         this.halsteadTime.setText(String.format("%.3f",file.getHalstead_time()) + " seconds");
         this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
-        this.halsteadProgramLevel.setText(String.format("%.3f",file.getHalstead_programLevel()));
+        this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
         int cyclomaticComp = 0;
         for(int i : file.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
