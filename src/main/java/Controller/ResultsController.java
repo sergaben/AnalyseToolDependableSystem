@@ -49,6 +49,7 @@ public class ResultsController extends DefaultController {
         this.lines.setText(String.valueOf(file.getNoOfLines()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));
+        this.commentQual.setText(String.valueOf(file.getCommentQuality()) + "%");
     }
 
     @FXML

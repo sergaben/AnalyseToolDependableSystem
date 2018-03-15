@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
@@ -22,6 +19,10 @@
             </Menu>
         </menus>
     </MenuBar>
+    <Button text="Save Results" onAction="#save"
+            AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="320" />
+    <Button text="Compare Results"
+            AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="175" />
     <Button text="Start New Analysis" onAction="#switchScene"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" />
     <GridPane styleClass="root" AnchorPane.topAnchor="30" hgap="20" vgap="15" >

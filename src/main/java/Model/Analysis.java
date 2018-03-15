@@ -39,6 +39,7 @@ public class Analysis {
 
         javaAnalyser.parseFromFile();
         javaAnalyser.extractCommentsFromFile(comment,code);
+        analysedFile.setCommentQuality(comment.getCommentQuality());
         getRidOfDeclarationMethod(javaAnalyser);
         getConstructorsFromFile(javaAnalyser);
         addOperatorsToMethods(operator);
@@ -74,14 +75,12 @@ public class Analysis {
     public void startAnalyserInputText(AnalysedFile analysedFile, String code) {
         JavaAnalyser javaAnalyser = new JavaAnalyser(code);
         Comment comment = new Comment();
-        Method methodClass = new Method();
         javaAnalyser.parseFromInputText();
         javaAnalyser.extractCommentsFromTextInput(comment,code);
 
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
         analysedFile.setMultilineComments(comment.getMultiLineComments().size());
         analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
-
     }
 
     private void getRidOfDeclarationMethod(JavaAnalyser javaAnalyser){
@@ -110,10 +109,9 @@ public class Analysis {
     }
 
     private void addOperatorsToMethods(Operator operator){
-         /*
-            Get methods with their respective NoOfOperators and UniqueOperators
+        /*
+         * Get methods with their respective NoOfOperators and UniqueOperators
          */
-//        allMethods.forEach(System.out::println);
         allMethods.forEach(operator::setOperatorsAndOperandsForMethods);
 
     }
@@ -124,9 +122,7 @@ public class Analysis {
             Iterator it = method.getOperatorsOccurencesInMethod().entrySet().iterator();
             while(it.hasNext()){
                 Map.Entry pair = (Map.Entry)it.next();
-                String value = pair.getValue().toString();
                 String key = pair.getKey().toString();
-                //System.out.println(key + " "+ value);
                 switch(key){
                     case "IF":
                         noOfDecisionPoint += method.getOperatorsOccurencesInMethod().get("IF");
@@ -179,13 +175,7 @@ public class Analysis {
                     default:
                         // do nothing
                 }
-
-//                hashMapAddTo.put(pair.getKey().toString(),Integer.parseInt(value));
                 it.remove();
-
-
-//                noOfLogicalOperators=0;
-//                noOfDecisionPoint=0;
             }
             try {
                 noOfLogicalOperators += javaAnalyser.getNumberOfTernaryExpressionsFromFile();

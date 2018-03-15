@@ -25,7 +25,7 @@ public class AnalysedFile {
     private double halstead_bugs;
     private ArrayList<Integer> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
-    private int code_quality;
+    private int commentQuality;
 
     public AnalysedFile() {
 
@@ -40,7 +40,7 @@ public class AnalysedFile {
         this.noOfMethods = noOfMethods;
         this.halstead_difficulty = halstead_difficulty;
         this. cyclomatic_comp = cyclomatic_comp;
-        this.code_quality = code_quality;
+        this.commentQuality = commentQuality;
     }
 
     public ArrayList<Integer> getCyclometicComplexityMethods() {
@@ -118,12 +118,12 @@ public class AnalysedFile {
         this.cyclomatic_comp = cyclomatic_comp;
     }
 
-    public int getCode_quality() {
-        return code_quality;
+    public int getCommentQuality() {
+        return commentQuality;
     }
 
-    public void setCode_quality(int code_quality) {
-        this.code_quality = code_quality;
+    public void setCommentQuality(int commentQuality) {
+        this.commentQuality = commentQuality;
     }
 
     public double getHalstead_time() {
@@ -179,7 +179,7 @@ public class AnalysedFile {
      *     "noOfMethods" : <int>,
      *     "halstead_difficulty" : <int>,
      *     "cyclomatic_comp" : <int>,
-     *     "code_quality" : <int>
+     *     "commentQuality" : <int>
      *   }
      */
     public static void exportToJSON(AnalysedFile af, File file) throws IOException {
