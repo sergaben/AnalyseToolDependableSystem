@@ -5,6 +5,8 @@
 <?import javafx.geometry.Insets?>
 <?import java.net.URL?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.ComparisonController">
@@ -14,20 +16,32 @@
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="800">
         <menus>
             <Menu text="File">
-                <MenuItem text="New..." />
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
+            <Menu text="Help">
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
+            </Menu>
         </menus>
     </MenuBar>
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
+               AnchorPane.topAnchor="35" AnchorPane.leftAnchor="360" >
+        <image>
+            <Image url="@logo-pic.png" />
+        </image>
+    </ImageView>
     <Label id="results_lbl" text="Comparison Results"
-           AnchorPane.topAnchor="50" AnchorPane.leftAnchor="25" />
+           AnchorPane.topAnchor="110" AnchorPane.leftAnchor="25" />
     <Button text="Start New Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="50" />
     <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
-              AnchorPane.topAnchor="90" AnchorPane.leftAnchor="0" >
-        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+              AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0" >
+        <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" fx:id="name" maxWidth="200"
                GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
@@ -54,8 +68,8 @@
         <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     </GridPane>
     <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
-              AnchorPane.topAnchor="90" AnchorPane.rightAnchor="0" >
-        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+              AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" >
+        <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" fx:id="name2" maxWidth="200"
                GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>

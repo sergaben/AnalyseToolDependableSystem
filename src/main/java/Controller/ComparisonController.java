@@ -2,9 +2,13 @@ package Controller;
 
 import Model.AnalysedFile;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.text.DecimalFormat;
+public class ComparisonController extends DefaultController implements Initializable {
+
 
 public class ComparisonController extends DefaultController {
     private static DecimalFormat df = new DecimalFormat("0.00000");
@@ -55,5 +59,9 @@ public class ComparisonController extends DefaultController {
         }
         this.cyclomatic2.setText(String.valueOf(cyclomaticComp));
         this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()));
+    }
+
+    public void initialize(URL url, ResourceBundle rb) {
+        this.save.disableProperty().setValue(true);
     }
 }
