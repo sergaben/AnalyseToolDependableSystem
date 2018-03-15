@@ -27,10 +27,11 @@ public class JavaAnalyser implements HelperMethods{
     private CharStream charStream;
     private File code;
     private int numberOfLinesWithoutAndComments = 0;
-    private boolean noError = true;
+    private boolean error;
 
     public JavaAnalyser(File code){
         this.code= code;
+
     }
 
     public ArrayList<String> getClassNames() {
@@ -45,7 +46,7 @@ public class JavaAnalyser implements HelperMethods{
         return methods;
     }
 
-    public void parseFromFile() throws IOException {
+    public Boolean parseFromFile() throws IOException {
         charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         lexer.removeErrorListeners();
@@ -58,6 +59,8 @@ public class JavaAnalyser implements HelperMethods{
         Listener listener = new Listener(charStream,lexer);
 //        if(noError){
             parser.compilationUnit().enterRule(listener);
+
+            return error;
 //            return noError;
 //        }else{
 //            return noError;
@@ -110,12 +113,13 @@ public class JavaAnalyser implements HelperMethods{
 
         @Override
         public void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx) {
-            System.out.println(ctx.getText());
             if(ctx.getText().contains("import") || ctx.getText().contains("class")){
                 TypeClassListener typeClassListener= new TypeClassListener();
                 ctx.typeDeclaration().forEach(declaration->declaration.enterRule(typeClassListener));
+                error = false;
             }else{
                 showNoClassInTheFile("No class in file detected","Please upload a file or input text with valid Java code.");
+                error = true;
             }
 
         }
