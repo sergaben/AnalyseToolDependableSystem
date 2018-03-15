@@ -50,6 +50,8 @@ public class UploadController extends DefaultController implements Initializable
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
+                    analyse();
+                    goToResults();
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
@@ -61,7 +63,7 @@ public class UploadController extends DefaultController implements Initializable
             }
         } else {
             analyse();
-            switchScene();
+            goToResults();
         }
     }
 
@@ -69,6 +71,7 @@ public class UploadController extends DefaultController implements Initializable
         try {
 
             analysis = new Analysis();
+            this.file.setName(uploaded_file.getName());
             analysis.startAnalyserFile(this.file,uploaded_file);
           
         } catch (Exception e) {

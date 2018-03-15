@@ -49,7 +49,7 @@ public class JavaAnalyser implements HelperMethods{
     }
 
     public void parseFromFile() throws IOException {
-        charStream = CharStreams.fromFileName(code.getName());
+        charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
         parser = new OperatorsParser(tokens);
@@ -72,7 +72,7 @@ public class JavaAnalyser implements HelperMethods{
     }
 
     public int getNumberOfLinesWithoutSpacesAndCommentsFromFile() throws IOException {
-        charStream = CharStreams.fromFileName(code.getName());
+        charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
          parser = new OperatorsParser(tokens);
@@ -82,7 +82,7 @@ public class JavaAnalyser implements HelperMethods{
     }
 
     public int getNumberOfTernaryExpressionsFromFile() throws IOException {
-        charStream = CharStreams.fromFileName(code.getName());
+        charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
         parser = new OperatorsParser(tokens);

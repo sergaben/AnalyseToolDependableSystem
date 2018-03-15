@@ -12,7 +12,7 @@
             <Menu text="File">
                 <Menu text="New" >
                     <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
-                    <MenuItem text="Code Comparison" onAction="#comparison"/>
+                    <MenuItem text="Code Comparison" />
                 </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />

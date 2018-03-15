@@ -3,6 +3,10 @@ package Controller;
 import Model.AnalysedFile;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuBar;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import java.io.File;
@@ -10,20 +14,41 @@ import java.io.IOException;
 
 public class DefaultController {
 
+    @FXML
+    protected MenuBar menuBar;
     protected AnalysedFile file = new AnalysedFile();
 
     @FXML
-    protected void singleAnalysis() {
+    protected void goToResults() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            ResultsController controller = loader.getController();
 
+            controller.setFile(this.file);
+
+            Stage stage = (Stage) this.menuBar.getScene().getWindow();
+            stage.setScene(new Scene(root, 500, 550));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    protected void comparison() {
+    protected void singleAnalysis() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/Upload.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
 
-    }
-
-    protected void switchScene() {
-
+            Stage stage = (Stage) this.menuBar.getScene().getWindow();
+            stage.setScene(new Scene(root, 500, 550));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /* Open saved (.atds) file,
@@ -37,7 +62,7 @@ public class DefaultController {
         File openFile = fc.showOpenDialog(new Stage());
 
         this.file = AnalysedFile.getFromJSON(openFile);
-        switchScene();
+        goToResults();
     }
 
     /*

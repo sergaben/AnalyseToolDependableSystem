@@ -6,7 +6,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 
@@ -44,22 +47,41 @@ public class ResultsController extends DefaultController {
         this.halsteadTime.setText(String.format("%.3f",file.getHalstead_time()) + " seconds");
         this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
         this.halsteadProgramLevel.setText(String.format("%.3f",file.getHalstead_programLevel()));
-        // The code below has to be changed to allow multiple methods
-        this.cyclomatic.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
+        int cyclomaticComp = 0;
+        for(int i : file.getCyclometicComplexityMethods()) {
+            cyclomaticComp += i;
+        }
+        this.cyclomatic.setText(String.valueOf(cyclomaticComp));
         this.lines.setText(String.valueOf(file.getNoOfLines()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));
         this.commentQual.setText(String.valueOf(file.getCommentQuality()) + "%");
     }
 
-    @FXML
-    protected void switchScene() {
-        try {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ClassLoader.getSystemResource("View/Upload.fxml"));
-            Parent root = loader.load();
+    private AnalysedFile getComparisonFile(){
+        FileChooser fc = new FileChooser();
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("ATDS Files", "*.atds");
+        fc.getExtensionFilters().add(extFilter);
+        File openFile = fc.showOpenDialog(new Stage());
 
-            Stage stage = (Stage) this.lines.getScene().getWindow();
+        AnalysedFile file = AnalysedFile.getFromJSON(openFile);
+        file.setName(openFile.getName());
+        return file;
+    }
+
+    @FXML
+    protected void comparison() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/ComparisonResults.fxml"));
+        Parent root;
+        try {
+            AnalysedFile comp = getComparisonFile();
+
+            root = loader.load();
+            ComparisonController c = loader.getController();
+            c.setFiles(this.file, comp);
+
+            Stage stage = (Stage) this.menuBar.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 550));
         } catch (IOException e) {
             e.printStackTrace();
