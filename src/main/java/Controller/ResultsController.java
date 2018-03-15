@@ -65,7 +65,7 @@ public class ResultsController extends DefaultController {
             c.setFiles(this.file, comp);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 800, 660));
+            stage.setScene(new Scene(root, 800, 760));
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -39,7 +39,7 @@ public class AnalysedFile {
         this.totalNoOfComments = totalNoOfComments;
         this.noOfMethods = noOfMethods;
         this.halstead_difficulty = halstead_difficulty;
-        this. cyclomatic_comp = cyclomatic_comp;
+        this.cyclomatic_comp = cyclomatic_comp;
         this.commentQuality = commentQuality;
     }
 
