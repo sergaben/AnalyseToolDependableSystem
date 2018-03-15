@@ -10,6 +10,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class AnalysedFile {
 
+   private int totalNoOfOperators;
+   private int noOfUniqueOperators;
+   private int totalNoOfOperands;
+   private int noOfUniqueOperands;
     private String name;
     private int noOfLines;
     private int noOfClasses;
@@ -166,22 +170,54 @@ public class AnalysedFile {
         this.halstead_bugs = halstead_bugs;
     }
 
+    public void setTotalNoOfOperators(int totalNoOfOperators) {
+        this.totalNoOfOperators = totalNoOfOperators;
+    }
+
+    public void setNoOfUniqueOperators(int noOfUniqueOperators) {
+        this.noOfUniqueOperators = noOfUniqueOperators;
+    }
+
+    public void setTotalNoOfOperands(int totalNoOfOperands) {
+        this.totalNoOfOperands = totalNoOfOperands;
+    }
+
+    public void setNoOfUniqueOperands(int noOfUniqueOperands) {
+        this.noOfUniqueOperands = noOfUniqueOperands;
+    }
+
+    public int getTotalNoOfOperators() {
+        return totalNoOfOperators;
+    }
+
+    public int getNoOfUniqueOperators() {
+        return noOfUniqueOperators;
+    }
+
+    public int getTotalNoOfOperands() {
+        return totalNoOfOperands;
+    }
+
+    public int getNoOfUniqueOperands() {
+        return noOfUniqueOperands;
+    }
+
     /*
-     * Converts AnalysedFile object to JSON and writes to file
-     * in the following format:
-     *   {
-     *     "name" : <string>,
-     *     "noOfLines" : <int>,
-     *     "noOfClasses" : <int>,
-     *     "singleLineComments" : <int>,
-     *     "multilineComments" : <int>,
-     *     "totalNoOfComments" : <int>,
-     *     "noOfMethods" : <int>,
-     *     "halstead_difficulty" : <int>,
-     *     "cyclomatic_comp" : <int>,
-     *     "commentQuality" : <int>
-     *   }
-     */
+             * Converts AnalysedFile object to JSON and writes to file
+             * in the following format:
+             *   {
+             *     "name" : <string>,
+             *     "noOfLines" : <int>,
+             *     "noOfClasses" : <int>,
+             *     "singleLineComments" : <int>,
+             *     "multilineComments" : <int>,
+             *     "totalNoOfComments" : <int>,
+             *     "noOfMethods" : <int>,
+             *     "halstead_difficulty" : <int>,
+             *     "cyclomatic_comp" : <int>,
+             *     "commentQuality" : <int>
+             *   }
+             */
     public static void exportToJSON(AnalysedFile af, File file) throws IOException {
         try {
             // convert AnalysedFile object to JSON
