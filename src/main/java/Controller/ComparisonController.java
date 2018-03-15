@@ -9,8 +9,6 @@ import java.util.ResourceBundle;
 import java.text.DecimalFormat;
 public class ComparisonController extends DefaultController implements Initializable {
 
-
-public class ComparisonController extends DefaultController {
     private static DecimalFormat df = new DecimalFormat("0.00000");
     private AnalysedFile aFile1, aFile2;
     @FXML
