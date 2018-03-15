@@ -27,11 +27,11 @@ public class JavaAnalyser implements HelperMethods{
     private CharStream charStream;
     private File code;
     private int numberOfLinesWithoutAndComments = 0;
+    private int numberOfLinesInTheFile= 0;
     private boolean error;
 
     public JavaAnalyser(File code){
         this.code= code;
-
     }
 
     public ArrayList<String> getClassNames() {
@@ -50,22 +50,12 @@ public class JavaAnalyser implements HelperMethods{
         charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
         lexer.removeErrorListeners();
-//        lexer.addErrorListener(ThrowingErrorListener.INSTANCE);
         TokenStream tokens = new CommonTokenStream(lexer);
         parser = new OperatorsParser(tokens);
         parser.removeErrorListeners();
-//        parser.addErrorListener(ThrowingErrorListener.INSTANCE);
-
         Listener listener = new Listener(charStream,lexer);
-//        if(noError){
-            parser.compilationUnit().enterRule(listener);
-
-            return error;
-//            return noError;
-//        }else{
-//            return noError;
-//        }
-
+        parser.compilationUnit().enterRule(listener);
+        return error;
 
     }
 
@@ -95,6 +85,10 @@ public class JavaAnalyser implements HelperMethods{
 
     }
 
+    public int getNumberOfLinesInTheFile() {
+        return numberOfLinesInTheFile;
+    }
+
     class Listener extends OperatorsBaseListener{
         private ArrayList<String> classes;
         private CharStream input;
@@ -113,7 +107,12 @@ public class JavaAnalyser implements HelperMethods{
 
         @Override
         public void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx) {
-            if(ctx.getText().contains("import") || ctx.getText().contains("class")){
+            numberOfLinesInTheFile += lexer.getLine();
+            int a = ctx.start.getStartIndex();
+            int b = ctx.stop.getStopIndex();
+            Interval interval = new Interval(a,b);
+//            System.out.println(charStream.getText(interval));
+            if(charStream.getText(interval).contains("import") || charStream.getText(interval).contains("class") || charStream.getText(interval).contains("interface") || charStream.getText(interval).contains("enum")){
                 TypeClassListener typeClassListener= new TypeClassListener();
                 ctx.typeDeclaration().forEach(declaration->declaration.enterRule(typeClassListener));
                 error = false;
@@ -211,8 +210,6 @@ public class JavaAnalyser implements HelperMethods{
             classBodyDeclarations.add(charStream.getText(interval));
 
             ctx.methodDeclaration().enterRule(methodDeclarationListener);
-//
-
         }
 
 
@@ -226,6 +223,8 @@ public class JavaAnalyser implements HelperMethods{
 
         @Override
         public void enterMethodDeclaration(OperatorsParser.MethodDeclarationContext ctx) throws NullPointerException{
+
+
             //System.out.println("/*/*/*/*/*/*/*/*");
             int a = ctx.start.getStartIndex();
             int b = ctx.stop.getStopIndex();

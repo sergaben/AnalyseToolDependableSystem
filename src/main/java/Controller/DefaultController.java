@@ -55,7 +55,7 @@ public class DefaultController {
             controller.setFile(this.file, bHal, bCyc, bCom);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 500, 700));
+            stage.setScene(new Scene(root, 500, 720));
         } catch (IOException e) {
             e.printStackTrace();
         }

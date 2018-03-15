@@ -13,11 +13,11 @@ public class ComparisonController extends DefaultController implements Initializ
     private static DecimalFormat df = new DecimalFormat("0.00000");
     private AnalysedFile aFile1, aFile2;
     @FXML
-    private Label name, lines, numComments, methods, halsteadDifficulty,
+    private Label name, linesNoCommentsNoWhiteSpaces, linesInFile,numComments, methods, halsteadDifficulty,
             halsteadEffort, halsteadVolume, halsteadTime, halsteadBugs,
             halsteadProgramLevel, cyclomatic, commentQual;
     @FXML
-    private Label name2, lines2, numComments2, methods2, halsteadDifficulty2,
+    private Label name2, linesNoCommentsNoWhiteSpaces2, linesInFile2,numComments2, methods2, halsteadDifficulty2,
             halsteadEffort2, halsteadVolume2, halsteadTime2, halsteadBugs2,
             halsteadProgramLevel2, cyclomatic2, commentQual2;
 
@@ -27,7 +27,8 @@ public class ComparisonController extends DefaultController implements Initializ
 
         // set aFile1 values
         this.name.setText(aFile1.getName());
-        this.lines.setText(String.valueOf(aFile1.getNoOfLines()));
+        this.linesNoCommentsNoWhiteSpaces.setText(String.valueOf(aFile1.getNoOfLinesOfCode()));
+        this.linesInFile.setText(String.valueOf(aFile1.getNoOfLinesInFile()));
         this.numComments.setText(String.valueOf(aFile1.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(aFile1.getNoOfMethods()));
         this.halsteadDifficulty.setText(String.format("%.3f",aFile1.getHalstead_difficulty()));
@@ -45,7 +46,8 @@ public class ComparisonController extends DefaultController implements Initializ
 
         // set aFile2 values
         this.name2.setText(aFile2.getName());
-        this.lines2.setText(String.valueOf(aFile2.getNoOfLines()));
+        this.linesNoCommentsNoWhiteSpaces2.setText(String.valueOf(aFile2.getNoOfLinesOfCode()));
+        this.linesInFile2.setText(String.valueOf(aFile2.getNoOfLinesInFile()));
         this.numComments2.setText(String.valueOf(aFile2.getTotalNoOfComments()));
         this.methods2.setText(String.valueOf(aFile2.getNoOfMethods()));
         this.halsteadDifficulty2.setText(String.format("%.3f",aFile2.getHalstead_difficulty()));

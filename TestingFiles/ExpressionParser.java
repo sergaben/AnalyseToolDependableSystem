@@ -25,8 +25,7 @@ import static uk.ac.kingston.intermediate.icodeimpl.ICodeKeyImpl.*;
  * <p>Copyright (c) 2009 by Ronald Mak</p>
  * <p>For instructional purposes only.  No warranties.</p>
  */
-public class ExpressionParser extends StatementParser
-{
+public class ExpressionParser extends StatementParser {
     /**
      * Constructor.
      * @param parent the parent parser.
