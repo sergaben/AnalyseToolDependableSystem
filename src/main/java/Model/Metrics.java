@@ -5,18 +5,13 @@ package Model;
  * @project AnalyseToolDependableSystem
  */
 public class Metrics {
-    // To calculate Cyclomatic complexity we need to find every decision point
-    // and all logical operators within the decision points and add them together and add 1
-    // to final sum.
+
     private double volume;
     private double difficultyLevel;
     private double programLevel;
     private double effort;
     private double time;
     private double noOfDeliveredBugs;
-    // decision points example: for, if, else if, while, do while, switch etc.
-    // logical operators example: !, &, |, ^, &&, ||
-    // These values will be pulled and stored in variables from reading the files
 
     // idea taken from src:
     // https://www.javaworld.com/article/2074995/dealing-cyclomatic-complexity-in-java-code.html
@@ -62,7 +57,7 @@ public class Metrics {
         return effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) / 18;
     }
     private double numberOfDeliveredBugs(int programLength, int vocabularySize, int distinctOperators /*n1*/, int totalNumberOfOperands /* N2*/, int distinctOperands /*n2*/){
-        return (effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands) * (2/3))/3000;
+        return (Math.pow(effort(programLength,vocabularySize,distinctOperators,totalNumberOfOperands,distinctOperands),(2/3)))/3000;
     }
 
     public double getVolume() {

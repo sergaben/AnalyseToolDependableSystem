@@ -32,9 +32,9 @@ public class JavaAnalyser implements HelperMethods{
         this.code= code;
     }
 
-    public JavaAnalyser(String code){
-        this.inputText = code;
-    }
+//    public JavaAnalyser(String code){
+//        this.inputText = code;
+//    }
 
     public ArrayList<String> getClassNames() {
         return classNames;
@@ -60,16 +60,16 @@ public class JavaAnalyser implements HelperMethods{
 
     }
 
-    public void parseFromInputText() {
-       charStream = CharStreams.fromString(inputText);
-        OperatorsLexer lexer = new OperatorsLexer(charStream);
-        TokenStream tokens = new CommonTokenStream(lexer);
-         parser = new OperatorsParser(tokens);
-
-        Listener listener = new Listener(charStream,lexer);
-        parser.compilationUnit().enterRule(listener);
-
-    }
+//    public void parseFromInputText() {
+//       charStream = CharStreams.fromString(inputText);
+//        OperatorsLexer lexer = new OperatorsLexer(charStream);
+//        TokenStream tokens = new CommonTokenStream(lexer);
+//         parser = new OperatorsParser(tokens);
+//
+//        Listener listener = new Listener(charStream,lexer);
+//        parser.compilationUnit().enterRule(listener);
+//
+//    }
 
     public int getNumberOfLinesWithoutSpacesAndCommentsFromFile() throws IOException {
         charStream = CharStreams.fromFileName(code.getPath());
@@ -90,24 +90,24 @@ public class JavaAnalyser implements HelperMethods{
         return numberOfTernaryExpressions;
     }
 
-    public int getNumberOfTernaryExpressionsFromText(){
-        charStream = CharStreams.fromString(inputText);
-        OperatorsLexer lexer = new OperatorsLexer(charStream);
-        TokenStream tokens = new CommonTokenStream(lexer);
-        parser = new OperatorsParser(tokens);
-        numberOfTernaryExpressions = getLinesOfCode(parser).get(1);
-        return numberOfTernaryExpressions;
-    }
+//    public int getNumberOfTernaryExpressionsFromText(){
+//        charStream = CharStreams.fromString(inputText);
+//        OperatorsLexer lexer = new OperatorsLexer(charStream);
+//        TokenStream tokens = new CommonTokenStream(lexer);
+//        parser = new OperatorsParser(tokens);
+//        numberOfTernaryExpressions = getLinesOfCode(parser).get(1);
+//        return numberOfTernaryExpressions;
+//    }
 
-    public int getNumberOfLinesWithoutSpacesAndCommentsFromInputText(){
-        charStream = CharStreams.fromString(inputText);
-        OperatorsLexer lexer = new OperatorsLexer(charStream);
-        TokenStream tokens = new CommonTokenStream(lexer);
-         parser = new OperatorsParser(tokens);
-        numberOfLinesWithoutAndComments = getLinesOfCode(parser).get(0);
-
-        return numberOfLinesWithoutAndComments;
-    }
+//    public int getNumberOfLinesWithoutSpacesAndCommentsFromInputText(){
+//        charStream = CharStreams.fromString(inputText);
+//        OperatorsLexer lexer = new OperatorsLexer(charStream);
+//        TokenStream tokens = new CommonTokenStream(lexer);
+//         parser = new OperatorsParser(tokens);
+//        numberOfLinesWithoutAndComments = getLinesOfCode(parser).get(0);
+//
+//        return numberOfLinesWithoutAndComments;
+//    }
 
     public void extractCommentsFromFile(Comment comment, File code) throws IOException {
         CharStream charStream = CharStreams.fromPath(code.toPath());
@@ -116,12 +116,12 @@ public class JavaAnalyser implements HelperMethods{
 
     }
 
-    public void extractCommentsFromTextInput(Comment comment, String code) {
-        CharStream charStream = CharStreams.fromString(code);
-        OperatorsLexer lexer = new OperatorsLexer(charStream);
-        iterateThroughLexerFindComments(comment,lexer);
-
-    }
+//    public void extractCommentsFromTextInput(Comment comment, String code) {
+//        CharStream charStream = CharStreams.fromString(code);
+//        OperatorsLexer lexer = new OperatorsLexer(charStream);
+//        iterateThroughLexerFindComments(comment,lexer);
+//
+//    }
 
     class Listener extends OperatorsBaseListener{
         private ArrayList<String> classes;
