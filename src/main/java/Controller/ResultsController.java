@@ -8,9 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class ResultsController extends DefaultController {
 
+    private static DecimalFormat df2 = new DecimalFormat(".##");
     @FXML
     private Label lines;
     @FXML
@@ -18,15 +20,30 @@ public class ResultsController extends DefaultController {
     @FXML
     private Label methods;
     @FXML
-    private Label halstead;
+    private Label halsteadDifficulty;
     @FXML
     private Label cyclomatic;
+    @FXML
+    private Label halsteadTime;
+    @FXML
+    private Label halsteadVolume;
+    @FXML
+    private Label halsteadEffort;
+    @FXML
+    private Label halsteadProgramLevel;
+    @FXML
+    private Label halsteadBugs;
     @FXML
     private Label commentQual;
 
     public void setFile(AnalysedFile file) {
         this.file = file;
-        this.halstead.setText(String.valueOf(file.getHalstead_comp()));
+        this.halsteadDifficulty.setText(String.format("%.3f",file.getHalstead_difficulty()));
+        this.halsteadBugs.setText(String.format("%.3f",file.getHalstead_bugs()));
+        this.halsteadEffort.setText(String.format("%.3f",file.getHalstead_effort()));
+        this.halsteadTime.setText(String.format("%.3f",file.getHalstead_time()) + " seconds");
+        this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
+        this.halsteadProgramLevel.setText(String.format("%.3f",file.getHalstead_programLevel()));
         // The code below has to be changed to allow multiple methods
         this.cyclomatic.setText(String.valueOf(file.getCyclometicComplexityMethods().get(0)));
         this.lines.setText(String.valueOf(file.getNoOfLines()));

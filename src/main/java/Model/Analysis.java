@@ -18,7 +18,12 @@ public class Analysis {
     private ArrayList<Integer> cyclomaticComplexityResults = new ArrayList<>();
     private int noOfDecisionPoint = 0;
     private int noOfLogicalOperators;
-    private double halsteadComplexity;
+    private double halsteadDifficulty;
+    private double halsteadEffort;
+    private double halsteadVolume;
+    private double halsteadBugs;
+    private double halsteadProgramLevel;
+    private double halsteadTime;
     public Analysis(){
     }
 
@@ -187,7 +192,12 @@ public class Analysis {
 
     private void setUpResults(AnalysedFile analysedFile, JavaAnalyser javaAnalyser, Comment comment) throws IOException {
         analysedFile.setCyclometicComplexityMethods(cyclomaticComplexityResults);
-        analysedFile.setHalstead_comp(halsteadComplexity);
+        analysedFile.setHalstead_difficulty(halsteadDifficulty);
+        analysedFile.setHalstead_bugs(halsteadBugs);
+        analysedFile.setHalstead_effort(halsteadEffort);
+        analysedFile.setHalstead_programLevel(halsteadProgramLevel);
+        analysedFile.setHalstead_time(halsteadTime);
+        analysedFile.setHalstead_volume(halsteadVolume);
         analysedFile.setNoOfClasses(javaAnalyser.getClassNames().size());
         analysedFile.setNoOfLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
@@ -198,6 +208,12 @@ public class Analysis {
 
     private void getHalsteadComplexity(Metrics metrics, int uniqueOperators, int uniqueOperands, int totalNoOfOperators, int totalNoOfOperands){
         metrics.calculateHalsteadMetrics(uniqueOperators,uniqueOperands,totalNoOfOperands,totalNoOfOperators);
-       this.halsteadComplexity = metrics.getDifficultyLevel();
+       this.halsteadDifficulty = metrics.getDifficultyLevel();
+       this.halsteadVolume = metrics.getVolume();
+       this.halsteadBugs = metrics.getNoOfDeliveredBugs();
+       this.halsteadEffort = metrics.getEffort();
+       this.halsteadProgramLevel = metrics.getProgramLevel();
+       this.halsteadTime = metrics.getTime();
     }
+
 }

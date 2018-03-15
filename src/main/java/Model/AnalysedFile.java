@@ -17,7 +17,12 @@ public class AnalysedFile {
     private int multilineComments;
     private int totalNoOfComments;
     private int noOfMethods;
-    private double halstead_comp;
+    private double halstead_difficulty;
+    private double halstead_time;
+    private double halstead_effort;
+    private double halstead_volume;
+    private double halstead_programLevel;
+    private double halstead_bugs;
     private ArrayList<Integer> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
     private int commentQuality;
@@ -26,14 +31,14 @@ public class AnalysedFile {
 
     }
 
-    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_comp, int cyclomatic_comp, int commentQuality) {
+    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_difficulty, int cyclomatic_comp, int code_quality) {
         this.noOfLines = noOfLines;
         this.noOfClasses = noOfClasses;
         this.singleLineComments = singleLineComments;
         this.multilineComments = multilineComments;
         this.totalNoOfComments = totalNoOfComments;
         this.noOfMethods = noOfMethods;
-        this.halstead_comp = halstead_comp;
+        this.halstead_difficulty = halstead_difficulty;
         this. cyclomatic_comp = cyclomatic_comp;
         this.commentQuality = commentQuality;
     }
@@ -97,12 +102,12 @@ public class AnalysedFile {
         this.noOfMethods = noOfMethods;
     }
 
-    public double getHalstead_comp() {
-        return halstead_comp;
+    public double getHalstead_difficulty() {
+        return halstead_difficulty;
     }
 
-    public void setHalstead_comp(double halstead_comp) {
-        this.halstead_comp = halstead_comp;
+    public void setHalstead_difficulty(double halstead_difficulty) {
+        this.halstead_difficulty = halstead_difficulty;
     }
 
     public int getCyclomatic_comp() {
@@ -121,6 +126,46 @@ public class AnalysedFile {
         this.commentQuality = commentQuality;
     }
 
+    public double getHalstead_time() {
+        return halstead_time;
+    }
+
+    public void setHalstead_time(double halstead_time) {
+        this.halstead_time = halstead_time;
+    }
+
+    public double getHalstead_effort() {
+        return halstead_effort;
+    }
+
+    public void setHalstead_effort(double halstead_effort) {
+        this.halstead_effort = halstead_effort;
+    }
+
+    public double getHalstead_volume() {
+        return halstead_volume;
+    }
+
+    public void setHalstead_volume(double halstead_volume) {
+        this.halstead_volume = halstead_volume;
+    }
+
+    public double getHalstead_programLevel() {
+        return halstead_programLevel;
+    }
+
+    public void setHalstead_programLevel(double halstead_programLevel) {
+        this.halstead_programLevel = halstead_programLevel;
+    }
+
+    public double getHalstead_bugs() {
+        return halstead_bugs;
+    }
+
+    public void setHalstead_bugs(double halstead_bugs) {
+        this.halstead_bugs = halstead_bugs;
+    }
+
     /*
      * Converts AnalysedFile object to JSON and writes to file
      * in the following format:
@@ -132,7 +177,7 @@ public class AnalysedFile {
      *     "multilineComments" : <int>,
      *     "totalNoOfComments" : <int>,
      *     "noOfMethods" : <int>,
-     *     "halstead_comp" : <double>,
+     *     "halstead_difficulty" : <int>,
      *     "cyclomatic_comp" : <int>,
      *     "commentQuality" : <int>
      *   }
