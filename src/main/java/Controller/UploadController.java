@@ -16,6 +16,8 @@ public class UploadController extends DefaultController implements Initializable
     private TextField filepath_input;
     @FXML
     private TextArea pasteBox;
+    @FXML
+    private TitledPane TPane;
 
     private File uploaded_file;
 
@@ -30,6 +32,7 @@ public class UploadController extends DefaultController implements Initializable
         uploaded_file = fc.showOpenDialog(new Stage());
         if(uploaded_file != null) {
             filepath_input.setText(uploaded_file.getPath());
+            this.TPane.disableProperty().setValue(true);
         }
     }
 
@@ -75,6 +78,7 @@ public class UploadController extends DefaultController implements Initializable
     private void clear() {
         filepath_input.clear();
         uploaded_file = null;
+        this.TPane.disableProperty().setValue(false);
     }
 
     private void showErrorDialog(String header, String message) {

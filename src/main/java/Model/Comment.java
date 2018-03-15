@@ -9,6 +9,8 @@ public class Comment {
     private ArrayList<String> multiLineComments = new ArrayList<>();
     private ArrayList<String > conjunctionsList;
     private String[] conjunctions = {
+            "a",
+            "the",
             "And",
             "Or",
             "But",

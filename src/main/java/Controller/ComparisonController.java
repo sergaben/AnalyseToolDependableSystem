@@ -4,7 +4,10 @@ import Model.AnalysedFile;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
+
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.text.DecimalFormat;
 public class ComparisonController extends DefaultController implements Initializable {
@@ -40,7 +43,7 @@ public class ComparisonController extends DefaultController implements Initializ
             cyclomaticComp += i;
         }
         this.cyclomatic.setText(String.valueOf(cyclomaticComp));
-        this.commentQual.setText(String.valueOf(aFile1.getCommentQuality()));
+        this.commentQual.setText(String.valueOf(aFile1.getCommentQuality()) + "%");
 
         // set aFile2 values
         this.name2.setText(aFile2.getName());
@@ -58,7 +61,42 @@ public class ComparisonController extends DefaultController implements Initializ
             cyclomaticComp += i;
         }
         this.cyclomatic2.setText(String.valueOf(cyclomaticComp));
-        this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()));
+        this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()) + "%");
+
+        highlightComparison();
+    }
+
+    private boolean checkLess(double a, double b) {
+        if (a < b) {
+            return true;
+        }
+        return false;
+    }
+
+    private void setColour(Label a, Label b) {
+        if (checkLess(Double.parseDouble(a.getText()), Double.parseDouble(b.getText()))) {
+            a.setTextFill(Color.GREEN);
+            b.setTextFill(Color.RED);
+        } else {
+            a.setTextFill(Color.RED);
+            b.setTextFill(Color.GREEN);
+        }
+    }
+    private void highlightComparison() {
+        setColour(halsteadDifficulty, halsteadDifficulty2);
+        setColour(halsteadEffort, halsteadEffort2);
+        setColour(halsteadVolume, halsteadVolume2);
+        setColour(halsteadTime, halsteadTime2);
+        setColour(halsteadProgramLevel, halsteadProgramLevel2);
+        setColour(halsteadBugs, halsteadBugs2);
+        setColour(cyclomatic, cyclomatic2);
+        if(Integer.parseInt(commentQual.getText().replace("%", "")) > Integer.parseInt(commentQual2.getText().replace("%", ""))) {
+            commentQual.setTextFill(Color.GREEN);
+            commentQual2.setTextFill(Color.RED);
+        } else {
+            commentQual.setTextFill(Color.RED);
+            commentQual2.setTextFill(Color.GREEN);
+        }
     }
 
     public void initialize(URL url, ResourceBundle rb) {
