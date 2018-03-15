@@ -86,5 +86,19 @@ public class Operator implements HelperMethods {
         return methods;
     }
 
+    public LinkedHashMap<String, Integer> getOperatorsOccurrencesInMethod() {
+        return operatorsOccurrencesInMethod;
+    }
 
+    public ArrayList<String> getOperandsOccurrencesInMethod() {
+        return operandsOccurrencesInMethod;
+    }
+
+    public Set<String> getUniqueOperandsIdentifiers() {
+        return uniqueOperandsIdentifiers;
+    }
+
+    public LinkedHashMap<String, Integer> getUniqueOperators() {
+        return uniqueOperators;
+    }
 }
