@@ -15,7 +15,6 @@ import java.text.DecimalFormat;
 
 public class ResultsController extends DefaultController {
 
-    private static DecimalFormat df2 = new DecimalFormat(".##");
     @FXML
     private Label lines;
     @FXML

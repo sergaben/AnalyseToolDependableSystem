@@ -20,7 +20,7 @@ public class ComparisonController extends DefaultController {
         this.lines.setText(String.valueOf(aFile1.getNoOfLines()));
         this.numComments.setText(String.valueOf(aFile1.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(aFile1.getNoOfMethods()));
-        this.halstead.setText(String.valueOf(aFile1.getHalstead_comp()));
+        this.halstead.setText(String.valueOf(aFile1.getHalstead_difficulty()));
         this.cyclomatic.setText(String.valueOf(aFile1.getCyclomatic_comp()));
         this.commentQual.setText(String.valueOf(aFile1.getCommentQuality()));
 
@@ -28,7 +28,7 @@ public class ComparisonController extends DefaultController {
         this.lines2.setText(String.valueOf(aFile2.getNoOfLines()));
         this.numComments2.setText(String.valueOf(aFile2.getTotalNoOfComments()));
         this.methods2.setText(String.valueOf(aFile2.getNoOfMethods()));
-        this.halstead2.setText(String.valueOf(aFile2.getHalstead_comp()));
+        this.halstead2.setText(String.valueOf(aFile2.getHalstead_difficulty()));
         this.cyclomatic2.setText(String.valueOf(aFile2.getCyclomatic_comp()));
         this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()));
     }
