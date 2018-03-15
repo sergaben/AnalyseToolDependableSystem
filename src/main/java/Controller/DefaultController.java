@@ -30,9 +30,6 @@ public class DefaultController {
     protected boolean bCyc = false;
     protected boolean bCom = false;
 
-    protected void init() {
-    }
-
     @FXML
     protected void openUserManual() throws URISyntaxException {
         URI newUri = new URI("https://kunet.kingston.ac.uk/k1430996/depsys/UserManual.pdf");
@@ -74,6 +71,21 @@ public class DefaultController {
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
             stage.setScene(new Scene(root, 500, 600));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    protected void goToHome() {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(ClassLoader.getSystemResource("View/Home.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+
+            Stage stage = (Stage) this.menuBar.getScene().getWindow();
+            stage.setScene(new Scene(root, 500, 575));
         } catch (IOException e) {
             e.printStackTrace();
         }

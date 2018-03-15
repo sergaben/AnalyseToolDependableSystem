@@ -22,11 +22,11 @@
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
             <Menu text="Help">
+                <MenuItem text="Go to Home" onAction="#goToHome" />
                 <MenuItem text="User Manual" onAction="#openUserManual"/>
             </Menu>
         </menus>
     </MenuBar>
-    <!-- Logo -->
     <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
                AnchorPane.topAnchor="35" AnchorPane.leftAnchor="225" >
         <image>

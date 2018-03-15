@@ -20,6 +20,7 @@
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
             <Menu text="Help">
+                <MenuItem text="Go to Home" onAction="#goToHome" />
                 <MenuItem text="User Manual" onAction="#openUserManual"/>
             </Menu>
         </menus>
