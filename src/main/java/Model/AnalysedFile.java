@@ -204,21 +204,21 @@ public class AnalysedFile {
     }
 
     /*
-             * Converts AnalysedFile object to JSON and writes to file
-             * in the following format:
-             *   {
-             *     "name" : <string>,
-             *     "noOfLines" : <int>,
-             *     "noOfClasses" : <int>,
-             *     "singleLineComments" : <int>,
-             *     "multilineComments" : <int>,
-             *     "totalNoOfComments" : <int>,
-             *     "noOfMethods" : <int>,
-             *     "halstead_difficulty" : <int>,
-             *     "cyclomatic_comp" : <int>,
-             *     "commentQuality" : <int>
-             *   }
-             */
+     * Converts AnalysedFile object to JSON and writes to file
+     * in the following format:
+     *   {
+     *     "name" : <string>,
+     *     "noOfLines" : <int>,
+     *     "noOfClasses" : <int>,
+     *     "singleLineComments" : <int>,
+     *     "multilineComments" : <int>,
+     *     "totalNoOfComments" : <int>,
+     *     "noOfMethods" : <int>,
+     *     "halstead_difficulty" : <int>,
+     *     "cyclomatic_comp" : <int>,
+     *     "commentQuality" : <int>
+     *   }
+     */
     public static void exportToJSON(AnalysedFile af, File file) throws IOException {
         try {
             // convert AnalysedFile object to JSON
