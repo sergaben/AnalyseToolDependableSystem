@@ -12,6 +12,16 @@ public class DefaultController {
 
     protected AnalysedFile file = new AnalysedFile();
 
+    @FXML
+    protected void singleAnalysis() {
+
+    }
+
+    @FXML
+    protected void comparison() {
+
+    }
+
     protected void switchScene() {
 
     }

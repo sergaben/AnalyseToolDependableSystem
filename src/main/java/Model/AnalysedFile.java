@@ -20,13 +20,13 @@ public class AnalysedFile {
     private double halstead_comp;
     private ArrayList<Integer> cyclometicComplexityMethods = new ArrayList<>();
     private int cyclomatic_comp;
-    private int code_quality;
+    private int commentQuality;
 
     public AnalysedFile() {
 
     }
 
-    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_comp, int cyclomatic_comp, int code_quality) {
+    public AnalysedFile(int noOfLines, int noOfClasses, int singleLineComments, int multilineComments, int totalNoOfComments, int noOfMethods, int halstead_comp, int cyclomatic_comp, int commentQuality) {
         this.noOfLines = noOfLines;
         this.noOfClasses = noOfClasses;
         this.singleLineComments = singleLineComments;
@@ -35,7 +35,7 @@ public class AnalysedFile {
         this.noOfMethods = noOfMethods;
         this.halstead_comp = halstead_comp;
         this. cyclomatic_comp = cyclomatic_comp;
-        this.code_quality = code_quality;
+        this.commentQuality = commentQuality;
     }
 
     public ArrayList<Integer> getCyclometicComplexityMethods() {
@@ -113,12 +113,12 @@ public class AnalysedFile {
         this.cyclomatic_comp = cyclomatic_comp;
     }
 
-    public int getCode_quality() {
-        return code_quality;
+    public int getCommentQuality() {
+        return commentQuality;
     }
 
-    public void setCode_quality(int code_quality) {
-        this.code_quality = code_quality;
+    public void setCommentQuality(int commentQuality) {
+        this.commentQuality = commentQuality;
     }
 
     /*
@@ -132,9 +132,9 @@ public class AnalysedFile {
      *     "multilineComments" : <int>,
      *     "totalNoOfComments" : <int>,
      *     "noOfMethods" : <int>,
-     *     "halstead_comp" : <int>,
+     *     "halstead_comp" : <double>,
      *     "cyclomatic_comp" : <int>,
-     *     "code_quality" : <int>
+     *     "commentQuality" : <int>
      *   }
      */
     public static void exportToJSON(AnalysedFile af, File file) throws IOException {

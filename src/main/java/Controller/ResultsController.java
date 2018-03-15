@@ -3,15 +3,11 @@ package Controller;
 import Model.AnalysedFile;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ResultsController extends DefaultController {
 
@@ -36,6 +32,7 @@ public class ResultsController extends DefaultController {
         this.lines.setText(String.valueOf(file.getNoOfLines()));
         this.numComments.setText(String.valueOf(file.getTotalNoOfComments()));
         this.methods.setText(String.valueOf(file.getNoOfMethods()));
+        this.commentQual.setText(String.valueOf(file.getCommentQuality()) + "%");
     }
 
     @FXML

@@ -10,7 +10,10 @@
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
         <menus>
             <Menu text="File">
-                <MenuItem text="New..." />
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                    <MenuItem text="Code Comparison" onAction="#comparison"/>
+                </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />

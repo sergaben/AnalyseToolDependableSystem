@@ -4,25 +4,53 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns="http://javafx.com/javafx" id="body"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.HomeController">
+    <stylesheets>
+        <URL value="@Style.css" />
+    </stylesheets>
     <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
         <menus>
             <Menu text="File">
-                <MenuItem text="New..." />
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                    <MenuItem text="Code Comparison" onAction="#comparison"/>
+                </Menu>
                 <MenuItem fx:id="open" text="Open" onAction="#open" />
                 <MenuItem fx:id="save" text="Save" onAction="#save" />
                 <MenuItem text="Exit" onAction="#exit" />
             </Menu>
         </menus>
     </MenuBar>
-    <GridPane AnchorPane.topAnchor="30" alignment="center" hgap="20" vgap="20" >
-        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        <!-- Title -->
-        <Label text="Alpha Analysis" />
-        <!-- Logo -->
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="150" preserveRatio="true"
+               AnchorPane.topAnchor="30" AnchorPane.leftAnchor="180" >
+        <image>
+            <Image url="@logo.png" />
+        </image>
+    </ImageView>
+    <!-- Buttons - startAnalysis -->
+    <Button text="Single Analysis" onAction="#singleAnalysis"
+            AnchorPane.bottomAnchor="60" AnchorPane.rightAnchor="200" />
+    <Button text="Code Comparison" onAction="#comparison"
+            AnchorPane.bottomAnchor="60" AnchorPane.rightAnchor="50" />
+    <GridPane AnchorPane.topAnchor="180" alignment="center" hgap="20" vgap="20" >
+        <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+        <!-- Release, Version, Copyright Notice -->
+        <Text styleClass="metadata" text="Version 1.2&#10;Initial release 13/03/2018&#10;Last updated 22/03/2018&#10;&#169; 2018 Alpha Analysis. All rights reserved.&#10;&#10;"
+              GridPane.columnIndex="0" GridPane.rowIndex="0" />
         <!-- Introduction -->
-        <!-- Buttons - startAnalysis -->
+        <Text id="intro-heading" text="What is Alpha Analysis?" wrappingWidth="400"
+              GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <Text GridPane.columnIndex="0" GridPane.rowIndex="2" wrappingWidth="450"
+              text="The team has developed a stand-alone desktop application to measure the efficiency and quality
+of the code. In 21 st century, it is vital to utilize all the available resources to the fullest in order to
+ensure competence of the software. ‘Alpha Analysis’ is designed to assist the developers to gain
+an insight into the coding practices they use while developing. " />
     </GridPane>
 </AnchorPane>
