@@ -5,6 +5,7 @@ import Util.gen.Util.OperatorsBaseListener;
 import Util.gen.Util.OperatorsParser;
 import Util.gen.Util.OperatorsLexer;
 
+import javafx.scene.control.Alert;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.Interval;
 
@@ -26,6 +27,7 @@ public class JavaAnalyser implements HelperMethods{
     private CharStream charStream;
     private File code;
     private int numberOfLinesWithoutAndComments = 0;
+    private boolean noError = true;
 
     public JavaAnalyser(File code){
         this.code= code;
@@ -46,11 +48,20 @@ public class JavaAnalyser implements HelperMethods{
     public void parseFromFile() throws IOException {
         charStream = CharStreams.fromFileName(code.getPath());
         OperatorsLexer lexer = new OperatorsLexer(charStream);
+        lexer.removeErrorListeners();
+//        lexer.addErrorListener(ThrowingErrorListener.INSTANCE);
         TokenStream tokens = new CommonTokenStream(lexer);
         parser = new OperatorsParser(tokens);
+        parser.removeErrorListeners();
+//        parser.addErrorListener(ThrowingErrorListener.INSTANCE);
 
         Listener listener = new Listener(charStream,lexer);
-        parser.compilationUnit().enterRule(listener);
+//        if(noError){
+            parser.compilationUnit().enterRule(listener);
+//            return noError;
+//        }else{
+//            return noError;
+//        }
 
 
     }
@@ -98,19 +109,23 @@ public class JavaAnalyser implements HelperMethods{
         }
 
         @Override
-        public void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx){
-            //System.out.println(ctx.getText());
-            //System.out.println("It runs!!!");
-            //System.out.println(parser.LoC);
-            //System.out.println(lexer.getText());
-//            System.out.println("");
-//            if(ctx.getText().contains(".")){
-//                System.out.println(lexer.getText());
-//            }
-            //System.out.println(lexer.getLine());
-            TypeClassListener typeClassListener= new TypeClassListener();
-            ctx.typeDeclaration().forEach(declaration->declaration.enterRule(typeClassListener));
-//            System.out.println(ctx.getText());
+        public void enterCompilationUnit(OperatorsParser.CompilationUnitContext ctx) {
+            System.out.println(ctx.getText());
+            if(ctx.getText().contains("import") || ctx.getText().contains("class")){
+                TypeClassListener typeClassListener= new TypeClassListener();
+                ctx.typeDeclaration().forEach(declaration->declaration.enterRule(typeClassListener));
+            }else{
+                showNoClassInTheFile("No class in file detected","Please upload a file or input text with valid Java code.");
+            }
+
+        }
+
+        public void showNoClassInTheFile(String header, String message){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Alpha Analysis - Error");
+            alert.setHeaderText(header);
+            alert.setContentText(message);
+            alert.showAndWait();
         }
 
     }
@@ -118,9 +133,8 @@ public class JavaAnalyser implements HelperMethods{
     class TypeClassListener extends OperatorsBaseListener{
         @Override
         public void enterTypeDeclaration(OperatorsParser.TypeDeclarationContext ctx){
-            //System.out.println("It runs!!!!");
+
             ClassDeclarationListener classDeclarationListener = new ClassDeclarationListener();
-//            ctx.classDeclaration().enterRule(classDeclarationListener);
             ctx.classDeclaration().enterRule(classDeclarationListener);
         }
     }
@@ -130,25 +144,19 @@ public class JavaAnalyser implements HelperMethods{
         public void enterClassDeclaration(OperatorsParser.ClassDeclarationContext ctx){
             //System.out.println("It runs!!!");
             ClassBodyListener classBodyListener = new ClassBodyListener();
-            String[] classConstructor = ctx.getText().split("class");
-            String[] nameclassesimplements = {};
-            String[] nameClasses = {};
 
-            if(classConstructor[1].contains("extends")||classConstructor[1].contains("implements")){
-                nameclassesimplements = classConstructor[1].split("extends|implements");
-                classNames.add(nameclassesimplements[0]);
+                String[] classConstructor = ctx.getText().split("class");
+                String[] nameclassesimplements = {};
+                String[] nameClasses = {};
 
-
-            }else{
-                nameClasses = classConstructor[1].split("\\{");
-
-                classNames.add(nameClasses[0]);
-
-
-            }
-
-
-            ctx.classBody().enterRule(classBodyListener);
+                if(classConstructor[1].contains("extends")||classConstructor[1].contains("implements")){
+                    nameclassesimplements = classConstructor[1].split("extends|implements");
+                    classNames.add(nameclassesimplements[0]);
+                }else{
+                    nameClasses = classConstructor[1].split("\\{");
+                    classNames.add(nameClasses[0]);
+                }
+                ctx.classBody().enterRule(classBodyListener);
         }
     }
 
