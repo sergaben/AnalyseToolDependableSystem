@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
@@ -29,9 +30,12 @@ public class DefaultController {
     protected boolean bCyc = false;
     protected boolean bCom = false;
 
+    protected void init() {
+    }
+
     @FXML
     protected void openUserManual() throws URISyntaxException {
-        URI newUri = new URI("https://drive.google.com/drive/folders/1AgUreEBHZAb1p2FyMb0Ggl0V_wNNqqkK");
+        URI newUri = new URI("https://kunet.kingston.ac.uk/k1430996/depsys/UserManual.pdf");
         Desktop desktop = Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
         if (desktop != null && desktop.isSupported(Desktop.Action.BROWSE)) {
             try {
