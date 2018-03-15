@@ -26,7 +26,6 @@ public class DefaultController {
         try {
             root = loader.load();
             ResultsController controller = loader.getController();
-
             controller.setFile(this.file);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();

@@ -21,9 +21,9 @@
     </MenuBar>
     <Button text="Save Results" onAction="#save"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="320" />
-    <Button text="Compare Results"
+    <Button text="Compare Results" onAction="#comparison"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="175" />
-    <Button text="Start New Analysis" onAction="#switchScene"
+    <Button text="Start New Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" />
     <GridPane styleClass="root" AnchorPane.topAnchor="30" hgap="20" vgap="15" >
         <stylesheets>

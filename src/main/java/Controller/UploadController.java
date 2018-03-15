@@ -93,23 +93,6 @@ public class UploadController extends DefaultController implements Initializable
         alert.showAndWait();
     }
 
-    protected void switchScene(){
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-            ResultsController controller = loader.getController();
-
-            controller.setFile(this.file);
-
-            Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 500, 550));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle bundle) {
         this.save.disableProperty().setValue(true);
