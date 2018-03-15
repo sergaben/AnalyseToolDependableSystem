@@ -26,3 +26,7 @@
 #lbl_3 {
     -fx-text-fill: orange;
 }
+
+#body {
+    -fx-background-color: azure;
+}
