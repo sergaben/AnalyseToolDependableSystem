@@ -18,7 +18,12 @@ public class Analysis {
     private ArrayList<Integer> cyclomaticComplexityResults = new ArrayList<>();
     private int noOfDecisionPoint = 0;
     private int noOfLogicalOperators;
-    private double halsteadComplexity;
+    private double halsteadDifficulty;
+    private double halsteadEffort;
+    private double halsteadVolume;
+    private double halsteadBugs;
+    private double halsteadProgramLevel;
+    private double halsteadTime;
     public Analysis(){
     }
 
@@ -34,21 +39,10 @@ public class Analysis {
 
         javaAnalyser.parseFromFile();
         javaAnalyser.extractCommentsFromFile(comment,code);
-//        comment.getSingleLineComments().forEach();
         getRidOfDeclarationMethod(javaAnalyser);
         getConstructorsFromFile(javaAnalyser);
         addOperatorsToMethods(operator);
 
-//        operator.getMethods().forEach(method -> {
-//            Iterator it = method.getOperatorsOccurencesInMethod().entrySet().iterator();
-//            while(it.hasNext()){
-//                Map.Entry pair = (Map.Entry)it.next();
-//                String value = pair.getValue().toString();
-////                hashMapAddTo.put(pair.getKey().toString(),Integer.parseInt(value));
-//                System.out.println(pair.getKey() +": "+ Integer.parseInt(value));
-//                it.remove();
-//            }
-//        });
         int totalNoOfOperators = 0;
         int noOfUniqueOperators =0;
         int totalNoOfOperands =0;
@@ -70,12 +64,6 @@ public class Analysis {
             totalNoOfOperands += method.getOperandsOccurencesInMethod().size();
             noOfUniqueOperands += method.getUniqueOperandsInMethod().size();
         }
-//        operator.getMethods().forEach(method -> {
-//            System.out.println("Number of Operands in method: " +method.getOperandsOccurencesInMethod().size());
-////            totalNoOfOperands += method.getOperandsOccurencesInMethod().size();
-//            System.out.println("Number of Unique Operands in method: " + method.getUniqueOperandsInMethod().size());
-//
-//        });
 
         getHalsteadComplexity(metrics,noOfUniqueOperators,noOfUniqueOperands,totalNoOfOperators,totalNoOfOperands);
         getCyclomaticComplexity(operator,javaAnalyser,metrics);
@@ -93,121 +81,6 @@ public class Analysis {
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
         analysedFile.setMultilineComments(comment.getMultiLineComments().size());
         analysedFile.setTotalNoOfComments(comment.getSingleLineComments().size() + comment.getMultiLineComments().size());
-
-//
-//        Metrics metrics = new Metrics();
-//
-//        ArrayList<String> classes = listenerClass.parse(file).stream().map(Object::toString).collect(Collectors.toCollection(ArrayList::new));
-//        ArrayList<String> allMethods = new ArrayList<>();
-//        //classes.forEach(System.out::println);
-//        for(String methods : classes){
-//            allMethods.add(methods.substring(methods.indexOf("{")));
-//        }
-//        String tokenName;
-////        for(Token token = lexer.nextToken(); token.getType() != Token.EOF ; token = lexer.nextToken()){
-////            tokenName = OperatorsLexer.VOCABULARY.getSymbolicName(token.getType());
-////            //System.out.println(tokenName+ " "+ token.getText());
-////            if(tokenName.equals("LINE_COMMENT")){
-////                comment.setSingleLineComments(token.getText());
-////                //noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
-////            }else if(tokenName.equals("BLOCKCOMMENT")){
-////                comment.setMultiLineComments(token.getText());
-////            }
-////        }
-//        comment.getSingleLineComments().forEach(System.out::println);
-//        /**
-//         * The following nested foreach loops allows the filter of constructors in classes
-//         * and adds them to the methods array
-//         */
-//        //System.out.println(listenerClass.getClassNames().size());
-////        listenerClass.getClassNames().forEach(System.out::println);
-//        for(String classBodyDeclaration: listenerClass.getClassBodyDeclarations()){
-//            for(String className: listenerClass.getClassNames()){
-//                if(classBodyDeclaration.startsWith(className)){
-////                System.out.println("878789787");
-//                    allMethods.add(classBodyDeclaration);
-//                }
-//            }
-//        }
-//        //allMethods.forEach(System.out::println);
-//
-//        noOfDecisionPoint.setNumberOfMethods(allMethods.size());
-//        noOfDecisionPoint.setNumberOfClasses(listenerClass.getClassNames().size());
-//
-//        allMethods.forEach(method->{
-//            metrics.setOperatorsAndOperandsForMethods(method);
-//        });
-
-//        metrics.getNoOfMethods().forEach(method->{
-//            System.out.println("**********************");
-//            System.out.println(method.getBodyMethod());
-//            System.out.println(method.getOperatorsOccurencesInMethod());
-//            System.out.println(method.getUniqueOperatorsInMethod());
-//            System.out.println("*********************");
-//        });
-//        methodClass.setOperatorsAndOperandsForMethods(allMethods.get(1));
-
-
-
-//        System.out.println("The number of comments in this file are: " + noOfDecisionPoint.getNumberOfComments());
-//        System.out.println("The lines of code (excluding whitespaces & including comments) in this file are: " + noOfDecisionPoint.getLinesOfCode());
-//        System.out.println("The number of methods in this file are: "+ noOfDecisionPoint.getNumberOfMethods());
-//        System.out.println("The number of classes in this file are: " + noOfDecisionPoint.getNumberOfClasses());
-//        Iterator it = methodClass.getOperatorsForMethods().entrySet().iterator();
-//        while(it.hasNext()){
-//            Map.Entry pair = (Map.Entry)it.next();
-//            System.out.println("       " + pair.getKey() + "      " + pair.getValue()+ "       ");
-//            it.remove();
-//        }
-//        listenerClass.getClassNames().forEach(System.out::println);
-//        listenerClass.getClassNames().forEach(className->{
-//            listenerClass.getClassBodyDeclarations().forEach(declaration->{
-//                if(declaration.contains(className)){
-//                    System.out.println(declaration);
-//                }
-//            });
-//        });
-//        System.out.println(listenerClass.getClassBodyDeclarations().get(1));
-//        listenerClass.getClassBodyDeclarations().forEach(declaration->{
-//            listenerClass.getClassNames().forEach(name->{
-//                if(declaration.contains(name)){
-//                    System.out.println(declaration);
-//                }
-//            });
-//        });
-
-//        listenerClass.getClassBodyDeclarations().forEach(System.out::println);
-
-
-        //allMethods.forEach(System.out::println);
-
-//        allMethods.forEach(method->{
-//            noOfDecisionPoint.identifyNoOperatorsForMethod(method);
-//            System.out.println("*************************************");
-//            Iterator it = noOfDecisionPoint.getOperatorsOccurencesInMethod().entrySet().iterator();
-//            while(it.hasNext()){
-//                Map.Entry pair = (Map.Entry)it.next();
-//                System.out.println(pair.getKey() + " = " + pair.getValue());
-//                it.remove();
-//            }
-//            System.out.println("*************************************");
-//        });
-        // Iterate through token to find operators in the methods
-//        allMethods.forEach(method->{
-//            CharStream charStream = CharStreams.fromString(method);
-//            OperatorsLexer lexer = new OperatorsLexer(charStream);
-//            String tokenName;
-//            for(Token token = lexer.nextToken();token.getType() != Token.EOF ; token = lexer.nextToken()){
-//                tokenName = OperatorsLexer.VOCABULARY.getSymbolicName(token.getType());
-//                //System.out.println(tokenName+ " "+ token.getText());
-//                if(!tokenName.equals("WS")){
-//                    noOfDecisionPoint.identifyNoOperatorsForMethod(tokenName);
-//                }
-//            }
-//
-//        });
-
-
 
     }
 
@@ -329,7 +202,12 @@ public class Analysis {
 
     private void setUpResults(AnalysedFile analysedFile, JavaAnalyser javaAnalyser, Comment comment) throws IOException {
         analysedFile.setCyclometicComplexityMethods(cyclomaticComplexityResults);
-        analysedFile.setHalstead_comp(halsteadComplexity);
+        analysedFile.setHalstead_difficulty(halsteadDifficulty);
+        analysedFile.setHalstead_bugs(halsteadBugs);
+        analysedFile.setHalstead_effort(halsteadEffort);
+        analysedFile.setHalstead_programLevel(halsteadProgramLevel);
+        analysedFile.setHalstead_time(halsteadTime);
+        analysedFile.setHalstead_volume(halsteadVolume);
         analysedFile.setNoOfClasses(javaAnalyser.getClassNames().size());
         analysedFile.setNoOfLines(javaAnalyser.getNumberOfLinesWithoutSpacesAndCommentsFromFile());
         analysedFile.setSingleLineComments(comment.getSingleLineComments().size());
@@ -340,6 +218,12 @@ public class Analysis {
 
     private void getHalsteadComplexity(Metrics metrics, int uniqueOperators, int uniqueOperands, int totalNoOfOperators, int totalNoOfOperands){
         metrics.calculateHalsteadMetrics(uniqueOperators,uniqueOperands,totalNoOfOperands,totalNoOfOperators);
-       this.halsteadComplexity = metrics.getDifficultyLevel();
+       this.halsteadDifficulty = metrics.getDifficultyLevel();
+       this.halsteadVolume = metrics.getVolume();
+       this.halsteadBugs = metrics.getNoOfDeliveredBugs();
+       this.halsteadEffort = metrics.getEffort();
+       this.halsteadProgramLevel = metrics.getProgramLevel();
+       this.halsteadTime = metrics.getTime();
     }
+
 }

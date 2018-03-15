@@ -94,9 +94,7 @@ public class UploadController extends DefaultController implements Initializable
         alert.showAndWait();
     }
 
-
-    protected void switchScene()
-    {
+    protected void switchScene(){
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ClassLoader.getSystemResource("View/Results.fxml"));
         Parent root;

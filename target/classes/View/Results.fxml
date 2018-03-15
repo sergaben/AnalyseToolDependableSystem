@@ -36,11 +36,21 @@
         <Label text="" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Label text="" fx:id="halstead" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="" fx:id="halsteadEffort" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="halsteadVolume" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="" fx:id="halsteadTime" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label text="" fx:id="halsteadProgramLevel" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label text="" fx:id="halsteadBugs" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     </GridPane>
 </AnchorPane>
