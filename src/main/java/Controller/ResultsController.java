@@ -18,12 +18,13 @@ public class ResultsController extends DefaultController {
     private static DecimalFormat df = new DecimalFormat("0.00000");
 
     @FXML
-    private Label lines, numComments, methods, halsteadDifficulty, cyclomatic,
+    private Label name, lines, numComments, methods, halsteadDifficulty, cyclomatic,
             halsteadTime, halsteadVolume, halsteadEffort, halsteadProgramLevel,
             halsteadBugs, commentQual;
 
     public void setFile(AnalysedFile file) {
         this.file = file;
+        this.name.setText(this.file.getName());
         this.halsteadDifficulty.setText(String.format("%.3f",file.getHalstead_difficulty()));
         this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
         this.halsteadEffort.setText(String.format("%.3f",file.getHalstead_effort()));

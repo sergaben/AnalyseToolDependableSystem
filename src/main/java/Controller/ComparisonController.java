@@ -24,6 +24,7 @@ public class ComparisonController extends DefaultController implements Initializ
         this.aFile1 = f1;
         this.aFile2 = f2;
 
+        // set aFile1 values
         this.name.setText(aFile1.getName());
         this.lines.setText(String.valueOf(aFile1.getNoOfLines()));
         this.numComments.setText(String.valueOf(aFile1.getTotalNoOfComments()));
@@ -32,8 +33,8 @@ public class ComparisonController extends DefaultController implements Initializ
         this.halsteadEffort.setText(String.format("%.3f",aFile1.getHalstead_effort()));
         this.halsteadVolume.setText(String.format("%.3f",aFile1.getHalstead_volume()));
         this.halsteadTime.setText(String.format("%.3f",aFile1.getHalstead_time()));
-        this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
-        this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
+        this.halsteadBugs.setText(String.valueOf(df.format(aFile1.getHalstead_bugs())));
+        this.halsteadProgramLevel.setText(String.valueOf(df.format(aFile1.getHalstead_programLevel())));
         int cyclomaticComp = 0;
         for(int i : aFile1.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
@@ -41,6 +42,7 @@ public class ComparisonController extends DefaultController implements Initializ
         this.cyclomatic.setText(String.valueOf(cyclomaticComp));
         this.commentQual.setText(String.valueOf(aFile1.getCommentQuality()));
 
+        // set aFile2 values
         this.name2.setText(aFile2.getName());
         this.lines2.setText(String.valueOf(aFile2.getNoOfLines()));
         this.numComments2.setText(String.valueOf(aFile2.getTotalNoOfComments()));
@@ -49,8 +51,8 @@ public class ComparisonController extends DefaultController implements Initializ
         this.halsteadEffort2.setText(String.format("%.3f",aFile2.getHalstead_effort()));
         this.halsteadVolume2.setText(String.format("%.3f",aFile2.getHalstead_volume()));
         this.halsteadTime2.setText(String.format("%.3f",aFile2.getHalstead_time()));
-        this.halsteadBugs2.setText(String.valueOf(df.format(file.getHalstead_bugs())));
-        this.halsteadProgramLevel2.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
+        this.halsteadBugs2.setText(String.valueOf(df.format(aFile2.getHalstead_bugs())));
+        this.halsteadProgramLevel2.setText(String.valueOf(df.format(aFile2.getHalstead_programLevel())));
         cyclomaticComp = 0;
         for(int i : aFile2.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
