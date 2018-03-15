@@ -11,7 +11,7 @@
     <stylesheets>
         <URL value="@Style.css" />
     </stylesheets>
-    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="700">
+    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="800">
         <menus>
             <Menu text="File">
                 <MenuItem text="New..." />
@@ -23,40 +23,60 @@
     </MenuBar>
     <Label id="results_lbl" text="Comparison Results"
            AnchorPane.topAnchor="50" AnchorPane.leftAnchor="25" />
-    <Button text="Start New Analysis" onAction="#switchScene"
+    <Button text="Start New Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="50" />
-    <GridPane styleClass="root" prefWidth="350" hgap="20" vgap="15"
+    <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
               AnchorPane.topAnchor="90" AnchorPane.leftAnchor="0" >
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        <Label id="name" fx:id="name" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label id="results_lbl" fx:id="name" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <Label text="" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Label text="" fx:id="halstead" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="" fx:id="halsteadEffort" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="halsteadVolume" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="" fx:id="halsteadTime" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label text="" fx:id="halsteadProgramLevel" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label text="" fx:id="halsteadBugs" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     </GridPane>
-    <GridPane styleClass="root" prefWidth="350" hgap="20" vgap="15"
+    <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
               AnchorPane.topAnchor="90" AnchorPane.rightAnchor="0" >
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
-        <Label id="name" fx:id="name2" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label id="results_lbl" fx:id="name2" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
         <Label text="" fx:id="numComments2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
         <Label text="# of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
         <Label text="" fx:id="methods2" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-        <Label text="Halstead Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-        <Label text="" fx:id="halstead2" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
-        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-        <Label text="" fx:id="cyclomatic2" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
-        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-        <Label text="" fx:id="commentQual2" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="halsteadDifficulty2" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="" fx:id="halsteadEffort2" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="halsteadVolume2" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="" fx:id="halsteadTime2" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label text="" fx:id="halsteadProgramLevel2" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label text="" fx:id="halsteadBugs2" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label text="" fx:id="cyclomatic2" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label text="" fx:id="commentQual2" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     </GridPane>
 </AnchorPane>

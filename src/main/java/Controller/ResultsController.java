@@ -16,27 +16,9 @@ import java.text.DecimalFormat;
 public class ResultsController extends DefaultController {
 
     @FXML
-    private Label lines;
-    @FXML
-    private Label numComments;
-    @FXML
-    private Label methods;
-    @FXML
-    private Label halsteadDifficulty;
-    @FXML
-    private Label cyclomatic;
-    @FXML
-    private Label halsteadTime;
-    @FXML
-    private Label halsteadVolume;
-    @FXML
-    private Label halsteadEffort;
-    @FXML
-    private Label halsteadProgramLevel;
-    @FXML
-    private Label halsteadBugs;
-    @FXML
-    private Label commentQual;
+    private Label lines, numComments, methods, halsteadDifficulty, cyclomatic,
+            halsteadTime, halsteadVolume, halsteadEffort, halsteadProgramLevel,
+            halsteadBugs, commentQual;
 
     public void setFile(AnalysedFile file) {
         this.file = file;
@@ -81,7 +63,7 @@ public class ResultsController extends DefaultController {
             c.setFiles(this.file, comp);
 
             Stage stage = (Stage) this.menuBar.getScene().getWindow();
-            stage.setScene(new Scene(root, 700, 550));
+            stage.setScene(new Scene(root, 800, 650));
         } catch (IOException e) {
             e.printStackTrace();
         }

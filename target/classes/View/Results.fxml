@@ -31,6 +31,7 @@
         </stylesheets>
         <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
         <Label id="results_lbl" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label id="results_lbl" fx:id="name" text="Results" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
         <Label text="# of Lines: " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
         <Label text="" fx:id="lines" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
         <Label text="# of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
