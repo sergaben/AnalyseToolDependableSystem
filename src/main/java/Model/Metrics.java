@@ -20,15 +20,6 @@ public class Metrics {
         return decisionPoints + logicalOperators + 1;
     }
 
-    /**
-     * Need clarification on what does distinctOperands mean in this context from totalNumberOfOperands
-     */
-    // operators, operands and total number of operands will be taken from reading the file
-    // operands examples: assigned values to Strings, booleans, ints, longs, bytes, doubles etc.
-    // operators examples: "==, !=, <, <=, >=, ||, &&, *, /, +, -" etc.
-    // just test examples: the numbers will be replaced with variables which these values are
-    // stored in from scanning the file and finding the operands and operators.
-
     public void calculateHalsteadMetrics(int distinctOperators /* n1 */, int distinctOperands /* n2 */, int totalNumberOfOperands /* N2 */, int totalNumberOfOperators /* N1 */){
 
         int vocabularySize = distinctOperands + distinctOperators;
