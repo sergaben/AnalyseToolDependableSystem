@@ -5,7 +5,6 @@ import java.util.Collections;
 
 public class Comment {
 
-    private int commentQuality;
     private ArrayList<String> singleLineComments = new ArrayList<>();
     private ArrayList<String> multiLineComments = new ArrayList<>();
     private ArrayList<String > conjunctionsList;
@@ -62,13 +61,25 @@ public class Comment {
         multiLineComments.add(multiLineComment);
     }
 
-    private String[] cleanMultiLineComment(String comment) {
-        comment = comment.replace("/", "");
-        comment = comment.replace("*", "");
-        comment = comment.trim();
-        String[] commentLines = comment.split("\n");
-        System.out.println("COMMENT LINES: " + commentLines.length);
-        return commentLines;
+    private void cleanMultiLineComments() {
+        ArrayList<String> newComments = new ArrayList<>();
+        for(int i = 0; i < this.multiLineComments.size(); i++) {
+            String comment = this.multiLineComments.get(i);
+            comment = comment.replace("/", "");
+            comment = comment.replace("*", "");
+            comment = comment.trim();
+            String[] commentLines = comment.split("\n");
+            this.multiLineComments.remove(i);
+            for(int j = 0; j < commentLines.length; j++) {
+                newComments.add(commentLines[j]);
+            }
+        }
+        this.multiLineComments.addAll(newComments);
+    }
+    private void cleanSingleLineComments() {
+        for(int i = 0; i < this.singleLineComments.size(); i++) {
+            this.singleLineComments.set(i, this.singleLineComments.get(i).replace("/", ""));
+        }
     }
 
     /*
@@ -81,37 +92,13 @@ public class Comment {
         int numSingleLine = singleLineComments.size();
         int numMultiLine = multiLineComments.size();
         int total = numMultiLine + numSingleLine;
-        System.out.println("NUMBER OF COMMENTS: " + total);
 
         // calculate comment type quality
         int multiLineQual = (40/total) * numMultiLine;
-        System.out.println("Multi qual: " + multiLineQual);
 
-        // calculate line length quality
-        int numTooLongLines = 0;
-
-        for (String comment : singleLineComments ) {
-            comment.replace("/", "");
-            if (comment.length() > 80 ) {
-                numTooLongLines++;
-            }
-        }
-
-        for (String comment : multiLineComments ) {
-            comment.replace("/", "");
-            comment.replace("*", "");
-            if (comment.length() > 80 ) {
-                numTooLongLines++;
-            }
-        }
-
-        int lineLengthQual = (30/total) * (total - numTooLongLines);
-
-        // calculate use of conjunctions
+        // calculate use of conjunctions (any more than 1 is bad)
         int numBadComments = 0;
         for(String comment : singleLineComments) {
-            comment = comment.replace("/", "");
-            System.out.println(comment);
             int numConjunctions = 0;
             for(String con : this.conjunctionsList) {
                 if(comment.toLowerCase().contains(con.toLowerCase())) {
@@ -123,7 +110,6 @@ public class Comment {
             }
         }
         for(String comment : multiLineComments) {
-            String[] commentLines = cleanMultiLineComment(comment);
             int numConjunctions = 0;
             for(String con : this.conjunctionsList) {
                 if(comment.toLowerCase().contains(con.toLowerCase())) {
@@ -136,6 +122,27 @@ public class Comment {
         }
 
         int conjunctionQual = (30/total) * (total - numBadComments);
+
+        // clean comments
+        cleanMultiLineComments();
+        cleanSingleLineComments();
+
+        // calculate line length quality
+        int numTooLongLines = 0;
+
+        for (String comment : singleLineComments ) {
+            if (comment.length() > 80 ) {
+                numTooLongLines++;
+            }
+        }
+
+        for (String comment : multiLineComments ) {
+            if (comment.length() > 80 ) {
+                numTooLongLines++;
+            }
+        }
+
+        int lineLengthQual = (30/total) * (total - numTooLongLines);
 
         return conjunctionQual + lineLengthQual + multiLineQual;
     }
