@@ -41,7 +41,7 @@
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="175" />
     <Button text="Start New Analysis" onAction="#singleAnalysis"
             AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="20" />
-    <GridPane styleClass="root" AnchorPane.topAnchor="100" hgap="20" vgap="15" >
+    <GridPane styleClass="root" prefWidth="460" AnchorPane.leftAnchor="20" AnchorPane.topAnchor="100" hgap="20" vgap="15" >
         <stylesheets>
             <URL value="@Style.css" />
         </stylesheets>
