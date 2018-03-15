@@ -39,7 +39,7 @@ public class UploadController extends DefaultController implements Initializable
     }
 
     @FXML
-    private void runAnalysis() {
+    private void runAnalysis() throws IOException {
         if (uploaded_file == null) {
             if (!pasteBox.getText().isEmpty()) {
                 try {
@@ -47,9 +47,10 @@ public class UploadController extends DefaultController implements Initializable
                     BufferedWriter bw = new BufferedWriter(new FileWriter(uploaded_file));
                     bw.write(pasteBox.getText());
                     bw.close();
-                    analyse();
-                    setCheckBox();
-                    goToResults();
+                    if(!analyse()){
+                        setCheckBox();
+                        goToResults();
+                    }
                 } catch (IOException e) {
                     showErrorDialog(e.getMessage(), "Please try again.");
                 }
@@ -60,9 +61,10 @@ public class UploadController extends DefaultController implements Initializable
                 );
             }
         } else {
-            analyse();
-            setCheckBox();
-            goToResults();
+            if(!analyse()){
+                setCheckBox();
+                goToResults();
+            }
         }
     }
 
@@ -78,16 +80,20 @@ public class UploadController extends DefaultController implements Initializable
         }
     }
 
-    private void analyse() {
-        try {
+    private Boolean analyse() throws IOException {
+//        try {
 
             analysis = new Analysis();
             this.file.setName(uploaded_file.getName());
-            analysis.startAnalyserFile(this.file,uploaded_file);
+            if(analysis.startAnalyserFile(this.file,uploaded_file)){
+                return true;
+            }else {
+                return false;
+            }
           
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 
     @FXML

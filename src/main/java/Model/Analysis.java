@@ -18,6 +18,7 @@ public class Analysis {
     private ArrayList<Integer> cyclomaticComplexityResults = new ArrayList<>();
     private int noOfDecisionPoint = 0;
     private int noOfLogicalOperators;
+    private boolean errors = false;
     private double halsteadDifficulty;
     private double halsteadEffort;
     private double halsteadVolume;
@@ -31,46 +32,49 @@ public class Analysis {
         return cyclomaticComplexityMethods;
     }
 
-    public void startAnalyserFile(AnalysedFile analysedFile, File code) throws IOException {
+    public Boolean startAnalyserFile(AnalysedFile analysedFile, File code) throws IOException {
         JavaAnalyser javaAnalyser = new JavaAnalyser(code);
         Metrics metrics = new Metrics();
         Comment comment = new Comment();
         Operator operator = new Operator();
+        if(javaAnalyser.parseFromFile()){
+            return true;
+        }else{
+            javaAnalyser.extractCommentsFromFile(comment,code);
+            analysedFile.setCommentQuality(comment.getCommentQuality());
+            getRidOfDeclarationMethod(javaAnalyser);
+            getConstructorsFromFile(javaAnalyser);
+            addOperatorsToMethods(operator);
 
-        javaAnalyser.parseFromFile();
-        javaAnalyser.extractCommentsFromFile(comment,code);
-        analysedFile.setCommentQuality(comment.getCommentQuality());
-        getRidOfDeclarationMethod(javaAnalyser);
-        getConstructorsFromFile(javaAnalyser);
-        addOperatorsToMethods(operator);
+            int totalNoOfOperators = 0;
+            int noOfUniqueOperators =0;
+            int totalNoOfOperands =0;
+            int noOfUniqueOperands = 0;
 
-        int totalNoOfOperators = 0;
-        int noOfUniqueOperators =0;
-        int totalNoOfOperands =0;
-        int noOfUniqueOperands = 0;
-
-        for(Method method : operator.getMethods()){
-            for (Object o : method.getOperatorsOccurencesInMethod().entrySet()) {
-                Map.Entry pair = (Map.Entry) o;
-                totalNoOfOperators += Integer.parseInt(pair.getValue().toString());
+            for(Method method : operator.getMethods()){
+                for (Object o : method.getOperatorsOccurencesInMethod().entrySet()) {
+                    Map.Entry pair = (Map.Entry) o;
+                    totalNoOfOperators += Integer.parseInt(pair.getValue().toString());
+                }
             }
-        }
-        for(Method method: operator.getMethods()){
-            for (Object o : method.getUniqueOperatorsInMethod().entrySet()) {
-                Map.Entry pair = (Map.Entry) o;
-                noOfUniqueOperators += Integer.parseInt(pair.getValue().toString());
+            for(Method method: operator.getMethods()){
+                for (Object o : method.getUniqueOperatorsInMethod().entrySet()) {
+                    Map.Entry pair = (Map.Entry) o;
+                    noOfUniqueOperators += Integer.parseInt(pair.getValue().toString());
+                }
             }
+            for(Method method: operator.getMethods()){
+                totalNoOfOperands += method.getOperandsOccurencesInMethod().size();
+                noOfUniqueOperands += method.getUniqueOperandsInMethod().size();
+            }
+
+            getHalsteadComplexity(metrics,noOfUniqueOperators,noOfUniqueOperands,totalNoOfOperators,totalNoOfOperands);
+            getCyclomaticComplexity(operator,javaAnalyser,metrics);
+
+            setUpResults(analysedFile,javaAnalyser,comment);
+
+            return false;
         }
-        for(Method method: operator.getMethods()){
-            totalNoOfOperands += method.getOperandsOccurencesInMethod().size();
-            noOfUniqueOperands += method.getUniqueOperandsInMethod().size();
-        }
-
-        getHalsteadComplexity(metrics,noOfUniqueOperators,noOfUniqueOperands,totalNoOfOperators,totalNoOfOperands);
-        getCyclomaticComplexity(operator,javaAnalyser,metrics);
-
-        setUpResults(analysedFile,javaAnalyser,comment);
-
     }
 
     private void getRidOfDeclarationMethod(JavaAnalyser javaAnalyser){
