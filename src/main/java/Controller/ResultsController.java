@@ -35,7 +35,7 @@ public class ResultsController extends DefaultController {
             this.halsteadDifficulty.setText(String.format("%.3f", file.getHalstead_difficulty()));
             this.halsteadBugs.setText(String.valueOf(df.format(file.getHalstead_bugs())));
             this.halsteadEffort.setText(String.format("%.3f", file.getHalstead_effort()));
-            this.halsteadTime.setText(String.format("%.3f", file.getHalstead_time()) + " seconds");
+            this.halsteadTime.setText(String.format("%.3f", file.getHalstead_time())+ " hours");
             this.halsteadVolume.setText(String.format("%.3f", file.getHalstead_volume()));
             this.halsteadProgramLevel.setText(String.valueOf(df.format(file.getHalstead_programLevel())));
         } else {
@@ -52,6 +52,7 @@ public class ResultsController extends DefaultController {
             for (int i : file.getCyclometicComplexityMethods()) {
                 cyclomaticComp += i;
             }
+            cyclomaticComp = cyclomaticComp/file.getCyclometicComplexityMethods().size();
             this.cyclomatic.setText(String.valueOf(cyclomaticComp));
         } else {
             this.cyc_lbl.disableProperty().setValue(true);

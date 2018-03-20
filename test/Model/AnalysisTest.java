@@ -36,7 +36,7 @@ public class AnalysisTest {
     }
     @Test
     public void testNumberOfLines(){
-        assertEquals(64, this.aFile1.getNoOfLines());
+        assertEquals(64, this.aFile1.getNoOfLinesOfCode());
     }
     @Test
     public void testNumberOfComments(){

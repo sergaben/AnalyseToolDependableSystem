@@ -211,7 +211,7 @@ public class Analysis {
        this.halsteadBugs = metrics.getNoOfDeliveredBugs();
        this.halsteadEffort = metrics.getEffort();
        this.halsteadProgramLevel = metrics.getProgramLevel();
-       this.halsteadTime = metrics.getTime();
+       this.halsteadTime =( metrics.getTime() * 0.000277778);
     }
 
 }

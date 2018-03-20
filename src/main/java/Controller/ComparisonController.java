@@ -41,6 +41,7 @@ public class ComparisonController extends DefaultController implements Initializ
         for(int i : aFile1.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
         }
+        cyclomaticComp = cyclomaticComp/aFile1.getCyclometicComplexityMethods().size();
         this.cyclomatic.setText(String.valueOf(cyclomaticComp));
         this.commentQual.setText(String.valueOf(aFile1.getCommentQuality()) + "%");
 
@@ -60,6 +61,7 @@ public class ComparisonController extends DefaultController implements Initializ
         for(int i : aFile2.getCyclometicComplexityMethods()) {
             cyclomaticComp += i;
         }
+        cyclomaticComp = cyclomaticComp/aFile2.getCyclometicComplexityMethods().size();
         this.cyclomatic2.setText(String.valueOf(cyclomaticComp));
         this.commentQual2.setText(String.valueOf(aFile2.getCommentQuality()) + "%");
 

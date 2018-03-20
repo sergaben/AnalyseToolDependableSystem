@@ -1,13 +1,7 @@
-
-/**
- * developed in the NetBeans 7.3.1 programming environment
- * draws the board based on the constants for rows and cols
- */
 public class aClass{
 void initialiseBoard(String[][] board, char sampleGame) {
     int rankNo;
     int fileNo;
-	//checks whether training or not
     if (sampleGame == 'Y') {
       for (rankNo = 1; rankNo <= BOARD_DIMENSION; rankNo++) {
         for (fileNo = 1; fileNo <= BOARD_DIMENSION; fileNo++) {
