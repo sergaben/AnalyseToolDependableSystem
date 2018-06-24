@@ -1,0 +1,36 @@
+#results_lbl {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+}
+
+#intro-heading {
+    -fx-font-size: 18px;
+}
+
+.metadata {
+    -fx-font-size: 9px;
+}
+
+#name {
+    -fx-font-size: 18px;
+}
+
+#lbl_1 {
+    -fx-text-fill: cornflowerblue;
+}
+
+#lbl_2 {
+    -fx-text-fill: olivedrab;
+}
+
+#lbl_3 {
+    -fx-text-fill: orange;
+}
+
+#body {
+    -fx-background-color: azure;
+}
+
+.root {
+    -fx-background-color: azure;
+}

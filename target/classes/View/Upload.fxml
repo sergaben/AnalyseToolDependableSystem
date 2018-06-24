@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx" id="body"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.UploadController">
+    <stylesheets>
+        <URL value="@Style.css" />
+    </stylesheets>
+    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="500">
+        <menus>
+            <Menu text="File">
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                </Menu>
+                <MenuItem fx:id="open" text="Open" onAction="#open" />
+                <MenuItem fx:id="save" text="Save" onAction="#save" />
+                <MenuItem text="Exit" onAction="#exit" />
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="Go to Home" onAction="#goToHome" />
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
+            </Menu>
+        </menus>
+    </MenuBar>
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
+               AnchorPane.topAnchor="35" AnchorPane.leftAnchor="225" >
+        <image>
+            <Image url="@logo-pic.png" />
+        </image>
+    </ImageView>
+    <GridPane AnchorPane.topAnchor="70" alignment="center" hgap="20" vgap="20" >
+        <padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+        <Label text="Upload a file for analysis:"
+               GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <TextField fx:id="filepath_input" promptText="Choose a File..." disable="true"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" />
+        <Button text="Browse" onAction="#chooseFile"
+                GridPane.columnIndex="1" GridPane.rowIndex="3" />
+        <Button text="Clear" onAction="#clear"
+                GridPane.columnIndex="2" GridPane.rowIndex="3" />
+        <Label text="Or paste your code below:"
+               GridPane.columnIndex="1" GridPane.rowIndex="4" />
+        <TitledPane fx:id="TPane" animated="false" text="Source Code" expanded="false"
+                    GridPane.columnIndex="1" GridPane.rowIndex="5" >
+            <TextArea fx:id="pasteBox" prefHeight="100" prefWidth=" 300" />
+        </TitledPane>
+        <CheckBox fx:id="halstead" text="Halstead Complexity" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+        <CheckBox fx:id="cyclomatic" text="Cyclomatic Complexity" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+        <CheckBox fx:id="commentQual" text="Comment Quality" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+        <Button text="Run Analysis" onAction="#runAnalysis"
+                GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    </GridPane>
+</AnchorPane>

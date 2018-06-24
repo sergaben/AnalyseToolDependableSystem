@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.net.URL?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<AnchorPane xmlns="http://javafx.com/javafx" id="body"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controller.ComparisonController">
+    <stylesheets>
+        <URL value="@Style.css" />
+    </stylesheets>
+    <MenuBar fx:id="menuBar" AnchorPane.topAnchor="0" prefWidth="800">
+        <menus>
+            <Menu text="File">
+                <Menu text="New" >
+                    <MenuItem text="Single Analysis" onAction="#singleAnalysis"/>
+                </Menu>
+                <MenuItem fx:id="open" text="Open" onAction="#open" />
+                <MenuItem fx:id="save" text="Save" onAction="#save" />
+                <MenuItem text="Exit" onAction="#exit" />
+            </Menu>
+            <Menu text="Help">
+                <MenuItem text="Go to Home" onAction="#goToHome" />
+                <MenuItem text="User Manual" onAction="#openUserManual"/>
+            </Menu>
+        </menus>
+    </MenuBar>
+    <!-- Logo -->
+    <ImageView id="boxImage" fitHeight="60" preserveRatio="true"
+               AnchorPane.topAnchor="35" AnchorPane.leftAnchor="360" >
+        <image>
+            <Image url="@logo-pic.png" />
+        </image>
+    </ImageView>
+    <Label id="results_lbl" text="Comparison Results"
+           AnchorPane.topAnchor="110" AnchorPane.leftAnchor="25" />
+    <Button text="Start New Analysis" onAction="#singleAnalysis"
+            AnchorPane.bottomAnchor="50" AnchorPane.rightAnchor="50" />
+    <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
+              AnchorPane.topAnchor="150" AnchorPane.leftAnchor="0" >
+        <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
+        <Label id="results_lbl" fx:id="name" maxWidth="200"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text="Number of Lines of Code:  " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="" fx:id="linesNoCommentsNoWhiteSpaces" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Number of Lines in the file: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label id="lbl_1" fx:id="linesInFile" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label text="" fx:id="numComments" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="methods" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="" fx:id="halsteadDifficulty" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="halsteadEffort" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="" fx:id="halsteadVolume" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label text="" fx:id="halsteadTime" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label text="" fx:id="halsteadProgramLevel" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label text="" fx:id="halsteadBugs" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label text="" fx:id="cyclomatic" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+        <Label text="" fx:id="commentQual" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+    </GridPane>
+    <GridPane styleClass="root" prefWidth="400" hgap="20" vgap="15"
+              AnchorPane.topAnchor="150" AnchorPane.rightAnchor="0" >
+        <padding><Insets top="10" right="25" bottom="10" left="25"/></padding>
+        <Label id="results_lbl" fx:id="name2" maxWidth="200"
+               GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Label text="Number of Lines of Code:  " GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <Label text="" fx:id="linesNoCommentsNoWhiteSpaces2" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Number of Lines in the file: " GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <Label id="lbl_1" fx:id="linesInFile2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+        <Label text="Number of Comments: " GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <Label text="" fx:id="numComments2" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+        <Label text="Number of Methods:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <Label text="" fx:id="methods2" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Halstead Difficulty: " GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <Label text="" fx:id="halsteadDifficulty2" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+        <Label text="Halstead Effort: " GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+        <Label text="" fx:id="halsteadEffort2" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+        <Label text="Halstead Volume: " GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+        <Label text="" fx:id="halsteadVolume2" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+        <Label text="Halstead Time: " GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+        <Label text="" fx:id="halsteadTime2" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+        <Label text="Halstead Program Level: " GridPane.columnIndex="0" GridPane.rowIndex="10"/>
+        <Label text="" fx:id="halsteadProgramLevel2" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+        <Label text="Halstead Number of Bugs: " GridPane.columnIndex="0" GridPane.rowIndex="11"/>
+        <Label text="" fx:id="halsteadBugs2" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+        <Label text="Cyclomatic Complexity:" GridPane.columnIndex="0" GridPane.rowIndex="12"/>
+        <Label text="" fx:id="cyclomatic2" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+        <Label text="Comment Quality:" GridPane.columnIndex="0" GridPane.rowIndex="13"/>
+        <Label text="" fx:id="commentQual2" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+    </GridPane>
+</AnchorPane>
