@@ -8,4 +8,4 @@ as a way to reflect upon the code.
 
 ## Getting Started
 
-In order to run this project on your own environment you should have Java 8.# or above
+In order to run this project on your own environment you should have Java 8 or above
