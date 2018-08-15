@@ -23,9 +23,9 @@ or you can fork it if you want.
 
 ## Build With
 
-- [Java](https://java.com/en/download/faq/develop.xml)
-- [Antlr](http://www.antlr.org/)
-- [Maven](https://maven.apache.org/)
+- [Java](https://java.com/en/download/faq/develop.xml) - Main programming language
+- [Antlr](http://www.antlr.org/) - Library for language recognition
+- [Maven](https://maven.apache.org/) - Software project management
 
 ## License
 
