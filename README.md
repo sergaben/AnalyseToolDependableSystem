@@ -7,7 +7,7 @@ However, it is important to take into account that by no means the results of th
 as a way to reflect upon the code.
 
 **IMPORTANT** This program is not a fully functioning program and only works for Java code. **if you spot something that can be improved or added please make any changes that 
-you want but please tell me about them**
+you want but please tell me about them.**
 
 ## Getting Started
 
