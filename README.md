@@ -8,9 +8,7 @@ Cyclomatic Complexity, Number of Lines Of Code, etc...
 However, it is important to take into account that by no means the results of these tests are an absolute truth and they should be taken
 as a way to reflect upon the code.
 
-**IMPORTANT** This program is not a fully functioning program and only works for Java code. **if you spot something that can be improved or added please make any changes that 
-
-you want but please let me know.**
+**IMPORTANT** This program is not a fully functioning program and only works for Java code. **if you spot something that can be improved or added please create a pull request.**
 
 
 ## Getting Started
