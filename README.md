@@ -1,6 +1,6 @@
 # CodeChecker
 
-This small standalone Java program that allows you to check your code with a set of the most important software metrics. Such as, Halstead Complexity,
+This small standalone Java program allows you to check your code with a set of the most important software metrics. Such as, Halstead Complexity,
 Cyclomatic Complexity, Number of Lines Of Code, etc...
 
 However, it is important to take into account that by no means the results of these tests are an absolute truth and they should be taken
